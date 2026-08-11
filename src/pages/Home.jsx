@@ -117,7 +117,11 @@ function Home() {
             </Reveal>
           </div>
 
-          <Reveal index={1} className="mx-auto w-full max-w-md">
+          <Reveal index={1} className="relative mx-auto w-full max-w-md">
+            <div
+              className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-brass/20 blur-3xl"
+              aria-hidden="true"
+            />
             <HouseBlueprint className="w-full" />
           </Reveal>
         </div>

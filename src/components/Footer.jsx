@@ -8,7 +8,7 @@ function Footer() {
     <footer className="border-t border-hairline-dark bg-ink text-paper/80">
       <Reveal className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-3">
         <div>
-          <span className="flex h-9 w-9 items-center justify-center border border-brass-light font-mono text-xs font-semibold tracking-wide text-brass-light">
+          <span className="flex h-9 w-9 items-center justify-center rounded-md border border-brass-light font-mono text-xs font-semibold tracking-wide text-brass-light">
             SA
           </span>
           <p className="mt-4 font-display text-xl italic text-paper">Elite Home Inspection</p>

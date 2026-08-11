@@ -2,15 +2,15 @@ import Reveal from './Reveal'
 
 function InspectionCard({ as = 'div', featured = false, index = 0, className = '', children }) {
   const surface = featured
-    ? 'bg-ink-800 border border-ink-800 text-paper'
-    : 'bg-paper border border-hairline text-ink'
+    ? 'bg-ink-800 border border-ink-800 text-paper shadow-cta'
+    : 'bg-paper border border-hairline text-ink shadow-elevate'
   const tickColor = featured ? 'border-brass-light' : 'border-brass/70 group-hover:border-brass'
 
   return (
     <Reveal
       as={as}
       index={index}
-      className={`group relative rounded-sm p-6 transition-transform duration-200 ease-out hover:-translate-y-1 hover:scale-[1.015] motion-reduce:hover:translate-y-0 motion-reduce:hover:scale-100 ${surface} ${className}`}
+      className={`group relative rounded-md p-6 transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-1 hover:scale-[1.015] hover:shadow-elevate-hover motion-reduce:hover:translate-y-0 motion-reduce:hover:scale-100 ${surface} ${className}`}
     >
       <span
         className={`pointer-events-none absolute -left-px -top-px h-3 w-3 border-l-2 border-t-2 transition-colors duration-200 ${tickColor}`}

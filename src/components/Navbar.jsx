@@ -26,7 +26,7 @@ const itemVariants = {
 function Logo() {
   return (
     <span className="flex items-center gap-3">
-      <span className="flex h-9 w-9 items-center justify-center border border-brass font-mono text-xs font-semibold tracking-wide text-brass-dark">
+      <span className="flex h-9 w-9 items-center justify-center rounded-md bg-ink font-mono text-xs font-semibold tracking-wide text-brass-light">
         SA
       </span>
       <span className="leading-tight">
@@ -96,7 +96,7 @@ function Navbar() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center border border-hairline text-ink md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-hairline text-ink md:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           onClick={() => setOpen((prev) => !prev)}

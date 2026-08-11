@@ -9,7 +9,7 @@ import Button from '../components/Button'
 const initialForm = { name: '', email: '', phone: '', message: '' }
 
 const inputClasses =
-  'mt-1 w-full rounded-sm border border-hairline bg-paper px-3 py-2 text-sm text-ink'
+  'mt-1 w-full rounded-md border border-hairline bg-paper px-3 py-2 text-sm text-ink'
 
 function Contact() {
   const [form, setForm] = useState(initialForm)
