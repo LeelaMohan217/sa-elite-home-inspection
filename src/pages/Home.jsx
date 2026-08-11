@@ -7,6 +7,7 @@ import InspectionCard from '../components/InspectionCard'
 import HouseBlueprint from '../components/HouseBlueprint'
 import BlobShape from '../components/BlobShape'
 import FaqItem from '../components/FaqItem'
+import FlowLines from '../components/FlowLines'
 
 const highlights = [
   {
@@ -112,8 +113,9 @@ const faqs = [
 function Home() {
   return (
     <div>
-      <section className="relative overflow-hidden border-b border-hairline bg-blueprint-grid">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 sm:py-28 md:grid-cols-2">
+      <section className="relative overflow-hidden border-b border-hairline bg-paper">
+        <FlowLines className="pointer-events-none absolute inset-0 h-full w-full" />
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 sm:py-28 md:grid-cols-2">
           <div>
             <Reveal index={0}>
               <SectionEyebrow>Certified Inspections · Hyderabad</SectionEyebrow>
