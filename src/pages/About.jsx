@@ -36,8 +36,8 @@ function About() {
         <Reveal>
           <h2 className="mt-3 text-3xl text-accent">A closer look, every time.</h2>
           <p className="mt-6 text-ink/70">
-            SA Elite Home Inspection was founded to give homebuyers and sellers in the San
-            Antonio area an honest, detailed picture of a property's condition. We know that
+            SA Elite Home Inspection was founded to give homebuyers and sellers in Hyderabad
+            an honest, detailed picture of a property's condition. We know that
             for most people, a home is the biggest purchase they'll ever make — our job is to
             make sure you go into that purchase with your eyes open.
           </p>

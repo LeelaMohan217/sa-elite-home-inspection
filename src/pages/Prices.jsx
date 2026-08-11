@@ -6,27 +6,23 @@ import Button from '../components/Button'
 
 const plans = [
   {
-    name: 'Essential',
-    price: '$299',
-    description: 'Ideal for condos and homes under 1,500 sq ft.',
-    features: ['Full structural & systems review', 'Digital report within 24 hrs', 'Roof & attic inspection'],
+    name: '1BHK Flat',
+    price: '₹5,500',
+    description: 'Ideal for 1BHK apartments and compact flats.',
+    features: ['Full structural & systems review', 'Digital report within 24 hrs', 'Dampness check included'],
   },
   {
-    name: 'Standard',
-    price: '$399',
-    description: 'Our most popular plan for homes 1,500–3,000 sq ft.',
-    features: [
-      'Everything in Essential',
-      'Sprinkler system check',
-      'Termite & wood-destroying insect check',
-    ],
+    name: '2BHK Flat',
+    price: '₹6,700',
+    description: 'Our most popular plan for 2BHK apartments.',
+    features: ['Everything in 1BHK Flat', 'Detailed electrical & plumbing check', 'Priority scheduling'],
     featured: true,
   },
   {
-    name: 'Premium',
-    price: '$499',
-    description: 'For larger homes over 3,000 sq ft or added peace of mind.',
-    features: ['Everything in Standard', 'New construction walkthrough', 'Priority scheduling'],
+    name: 'Villa',
+    price: '₹7,500',
+    description: 'For independent villas and larger homes.',
+    features: ['Everything in 2BHK Flat', 'Multi stage inspection option', 'Extended on-site walkthrough'],
   },
 ]
 

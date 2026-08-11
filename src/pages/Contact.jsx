@@ -47,7 +47,7 @@ function Contact() {
             <li className="flex items-center gap-3 text-ink/70">
               <Phone size={16} className="shrink-0 text-accent-vivid" aria-hidden="true" />
               <span>
-                <span className="font-semibold text-ink">Phone:</span> (555) 123-4567
+                <span className="font-semibold text-ink">Phone:</span> +91 98765 43210
               </span>
             </li>
             <li className="flex items-center gap-3 text-ink/70">
@@ -59,7 +59,7 @@ function Contact() {
             <li className="flex items-center gap-3 text-ink/70">
               <MapPin size={16} className="shrink-0 text-accent-vivid" aria-hidden="true" />
               <span>
-                <span className="font-semibold text-ink">Service Area:</span> Greater San Antonio, TX
+                <span className="font-semibold text-ink">Service Area:</span> Greater Hyderabad
               </span>
             </li>
             <li className="flex items-center gap-3 text-ink/70">

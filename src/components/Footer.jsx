@@ -28,7 +28,7 @@ function Footer() {
           <ul className="mt-4 space-y-3 text-sm text-paper/70">
             <li className="flex items-center gap-3">
               <Phone size={16} className="shrink-0 text-accent-light" aria-hidden="true" />
-              (555) 123-4567
+              +91 98765 43210
             </li>
             <li className="flex items-center gap-3">
               <Mail size={16} className="shrink-0 text-accent-light" aria-hidden="true" />
@@ -36,7 +36,7 @@ function Footer() {
             </li>
             <li className="flex items-center gap-3">
               <MapPin size={16} className="shrink-0 text-accent-light" aria-hidden="true" />
-              Serving the greater San Antonio area
+              Serving Hyderabad and surrounding areas
             </li>
           </ul>
         </div>

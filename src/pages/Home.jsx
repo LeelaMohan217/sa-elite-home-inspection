@@ -6,6 +6,7 @@ import StatBlock from '../components/StatBlock'
 import InspectionCard from '../components/InspectionCard'
 import HouseBlueprint from '../components/HouseBlueprint'
 import BlobShape from '../components/BlobShape'
+import FaqItem from '../components/FaqItem'
 
 const highlights = [
   {
@@ -61,7 +62,7 @@ const steps = [
 const testimonials = [
   {
     quote:
-      'SA Elite caught a foundation issue our first inspector missed entirely. Saved us from a costly mistake.',
+      'SA Elite caught a dampness issue our first inspector missed entirely. Saved us from a costly mistake.',
     author: 'Maria G., Homebuyer',
   },
   {
@@ -76,6 +77,38 @@ const testimonials = [
   },
 ]
 
+const faqs = [
+  {
+    question: 'What does a home inspection cover?',
+    answer:
+      'A full structural, electrical, plumbing, and safety review of the property, plus a dedicated dampness check — tailored to flats and villas alike.',
+  },
+  {
+    question: 'How long does an inspection take?',
+    answer:
+      "It depends on the property. 1BHK and 2BHK flats typically take 1-2 hours; villas and larger homes take longer. We'll confirm a time estimate when you book.",
+  },
+  {
+    question: 'Do I need to be present during the inspection?',
+    answer:
+      "It's not required, but we recommend it — being there lets you ask questions and see any issues firsthand.",
+  },
+  {
+    question: 'How soon will I get my report?',
+    answer: "You'll receive a clear, photo-backed digital report within 24 hours of the inspection.",
+  },
+  {
+    question: 'What is a Multi Stage Inspection?',
+    answer:
+      'Inspections carried out at key points during construction, so structural or material issues are caught early — before walls and finishes hide them.',
+  },
+  {
+    question: 'What is a Dampness Inspection?',
+    answer:
+      'A focused check for moisture, seepage, and dampness — common in flats and older buildings, especially during monsoon season.',
+  },
+]
+
 function Home() {
   return (
     <div>
@@ -83,7 +116,7 @@ function Home() {
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 sm:py-28 md:grid-cols-2">
           <div>
             <Reveal index={0}>
-              <SectionEyebrow>Certified Inspections · San Antonio, TX</SectionEyebrow>
+              <SectionEyebrow>Certified Inspections · Hyderabad</SectionEyebrow>
             </Reveal>
             <Reveal index={1}>
               <h1 className="mt-5 text-5xl leading-[1.05] text-ink sm:text-6xl">
@@ -182,10 +215,10 @@ function Home() {
               className="flex flex-col justify-between sm:col-span-2"
             >
               <div>
-                <h3 className="text-2xl font-bold text-paper">General Home Inspection</h3>
+                <h3 className="text-2xl font-bold text-paper">Inspection</h3>
                 <p className="mt-3 max-w-md text-paper/80">
-                  Full top-to-bottom evaluation of structure, systems, and safety — our most
-                  comprehensive service, built for buyers and sellers alike.
+                  A complete top-to-bottom inspection covering structure, electrical, plumbing,
+                  and safety — for flats and villas alike.
                 </p>
               </div>
               <Button to="/services" variant="outline" className="mt-6 w-fit">
@@ -194,16 +227,16 @@ function Home() {
             </InspectionCard>
 
             <InspectionCard index={1}>
-              <h3 className="text-lg font-bold text-ink">Pre-Listing Inspection</h3>
+              <h3 className="text-lg font-bold text-ink">Multi Stage Inspection</h3>
               <p className="mt-2 text-sm text-ink/70">
-                Know your home's condition before you list it for sale.
+                Checks at every key construction stage, catching issues before they're hidden.
               </p>
             </InspectionCard>
 
             <InspectionCard index={2}>
-              <h3 className="text-lg font-bold text-ink">New Construction Inspection</h3>
+              <h3 className="text-lg font-bold text-ink">Dampness Inspection</h3>
               <p className="mt-2 text-sm text-ink/70">
-                An independent check before your final builder walkthrough.
+                A focused check for moisture and seepage issues common in flats and older homes.
               </p>
             </InspectionCard>
           </div>
@@ -228,6 +261,18 @@ function Home() {
               </figcaption>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      <section className="border-t border-hairline bg-surface/60 py-20 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <SectionEyebrow>FAQ</SectionEyebrow>
+          <h2 className="mt-3 text-3xl text-accent sm:text-4xl">Common questions.</h2>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {faqs.map((faq, i) => (
+              <FaqItem key={faq.question} question={faq.question} answer={faq.answer} index={i} />
+            ))}
+          </div>
         </div>
       </section>
 
