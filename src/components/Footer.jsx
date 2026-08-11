@@ -1,12 +1,18 @@
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import Reveal from './Reveal'
+import BlobShape from './BlobShape'
 
 function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-hairline-dark bg-ink text-paper/80">
-      <Reveal className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-3">
+    <footer className="relative overflow-hidden border-t border-hairline-dark bg-ink text-paper/80">
+      <BlobShape
+        className="pointer-events-none absolute -bottom-40 -left-24 h-96 w-96 opacity-20"
+        from="var(--color-accent-dark)"
+        to="var(--color-ink)"
+      />
+      <Reveal className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-3">
         <div>
           <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-accent-light text-xs font-extrabold tracking-wide text-accent-light">
             SA
@@ -50,7 +56,7 @@ function Footer() {
         </div>
       </Reveal>
 
-      <div className="border-t border-hairline-dark py-4 text-center text-xs font-semibold uppercase tracking-[0.12em] text-paper/40">
+      <div className="relative border-t border-hairline-dark py-4 text-center text-xs font-semibold uppercase tracking-[0.12em] text-paper/40">
         © {year} SA Elite Home Inspection. All rights reserved.
       </div>
     </footer>

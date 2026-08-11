@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion'
 import SectionEyebrow from './SectionEyebrow'
+import GradientOrb from './GradientOrb'
 
 function PageHero({ eyebrow, title, subtitle }) {
   return (
-    <section className="border-b border-hairline bg-paper">
-      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
+    <section className="relative overflow-hidden border-b border-hairline bg-paper">
+      <GradientOrb tone="accent" className="-right-24 -top-32 h-80 w-80 opacity-70" />
+      <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}

@@ -45,6 +45,7 @@ function Prices() {
             <InspectionCard
               key={plan.name}
               tone={plan.featured ? 'ink' : 'paper'}
+              decorated={plan.featured}
               index={i}
               className="flex flex-col p-8"
             >

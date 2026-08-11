@@ -5,6 +5,7 @@ import Button from '../components/Button'
 import StatBlock from '../components/StatBlock'
 import InspectionCard from '../components/InspectionCard'
 import HouseBlueprint from '../components/HouseBlueprint'
+import BlobShape from '../components/BlobShape'
 
 const highlights = [
   {
@@ -174,7 +175,12 @@ function Home() {
             </Button>
           </div>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            <InspectionCard index={0} tone="accent" className="flex flex-col justify-between sm:col-span-2">
+            <InspectionCard
+              index={0}
+              tone="accent"
+              decorated
+              className="flex flex-col justify-between sm:col-span-2"
+            >
               <div>
                 <h3 className="text-2xl font-bold text-paper">General Home Inspection</h3>
                 <p className="mt-3 max-w-md text-paper/80">
@@ -225,8 +231,13 @@ function Home() {
         </div>
       </section>
 
-      <Reveal as="section" className="bg-ink">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-5 px-4 py-20 text-center sm:px-6">
+      <Reveal as="section" className="relative overflow-hidden bg-ink">
+        <BlobShape
+          className="pointer-events-none absolute -right-32 -top-40 h-[28rem] w-[28rem] opacity-30"
+          from="var(--color-accent-vivid)"
+          to="var(--color-ink)"
+        />
+        <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-5 px-4 py-20 text-center sm:px-6">
           <SectionEyebrow tone="dark">Ready When You Are</SectionEyebrow>
           <h2 className="text-3xl text-paper sm:text-4xl">Ready to book your inspection?</h2>
           <p className="max-w-xl text-paper/70">
