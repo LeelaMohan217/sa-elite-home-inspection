@@ -1,33 +1,18 @@
 import Reveal from './Reveal'
 
-function InspectionCard({ as = 'div', featured = false, index = 0, className = '', children }) {
-  const surface = featured
-    ? 'bg-ink-800 border border-ink-800 text-paper shadow-cta'
-    : 'bg-paper border border-hairline text-ink shadow-elevate'
-  const tickColor = featured ? 'border-accent-light' : 'border-accent/70 group-hover:border-accent'
+const TONES = {
+  paper: 'bg-paper border border-hairline text-ink shadow-elevate',
+  ink: 'bg-ink text-paper shadow-cta',
+  accent: 'bg-accent-vivid text-paper shadow-cta',
+}
 
+function InspectionCard({ as = 'div', tone = 'paper', index = 0, className = '', children }) {
   return (
     <Reveal
       as={as}
       index={index}
-      className={`group relative rounded-md p-6 transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-1 hover:scale-[1.015] hover:shadow-elevate-hover motion-reduce:hover:translate-y-0 motion-reduce:hover:scale-100 ${surface} ${className}`}
+      className={`relative rounded-3xl p-7 transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-1 hover:shadow-elevate-hover motion-reduce:hover:translate-y-0 ${TONES[tone]} ${className}`}
     >
-      <span
-        className={`pointer-events-none absolute -left-px -top-px h-3 w-3 border-l-2 border-t-2 transition-colors duration-200 ${tickColor}`}
-        aria-hidden="true"
-      />
-      <span
-        className={`pointer-events-none absolute -right-px -top-px h-3 w-3 border-r-2 border-t-2 transition-colors duration-200 ${tickColor}`}
-        aria-hidden="true"
-      />
-      <span
-        className={`pointer-events-none absolute -bottom-px -left-px h-3 w-3 border-b-2 border-l-2 transition-colors duration-200 ${tickColor}`}
-        aria-hidden="true"
-      />
-      <span
-        className={`pointer-events-none absolute -bottom-px -right-px h-3 w-3 border-b-2 border-r-2 transition-colors duration-200 ${tickColor}`}
-        aria-hidden="true"
-      />
       {children}
     </Reveal>
   )

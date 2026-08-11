@@ -1,16 +1,17 @@
 import { Link } from 'react-router-dom'
 
 const BASE =
-  'inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-6 py-3 font-sans text-sm font-semibold ' +
+  'inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-3 font-sans text-sm font-bold ' +
   'transition-[background-color,color,border-color,transform,box-shadow] duration-200 ease-out cursor-pointer ' +
   'hover:-translate-y-0.5 active:translate-y-0 motion-reduce:hover:translate-y-0 ' +
   'disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0'
 
 const VARIANTS = {
-  primary: 'bg-accent text-paper shadow-cta hover:bg-accent-dark hover:shadow-cta-hover',
-  secondary: 'border border-hairline text-ink hover:border-accent hover:text-accent-dark',
+  primary: 'bg-accent-vivid text-paper shadow-cta hover:bg-accent-dark hover:shadow-cta-hover',
+  secondary: 'border border-hairline text-ink hover:border-accent hover:text-accent',
   invert: 'bg-paper text-ink hover:bg-accent-light',
-  ghost: 'text-accent-dark hover:text-ink',
+  ghost: 'text-accent hover:text-accent-dark',
+  outline: 'border border-paper/50 text-paper hover:bg-paper hover:text-ink',
 }
 
 function Button({

@@ -34,7 +34,7 @@ function About() {
       <section className="mx-auto max-w-4xl px-4 py-20 sm:px-6 sm:py-24">
         <SectionEyebrow>Our Story</SectionEyebrow>
         <Reveal>
-          <h2 className="mt-3 font-display text-3xl text-ink">A closer look, every time.</h2>
+          <h2 className="mt-3 text-3xl text-accent">A closer look, every time.</h2>
           <p className="mt-6 text-ink/70">
             SA Elite Home Inspection was founded to give homebuyers and sellers in the San
             Antonio area an honest, detailed picture of a property's condition. We know that
@@ -50,12 +50,12 @@ function About() {
 
         <div className="mt-16">
           <SectionEyebrow>Our Values</SectionEyebrow>
-          <h2 className="mt-3 font-display text-3xl text-ink">What we stand for.</h2>
+          <h2 className="mt-3 text-3xl text-accent">What we stand for.</h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
             {values.map((value, i) => (
               <InspectionCard key={value.title} index={i}>
-                <value.icon size={22} className="text-accent" aria-hidden="true" />
-                <h3 className="mt-4 font-semibold text-ink">{value.title}</h3>
+                <value.icon size={22} className="text-accent-vivid" aria-hidden="true" />
+                <h3 className="mt-4 font-bold text-ink">{value.title}</h3>
                 <p className="mt-2 text-sm text-ink/70">{value.description}</p>
               </InspectionCard>
             ))}

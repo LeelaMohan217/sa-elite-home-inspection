@@ -26,12 +26,12 @@ const itemVariants = {
 function Logo() {
   return (
     <span className="flex items-center gap-3">
-      <span className="flex h-9 w-9 items-center justify-center rounded-md bg-ink font-mono text-xs font-semibold tracking-wide text-accent-light">
+      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-ink text-xs font-extrabold tracking-wide text-accent-light">
         SA
       </span>
       <span className="leading-tight">
-        <span className="block font-display text-lg italic text-ink">Elite</span>
-        <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-ink/60">
+        <span className="block text-lg font-extrabold italic text-ink">Elite</span>
+        <span className="block text-[10px] font-semibold uppercase tracking-[0.18em] text-ink/60">
           Home Inspection
         </span>
       </span>
@@ -59,7 +59,7 @@ function Navbar() {
     <header
       className={`sticky top-0 z-50 border-b transition-[background-color,box-shadow,border-color] duration-300 ease-out ${
         scrolled
-          ? 'border-hairline bg-paper/90 shadow-[0_1px_0_rgba(23,19,15,0.04)] backdrop-blur-md'
+          ? 'border-hairline bg-paper/90 shadow-[0_1px_0_rgba(0,7,45,0.04)] backdrop-blur-md'
           : 'border-transparent bg-transparent'
       }`}
     >
@@ -96,7 +96,7 @@ function Navbar() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-hairline text-ink md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-hairline text-ink md:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           onClick={() => setOpen((prev) => !prev)}

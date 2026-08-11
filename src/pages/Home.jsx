@@ -11,16 +11,19 @@ const highlights = [
     icon: ShieldCheck,
     title: 'Certified Inspectors',
     description: 'Licensed, experienced inspectors who know what to look for.',
+    tone: 'ink',
   },
   {
     icon: Clock,
     title: 'Same-Week Availability',
     description: 'Flexible scheduling so you never miss a closing deadline.',
+    tone: 'paper',
   },
   {
     icon: FileCheck,
     title: 'Detailed Digital Reports',
     description: 'Clear, photo-backed reports delivered within 24 hours.',
+    tone: 'paper',
   },
 ]
 
@@ -54,21 +57,6 @@ const steps = [
   },
 ]
 
-const servicePreviews = [
-  {
-    title: 'General Home Inspection',
-    description: 'Full top-to-bottom evaluation of structure, systems, and safety.',
-  },
-  {
-    title: 'Pre-Listing Inspection',
-    description: "Know your home's condition before you list it for sale.",
-  },
-  {
-    title: 'New Construction Inspection',
-    description: 'An independent check before your final builder walkthrough.',
-  },
-]
-
 const testimonials = [
   {
     quote:
@@ -97,8 +85,8 @@ function Home() {
               <SectionEyebrow>Certified Inspections · San Antonio, TX</SectionEyebrow>
             </Reveal>
             <Reveal index={1}>
-              <h1 className="mt-5 font-display text-5xl leading-[1.05] text-ink sm:text-6xl">
-                Nothing about your home goes <em className="italic text-accent-dark">unseen</em>.
+              <h1 className="mt-5 text-5xl leading-[1.05] text-ink sm:text-6xl">
+                Nothing about your home goes <em className="text-accent-vivid not-italic">unseen</em>.
               </h1>
             </Reveal>
             <Reveal index={2}>
@@ -119,7 +107,7 @@ function Home() {
 
           <Reveal index={1} className="relative mx-auto w-full max-w-md">
             <div
-              className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-accent/20 blur-3xl"
+              className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-accent-vivid/20 blur-3xl"
               aria-hidden="true"
             />
             <HouseBlueprint className="w-full" />
@@ -129,20 +117,28 @@ function Home() {
 
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
         <SectionEyebrow>Why Choose Us</SectionEyebrow>
-        <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">Built on precision, not guesswork.</h2>
+        <h2 className="mt-3 text-3xl text-accent sm:text-4xl">Built on precision, not guesswork.</h2>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {highlights.map((item, i) => (
-            <InspectionCard key={item.title} index={i}>
-              <item.icon size={22} className="text-accent" aria-hidden="true" />
-              <h3 className="mt-4 text-lg font-semibold text-ink">{item.title}</h3>
-              <p className="mt-2 text-sm text-ink/70">{item.description}</p>
+            <InspectionCard key={item.title} index={i} tone={item.tone}>
+              <item.icon
+                size={22}
+                className={item.tone === 'ink' ? 'text-accent-light' : 'text-accent-vivid'}
+                aria-hidden="true"
+              />
+              <h3 className={`mt-4 text-lg font-bold ${item.tone === 'ink' ? 'text-paper' : 'text-ink'}`}>
+                {item.title}
+              </h3>
+              <p className={`mt-2 text-sm ${item.tone === 'ink' ? 'text-paper/70' : 'text-ink/70'}`}>
+                {item.description}
+              </p>
             </InspectionCard>
           ))}
         </div>
       </section>
 
-      <section className="border-y border-hairline bg-ink-800/[0.02]">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-4 py-14 sm:px-6 md:grid-cols-4">
+      <section className="border-y border-hairline bg-surface/60">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-4 py-14 sm:px-6 md:grid-cols-4">
           {stats.map((stat, i) => (
             <StatBlock key={stat.label} value={stat.value} label={stat.label} index={i} />
           ))}
@@ -151,57 +147,77 @@ function Home() {
 
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
         <SectionEyebrow>Our Process</SectionEyebrow>
-        <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">How it works.</h2>
+        <h2 className="mt-3 text-3xl text-accent sm:text-4xl">How it works.</h2>
         <div className="relative mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="absolute inset-x-0 top-5 hidden h-px bg-hairline lg:block" aria-hidden="true" />
           {steps.map((item, i) => (
             <Reveal key={item.step} index={i}>
-              <span className="relative z-10 flex h-10 w-10 items-center justify-center border border-accent bg-paper font-mono text-xs font-semibold text-accent-dark">
+              <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-accent bg-paper text-xs font-extrabold text-accent">
                 {item.step}
               </span>
-              <h3 className="mt-4 font-semibold text-ink">{item.title}</h3>
+              <h3 className="mt-4 font-bold text-ink">{item.title}</h3>
               <p className="mt-2 text-sm text-ink/70">{item.description}</p>
             </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="border-t border-hairline bg-ink-800/[0.02] py-20 sm:py-24">
+      <section className="border-t border-hairline bg-surface/60 py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <SectionEyebrow>Popular Services</SectionEyebrow>
-              <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">What we inspect.</h2>
+              <h2 className="mt-3 text-3xl text-accent sm:text-4xl">What we inspect.</h2>
             </div>
             <Button to="/services" variant="ghost" icon={ArrowRight}>
               View all services
             </Button>
           </div>
-          <div className="mt-10 grid gap-6 sm:grid-cols-3">
-            {servicePreviews.map((service, i) => (
-              <InspectionCard key={service.title} index={i}>
-                <h3 className="font-semibold text-ink">{service.title}</h3>
-                <p className="mt-2 text-sm text-ink/70">{service.description}</p>
-              </InspectionCard>
-            ))}
+          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+            <InspectionCard index={0} tone="accent" className="flex flex-col justify-between sm:col-span-2">
+              <div>
+                <h3 className="text-2xl font-bold text-paper">General Home Inspection</h3>
+                <p className="mt-3 max-w-md text-paper/80">
+                  Full top-to-bottom evaluation of structure, systems, and safety — our most
+                  comprehensive service, built for buyers and sellers alike.
+                </p>
+              </div>
+              <Button to="/services" variant="outline" className="mt-6 w-fit">
+                View Service
+              </Button>
+            </InspectionCard>
+
+            <InspectionCard index={1}>
+              <h3 className="text-lg font-bold text-ink">Pre-Listing Inspection</h3>
+              <p className="mt-2 text-sm text-ink/70">
+                Know your home's condition before you list it for sale.
+              </p>
+            </InspectionCard>
+
+            <InspectionCard index={2}>
+              <h3 className="text-lg font-bold text-ink">New Construction Inspection</h3>
+              <p className="mt-2 text-sm text-ink/70">
+                An independent check before your final builder walkthrough.
+              </p>
+            </InspectionCard>
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
         <SectionEyebrow>Client Stories</SectionEyebrow>
-        <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">What our clients say.</h2>
+        <h2 className="mt-3 text-3xl text-accent sm:text-4xl">What our clients say.</h2>
         <div className="mt-10 grid gap-10 md:grid-cols-3">
           {testimonials.map((testimonial, i) => (
-            <Reveal key={testimonial.author} index={i} className="relative border-l border-hairline pl-6">
+            <Reveal key={testimonial.author} index={i} className="relative border-l-2 border-hairline pl-6">
               <span
-                className="pointer-events-none absolute -left-2 -top-4 font-display text-6xl italic text-ink/10"
+                className="pointer-events-none absolute -left-2 -top-4 text-6xl font-black text-ink/10"
                 aria-hidden="true"
               >
                 "
               </span>
               <blockquote className="text-sm leading-relaxed text-ink/80">"{testimonial.quote}"</blockquote>
-              <figcaption className="mt-4 font-mono text-xs uppercase tracking-[0.1em] text-ink/60">
+              <figcaption className="mt-4 text-xs font-bold uppercase tracking-[0.08em] text-ink/60">
                 {testimonial.author}
               </figcaption>
             </Reveal>
@@ -212,9 +228,7 @@ function Home() {
       <Reveal as="section" className="bg-ink">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-5 px-4 py-20 text-center sm:px-6">
           <SectionEyebrow tone="dark">Ready When You Are</SectionEyebrow>
-          <h2 className="font-display text-3xl text-paper sm:text-4xl">
-            Ready to book your inspection?
-          </h2>
+          <h2 className="text-3xl text-paper sm:text-4xl">Ready to book your inspection?</h2>
           <p className="max-w-xl text-paper/70">
             Reach out today and we'll get you scheduled with one of our certified inspectors.
           </p>

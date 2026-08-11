@@ -42,18 +42,23 @@ function Prices() {
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
         <div className="grid gap-8 md:grid-cols-3">
           {plans.map((plan, i) => (
-            <InspectionCard key={plan.name} featured={plan.featured} index={i} className="flex flex-col p-8">
+            <InspectionCard
+              key={plan.name}
+              tone={plan.featured ? 'ink' : 'paper'}
+              index={i}
+              className="flex flex-col p-8"
+            >
               {plan.featured && (
                 <Tag tone="accent" className="mb-4 w-fit">
                   Most Popular
                 </Tag>
               )}
-              <h3 className={`text-xl font-semibold ${plan.featured ? 'text-paper' : 'text-ink'}`}>
+              <h3 className={`text-xl font-bold ${plan.featured ? 'text-paper' : 'text-ink'}`}>
                 {plan.name}
               </h3>
               <p
-                className={`mt-1 font-mono text-4xl font-semibold tabular-nums ${
-                  plan.featured ? 'text-paper' : 'text-accent-dark'
+                className={`mt-1 text-4xl font-extrabold tabular-nums ${
+                  plan.featured ? 'text-paper' : 'text-accent'
                 }`}
               >
                 {plan.price}

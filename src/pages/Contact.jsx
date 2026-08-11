@@ -9,7 +9,7 @@ import Button from '../components/Button'
 const initialForm = { name: '', email: '', phone: '', message: '' }
 
 const inputClasses =
-  'mt-1 w-full rounded-md border border-hairline bg-paper px-3 py-2 text-sm text-ink'
+  'mt-1 w-full rounded-xl border border-hairline bg-paper px-3 py-2 text-sm text-ink'
 
 function Contact() {
   const [form, setForm] = useState(initialForm)
@@ -42,30 +42,30 @@ function Contact() {
       <section className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-24 md:grid-cols-2">
         <Reveal>
           <SectionEyebrow>Reach Us</SectionEyebrow>
-          <h2 className="mt-3 font-display text-2xl text-ink">Get in touch.</h2>
+          <h2 className="mt-3 text-2xl text-ink">Get in touch.</h2>
           <ul className="mt-6 space-y-4 text-sm">
             <li className="flex items-center gap-3 text-ink/70">
-              <Phone size={16} className="shrink-0 text-accent" aria-hidden="true" />
+              <Phone size={16} className="shrink-0 text-accent-vivid" aria-hidden="true" />
               <span>
-                <span className="font-medium text-ink">Phone:</span> (555) 123-4567
+                <span className="font-semibold text-ink">Phone:</span> (555) 123-4567
               </span>
             </li>
             <li className="flex items-center gap-3 text-ink/70">
-              <Mail size={16} className="shrink-0 text-accent" aria-hidden="true" />
+              <Mail size={16} className="shrink-0 text-accent-vivid" aria-hidden="true" />
               <span>
-                <span className="font-medium text-ink">Email:</span> info@saelitehomeinspection.com
+                <span className="font-semibold text-ink">Email:</span> info@saelitehomeinspection.com
               </span>
             </li>
             <li className="flex items-center gap-3 text-ink/70">
-              <MapPin size={16} className="shrink-0 text-accent" aria-hidden="true" />
+              <MapPin size={16} className="shrink-0 text-accent-vivid" aria-hidden="true" />
               <span>
-                <span className="font-medium text-ink">Service Area:</span> Greater San Antonio, TX
+                <span className="font-semibold text-ink">Service Area:</span> Greater San Antonio, TX
               </span>
             </li>
             <li className="flex items-center gap-3 text-ink/70">
-              <Clock size={16} className="shrink-0 text-accent" aria-hidden="true" />
+              <Clock size={16} className="shrink-0 text-accent-vivid" aria-hidden="true" />
               <span>
-                <span className="font-medium text-ink">Hours:</span> Mon - Sat, 7 AM - 7 PM
+                <span className="font-semibold text-ink">Hours:</span> Mon - Sat, 7 AM - 7 PM
               </span>
             </li>
           </ul>

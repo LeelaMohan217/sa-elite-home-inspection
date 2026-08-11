@@ -117,13 +117,14 @@ function HouseBlueprint({ className = '' }) {
           animate="visible"
           custom={reduce ? 0.05 * i : 1.0 + i * 0.12}
         >
-          <circle cx={cp.x} cy={cp.y} r="4" fill="var(--color-accent)" />
+          <circle cx={cp.x} cy={cp.y} r="4" fill="var(--color-accent-vivid)" />
           <text
             x={cp.x + 9}
             y={cp.y + 3.5}
-            fontFamily="var(--font-mono)"
+            fontFamily="var(--font-sans)"
+            fontWeight="700"
             fontSize="9"
-            letterSpacing="1.4"
+            letterSpacing="0.6"
             fill="var(--color-accent-dark)"
           >
             {cp.label}
