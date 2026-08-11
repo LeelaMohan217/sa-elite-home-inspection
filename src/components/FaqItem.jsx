@@ -1,17 +1,16 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Plus } from 'lucide-react'
-import Reveal from './Reveal'
 
-function FaqItem({ question, answer, index = 0 }) {
+function FaqItem({ question, answer }) {
   const [open, setOpen] = useState(false)
 
   return (
-    <Reveal index={index} className="rounded-2xl border border-hairline bg-paper p-6">
+    <div>
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="flex w-full items-center justify-between gap-4 text-left cursor-pointer"
+        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left cursor-pointer"
         aria-expanded={open}
       >
         <span className="font-bold text-ink">{question}</span>
@@ -30,11 +29,11 @@ function FaqItem({ question, answer, index = 0 }) {
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden"
           >
-            <p className="mt-3 text-sm text-ink/70">{answer}</p>
+            <p className="px-6 pb-5 text-sm text-ink/70">{answer}</p>
           </motion.div>
         )}
       </AnimatePresence>
-    </Reveal>
+    </div>
   )
 }
 

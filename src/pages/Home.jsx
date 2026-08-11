@@ -268,12 +268,16 @@ function Home() {
 
       <section className="border-t border-hairline bg-surface/60 py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <SectionEyebrow>FAQ</SectionEyebrow>
-          <h2 className="mt-3 text-3xl text-accent sm:text-4xl">Common questions.</h2>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            {faqs.map((faq, i) => (
-              <FaqItem key={faq.question} question={faq.question} answer={faq.answer} index={i} />
-            ))}
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,320px)_1fr]">
+            <Reveal>
+              <SectionEyebrow>FAQ</SectionEyebrow>
+              <h2 className="mt-3 text-3xl text-accent sm:text-4xl">Common questions.</h2>
+            </Reveal>
+            <Reveal index={1} className="divide-y divide-hairline rounded-2xl border border-hairline bg-paper">
+              {faqs.map((faq) => (
+                <FaqItem key={faq.question} question={faq.question} answer={faq.answer} />
+              ))}
+            </Reveal>
           </div>
         </div>
       </section>
