@@ -4,7 +4,7 @@ function InspectionCard({ as = 'div', featured = false, index = 0, className = '
   const surface = featured
     ? 'bg-ink-800 border border-ink-800 text-paper shadow-cta'
     : 'bg-paper border border-hairline text-ink shadow-elevate'
-  const tickColor = featured ? 'border-brass-light' : 'border-brass/70 group-hover:border-brass'
+  const tickColor = featured ? 'border-accent-light' : 'border-accent/70 group-hover:border-accent'
 
   return (
     <Reveal

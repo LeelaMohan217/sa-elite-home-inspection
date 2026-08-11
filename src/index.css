@@ -4,15 +4,15 @@
   /* Palette */
   --color-ink: #0b1220;
   --color-ink-800: #1b2436;
-  --color-paper: #f6f7f9;
-  --color-stone: #6b7280;
-  --color-hairline: #e2e5ea;
+  --color-paper: #ffffff;
+  --color-stone: #64748b;
+  --color-hairline: #e2e6ed;
   --color-hairline-dark: #2b3448;
-  --color-brass: #9c7a3c;
-  --color-brass-dark: #755c2d;
-  --color-brass-light: #c9ad7f;
-  --color-verified: #3f6b52;
-  --color-verified-light: #8fb39a;
+  --color-accent: #2f5fd1;
+  --color-accent-dark: #1e3e8c;
+  --color-accent-light: #8fb0f5;
+  --color-verified: #1e3e8c;
+  --color-verified-light: #8fb0f5;
 
   /* Typography */
   --font-display: "Fraunces", ui-serif, Georgia, serif;
@@ -37,12 +37,12 @@
   }
 
   ::selection {
-    background-color: var(--color-brass);
+    background-color: var(--color-accent);
     color: var(--color-paper);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-brass);
+    outline: 2px solid var(--color-accent);
     outline-offset: 3px;
     border-radius: 2px;
   }

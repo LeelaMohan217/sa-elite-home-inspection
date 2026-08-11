@@ -7,10 +7,10 @@ const BASE =
   'disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0'
 
 const VARIANTS = {
-  primary: 'bg-brass text-paper shadow-cta hover:bg-brass-dark hover:shadow-cta-hover',
-  secondary: 'border border-hairline text-ink hover:border-brass hover:text-brass-dark',
-  invert: 'bg-paper text-ink hover:bg-brass-light',
-  ghost: 'text-brass-dark hover:text-ink',
+  primary: 'bg-accent text-paper shadow-cta hover:bg-accent-dark hover:shadow-cta-hover',
+  secondary: 'border border-hairline text-ink hover:border-accent hover:text-accent-dark',
+  invert: 'bg-paper text-ink hover:bg-accent-light',
+  ghost: 'text-accent-dark hover:text-ink',
 }
 
 function Button({

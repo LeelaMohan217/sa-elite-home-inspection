@@ -44,7 +44,7 @@ function Prices() {
           {plans.map((plan, i) => (
             <InspectionCard key={plan.name} featured={plan.featured} index={i} className="flex flex-col p-8">
               {plan.featured && (
-                <Tag tone="brass" className="mb-4 w-fit">
+                <Tag tone="accent" className="mb-4 w-fit">
                   Most Popular
                 </Tag>
               )}
@@ -53,7 +53,7 @@ function Prices() {
               </h3>
               <p
                 className={`mt-1 font-mono text-4xl font-semibold tabular-nums ${
-                  plan.featured ? 'text-paper' : 'text-brass-dark'
+                  plan.featured ? 'text-paper' : 'text-accent-dark'
                 }`}
               >
                 {plan.price}

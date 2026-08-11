@@ -26,7 +26,7 @@ const itemVariants = {
 function Logo() {
   return (
     <span className="flex items-center gap-3">
-      <span className="flex h-9 w-9 items-center justify-center rounded-md bg-ink font-mono text-xs font-semibold tracking-wide text-brass-light">
+      <span className="flex h-9 w-9 items-center justify-center rounded-md bg-ink font-mono text-xs font-semibold tracking-wide text-accent-light">
         SA
       </span>
       <span className="leading-tight">
@@ -75,10 +75,10 @@ function Navbar() {
                 to={link.to}
                 end={link.to === '/'}
                 className={({ isActive }) =>
-                  `relative py-1 text-sm font-medium transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:bg-brass after:transition-all after:duration-200 ${
+                  `relative py-1 text-sm font-medium transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:bg-accent after:transition-all after:duration-200 ${
                     isActive
                       ? 'text-ink after:w-full'
-                      : 'text-ink/70 after:w-0 hover:text-brass-dark hover:after:w-full'
+                      : 'text-ink/70 after:w-0 hover:text-accent-dark hover:after:w-full'
                   }`
                 }
               >

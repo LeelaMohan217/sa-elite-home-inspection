@@ -45,25 +45,25 @@ function Contact() {
           <h2 className="mt-3 font-display text-2xl text-ink">Get in touch.</h2>
           <ul className="mt-6 space-y-4 text-sm">
             <li className="flex items-center gap-3 text-ink/70">
-              <Phone size={16} className="shrink-0 text-brass" aria-hidden="true" />
+              <Phone size={16} className="shrink-0 text-accent" aria-hidden="true" />
               <span>
                 <span className="font-medium text-ink">Phone:</span> (555) 123-4567
               </span>
             </li>
             <li className="flex items-center gap-3 text-ink/70">
-              <Mail size={16} className="shrink-0 text-brass" aria-hidden="true" />
+              <Mail size={16} className="shrink-0 text-accent" aria-hidden="true" />
               <span>
                 <span className="font-medium text-ink">Email:</span> info@saelitehomeinspection.com
               </span>
             </li>
             <li className="flex items-center gap-3 text-ink/70">
-              <MapPin size={16} className="shrink-0 text-brass" aria-hidden="true" />
+              <MapPin size={16} className="shrink-0 text-accent" aria-hidden="true" />
               <span>
                 <span className="font-medium text-ink">Service Area:</span> Greater San Antonio, TX
               </span>
             </li>
             <li className="flex items-center gap-3 text-ink/70">
-              <Clock size={16} className="shrink-0 text-brass" aria-hidden="true" />
+              <Clock size={16} className="shrink-0 text-accent" aria-hidden="true" />
               <span>
                 <span className="font-medium text-ink">Hours:</span> Mon - Sat, 7 AM - 7 PM
               </span>

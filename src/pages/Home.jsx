@@ -98,7 +98,7 @@ function Home() {
             </Reveal>
             <Reveal index={1}>
               <h1 className="mt-5 font-display text-5xl leading-[1.05] text-ink sm:text-6xl">
-                Nothing about your home goes <em className="italic text-brass-dark">unseen</em>.
+                Nothing about your home goes <em className="italic text-accent-dark">unseen</em>.
               </h1>
             </Reveal>
             <Reveal index={2}>
@@ -119,7 +119,7 @@ function Home() {
 
           <Reveal index={1} className="relative mx-auto w-full max-w-md">
             <div
-              className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-brass/20 blur-3xl"
+              className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-accent/20 blur-3xl"
               aria-hidden="true"
             />
             <HouseBlueprint className="w-full" />
@@ -133,7 +133,7 @@ function Home() {
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {highlights.map((item, i) => (
             <InspectionCard key={item.title} index={i}>
-              <item.icon size={22} className="text-brass" aria-hidden="true" />
+              <item.icon size={22} className="text-accent" aria-hidden="true" />
               <h3 className="mt-4 text-lg font-semibold text-ink">{item.title}</h3>
               <p className="mt-2 text-sm text-ink/70">{item.description}</p>
             </InspectionCard>
@@ -156,7 +156,7 @@ function Home() {
           <div className="absolute inset-x-0 top-5 hidden h-px bg-hairline lg:block" aria-hidden="true" />
           {steps.map((item, i) => (
             <Reveal key={item.step} index={i}>
-              <span className="relative z-10 flex h-10 w-10 items-center justify-center border border-brass bg-paper font-mono text-xs font-semibold text-brass-dark">
+              <span className="relative z-10 flex h-10 w-10 items-center justify-center border border-accent bg-paper font-mono text-xs font-semibold text-accent-dark">
                 {item.step}
               </span>
               <h3 className="mt-4 font-semibold text-ink">{item.title}</h3>
