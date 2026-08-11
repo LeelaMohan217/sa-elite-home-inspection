@@ -1,15 +1,24 @@
-import { Link } from 'react-router-dom'
+import { ShieldCheck, Clock, FileCheck, ArrowRight } from 'lucide-react'
+import Reveal from '../components/Reveal'
+import SectionEyebrow from '../components/SectionEyebrow'
+import Button from '../components/Button'
+import StatBlock from '../components/StatBlock'
+import InspectionCard from '../components/InspectionCard'
+import HouseBlueprint from '../components/HouseBlueprint'
 
 const highlights = [
   {
+    icon: ShieldCheck,
     title: 'Certified Inspectors',
     description: 'Licensed, experienced inspectors who know what to look for.',
   },
   {
+    icon: Clock,
     title: 'Same-Week Availability',
     description: 'Flexible scheduling so you never miss a closing deadline.',
   },
   {
+    icon: FileCheck,
     title: 'Detailed Digital Reports',
     description: 'Clear, photo-backed reports delivered within 24 hours.',
   },
@@ -24,22 +33,22 @@ const stats = [
 
 const steps = [
   {
-    step: '1',
+    step: '01',
     title: 'Book Online or by Phone',
     description: "Pick a time that works for you — we'll confirm within minutes.",
   },
   {
-    step: '2',
+    step: '02',
     title: 'We Inspect the Property',
     description: 'A certified inspector examines every major system, top to bottom.',
   },
   {
-    step: '3',
+    step: '03',
     title: 'Get Your Digital Report',
     description: 'Receive a clear, photo-backed report within 24 hours.',
   },
   {
-    step: '4',
+    step: '04',
     title: 'Ask Us Anything',
     description: "We're available to walk through the findings and answer questions.",
   },
@@ -81,129 +90,135 @@ const testimonials = [
 function Home() {
   return (
     <div>
-      <section className="bg-slate-900 text-white">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-20 sm:px-6 md:grid-cols-2">
+      <section className="relative overflow-hidden border-b border-hairline bg-blueprint-grid">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 sm:py-28 md:grid-cols-2">
           <div>
-            <h1 className="text-4xl font-bold sm:text-5xl">
-              Buy with Confidence. Inspect with SA Elite.
-            </h1>
-            <p className="mt-4 text-lg text-slate-300">
-              Thorough, honest home inspections that help you make informed decisions —
-              whether you're buying, selling, or maintaining your home.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                to="/contact"
-                className="rounded-md bg-blue-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-blue-600"
-              >
+            <Reveal index={0}>
+              <SectionEyebrow>Certified Inspections · San Antonio, TX</SectionEyebrow>
+            </Reveal>
+            <Reveal index={1}>
+              <h1 className="mt-5 font-display text-5xl leading-[1.05] text-ink sm:text-6xl">
+                Nothing about your home goes <em className="italic text-brass-dark">unseen</em>.
+              </h1>
+            </Reveal>
+            <Reveal index={2}>
+              <p className="mt-6 max-w-md text-lg text-ink/70">
+                Thorough, honest home inspections that help you make informed decisions — whether
+                you're buying, selling, or maintaining your home.
+              </p>
+            </Reveal>
+            <Reveal index={3} className="mt-8 flex flex-wrap gap-4">
+              <Button to="/contact" variant="primary" icon={ArrowRight}>
                 Schedule an Inspection
-              </Link>
-              <Link
-                to="/services"
-                className="rounded-md border border-slate-500 px-6 py-3 font-semibold text-white transition-colors hover:border-slate-300"
-              >
+              </Button>
+              <Button to="/services" variant="secondary">
                 View Services
-              </Link>
-            </div>
+              </Button>
+            </Reveal>
           </div>
-          <div className="rounded-lg border border-slate-700 bg-slate-800 p-8">
-            <p className="text-sm font-semibold uppercase tracking-wide text-blue-400">
-              Why homeowners trust us
-            </p>
-            <p className="mt-3 text-slate-300">
-              Over the years we've helped hundreds of San Antonio families understand
-              exactly what they're buying, with no surprises after closing.
-            </p>
-          </div>
+
+          <Reveal index={1} className="mx-auto w-full max-w-md">
+            <HouseBlueprint className="w-full" />
+          </Reveal>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div className="grid gap-8 md:grid-cols-3">
-          {highlights.map((item) => (
-            <div key={item.title} className="rounded-lg border border-slate-200 p-6">
-              <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
-              <p className="mt-2 text-sm text-slate-600">{item.description}</p>
-            </div>
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
+        <SectionEyebrow>Why Choose Us</SectionEyebrow>
+        <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">Built on precision, not guesswork.</h2>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {highlights.map((item, i) => (
+            <InspectionCard key={item.title} index={i}>
+              <item.icon size={22} className="text-brass" aria-hidden="true" />
+              <h3 className="mt-4 text-lg font-semibold text-ink">{item.title}</h3>
+              <p className="mt-2 text-sm text-ink/70">{item.description}</p>
+            </InspectionCard>
           ))}
         </div>
       </section>
 
-      <section className="border-y border-slate-200 bg-slate-50">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-4 py-12 sm:px-6 md:grid-cols-4">
-          {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="text-3xl font-bold text-blue-700">{stat.value}</p>
-              <p className="mt-1 text-sm text-slate-600">{stat.label}</p>
-            </div>
+      <section className="border-y border-hairline bg-ink-800/[0.02]">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-4 py-14 sm:px-6 md:grid-cols-4">
+          {stats.map((stat, i) => (
+            <StatBlock key={stat.label} value={stat.value} label={stat.label} index={i} />
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">How It Works</h2>
-        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((item) => (
-            <div key={item.step}>
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-700 text-sm font-bold text-white">
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
+        <SectionEyebrow>Our Process</SectionEyebrow>
+        <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">How it works.</h2>
+        <div className="relative mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="absolute inset-x-0 top-5 hidden h-px bg-hairline lg:block" aria-hidden="true" />
+          {steps.map((item, i) => (
+            <Reveal key={item.step} index={i}>
+              <span className="relative z-10 flex h-10 w-10 items-center justify-center border border-brass bg-paper font-mono text-xs font-semibold text-brass-dark">
                 {item.step}
               </span>
-              <h3 className="mt-4 font-semibold text-slate-900">{item.title}</h3>
-              <p className="mt-2 text-sm text-slate-600">{item.description}</p>
-            </div>
+              <h3 className="mt-4 font-semibold text-ink">{item.title}</h3>
+              <p className="mt-2 text-sm text-ink/70">{item.description}</p>
+            </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="bg-slate-50 py-16">
+      <section className="border-t border-hairline bg-ink-800/[0.02] py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="flex flex-wrap items-end justify-between gap-4">
-            <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">Popular Services</h2>
-            <Link to="/services" className="text-sm font-semibold text-blue-700 hover:text-blue-800">
-              View all services →
-            </Link>
+            <div>
+              <SectionEyebrow>Popular Services</SectionEyebrow>
+              <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">What we inspect.</h2>
+            </div>
+            <Button to="/services" variant="ghost" icon={ArrowRight}>
+              View all services
+            </Button>
           </div>
-          <div className="mt-8 grid gap-6 sm:grid-cols-3">
-            {servicePreviews.map((service) => (
-              <div key={service.title} className="rounded-lg border border-slate-200 bg-white p-6">
-                <h3 className="font-semibold text-slate-900">{service.title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{service.description}</p>
-              </div>
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+            {servicePreviews.map((service, i) => (
+              <InspectionCard key={service.title} index={i}>
+                <h3 className="font-semibold text-ink">{service.title}</h3>
+                <p className="mt-2 text-sm text-ink/70">{service.description}</p>
+              </InspectionCard>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">What Our Clients Say</h2>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <figure key={testimonial.author} className="rounded-lg border border-slate-200 p-6">
-              <blockquote className="text-sm text-slate-600">"{testimonial.quote}"</blockquote>
-              <figcaption className="mt-4 text-sm font-semibold text-slate-900">
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
+        <SectionEyebrow>Client Stories</SectionEyebrow>
+        <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">What our clients say.</h2>
+        <div className="mt-10 grid gap-10 md:grid-cols-3">
+          {testimonials.map((testimonial, i) => (
+            <Reveal key={testimonial.author} index={i} className="relative border-l border-hairline pl-6">
+              <span
+                className="pointer-events-none absolute -left-2 -top-4 font-display text-6xl italic text-ink/10"
+                aria-hidden="true"
+              >
+                "
+              </span>
+              <blockquote className="text-sm leading-relaxed text-ink/80">"{testimonial.quote}"</blockquote>
+              <figcaption className="mt-4 font-mono text-xs uppercase tracking-[0.1em] text-ink/60">
                 {testimonial.author}
               </figcaption>
-            </figure>
+            </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="bg-blue-700">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-14 text-center sm:px-6">
-          <h2 className="text-2xl font-bold text-white sm:text-3xl">
+      <Reveal as="section" className="bg-ink">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-5 px-4 py-20 text-center sm:px-6">
+          <SectionEyebrow tone="dark">Ready When You Are</SectionEyebrow>
+          <h2 className="font-display text-3xl text-paper sm:text-4xl">
             Ready to book your inspection?
           </h2>
-          <p className="max-w-xl text-blue-100">
+          <p className="max-w-xl text-paper/70">
             Reach out today and we'll get you scheduled with one of our certified inspectors.
           </p>
-          <Link
-            to="/contact"
-            className="mt-2 rounded-md bg-white px-6 py-3 font-semibold text-blue-700 transition-colors hover:bg-blue-50"
-          >
+          <Button to="/contact" variant="invert" icon={ArrowRight} className="mt-2">
             Get in Touch
-          </Link>
+          </Button>
         </div>
-      </section>
+      </Reveal>
     </div>
   )
 }

@@ -1,5 +1,8 @@
-import { Link } from 'react-router-dom'
+import { Check } from 'lucide-react'
 import PageHero from '../components/PageHero'
+import InspectionCard from '../components/InspectionCard'
+import Tag from '../components/Tag'
+import Button from '../components/Button'
 
 const plans = [
   {
@@ -31,46 +34,49 @@ function Prices() {
   return (
     <div>
       <PageHero
+        eyebrow="Pricing"
         title="Pricing"
         subtitle="Transparent, flat-rate pricing based on home size and services needed. Final quote confirmed at booking."
       />
 
-      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
         <div className="grid gap-8 md:grid-cols-3">
-          {plans.map((plan) => (
-            <div
-              key={plan.name}
-              className={`flex flex-col rounded-lg border p-8 ${
-                plan.featured ? 'border-blue-700 shadow-lg' : 'border-slate-200'
-              }`}
-            >
+          {plans.map((plan, i) => (
+            <InspectionCard key={plan.name} featured={plan.featured} index={i} className="flex flex-col p-8">
               {plan.featured && (
-                <span className="mb-3 w-fit rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">
+                <Tag tone="brass" className="mb-4 w-fit">
                   Most Popular
-                </span>
+                </Tag>
               )}
-              <h3 className="text-xl font-bold text-slate-900">{plan.name}</h3>
-              <p className="mt-1 text-3xl font-bold text-slate-900">{plan.price}</p>
-              <p className="mt-2 text-sm text-slate-600">{plan.description}</p>
-              <ul className="mt-6 flex-1 space-y-2 text-sm text-slate-600">
+              <h3 className={`text-xl font-semibold ${plan.featured ? 'text-paper' : 'text-ink'}`}>
+                {plan.name}
+              </h3>
+              <p
+                className={`mt-1 font-mono text-4xl font-semibold tabular-nums ${
+                  plan.featured ? 'text-paper' : 'text-brass-dark'
+                }`}
+              >
+                {plan.price}
+              </p>
+              <p className={`mt-2 text-sm ${plan.featured ? 'text-paper/70' : 'text-ink/70'}`}>
+                {plan.description}
+              </p>
+              <ul className={`mt-6 flex-1 space-y-2 text-sm ${plan.featured ? 'text-paper/80' : 'text-ink/70'}`}>
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-2">
-                    <span className="mt-1 text-blue-700">✓</span>
+                    <Check size={16} className="mt-0.5 shrink-0 text-verified" aria-hidden="true" />
                     <span>{feature}</span>
                   </li>
                 ))}
               </ul>
-              <Link
+              <Button
                 to="/contact"
-                className={`mt-8 rounded-md px-4 py-2 text-center text-sm font-semibold transition-colors ${
-                  plan.featured
-                    ? 'bg-blue-700 text-white hover:bg-blue-800'
-                    : 'border border-slate-300 text-slate-900 hover:border-slate-400'
-                }`}
+                variant={plan.featured ? 'invert' : 'primary'}
+                className="mt-8 w-full"
               >
                 Book This Plan
-              </Link>
-            </div>
+              </Button>
+            </InspectionCard>
           ))}
         </div>
       </section>

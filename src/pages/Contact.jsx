@@ -1,7 +1,15 @@
 import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Phone, Mail, MapPin, Clock, CheckCircle2 } from 'lucide-react'
 import PageHero from '../components/PageHero'
+import SectionEyebrow from '../components/SectionEyebrow'
+import Reveal from '../components/Reveal'
+import Button from '../components/Button'
 
 const initialForm = { name: '', email: '', phone: '', message: '' }
+
+const inputClasses =
+  'mt-1 w-full rounded-sm border border-hairline bg-paper px-3 py-2 text-sm text-ink'
 
 function Contact() {
   const [form, setForm] = useState(initialForm)
@@ -26,34 +34,46 @@ function Contact() {
   return (
     <div>
       <PageHero
+        eyebrow="Get in Touch"
         title="Contact Us"
         subtitle="Have a question or ready to schedule? Send us a message and we'll respond within one business day."
       />
 
-      <section className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2">
-        <div>
-          <h2 className="text-xl font-bold text-slate-900">Get in Touch</h2>
-          <ul className="mt-4 space-y-3 text-sm text-slate-600">
-            <li>
-              <span className="font-semibold text-slate-900">Phone:</span> (555) 123-4567
+      <section className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-24 md:grid-cols-2">
+        <Reveal>
+          <SectionEyebrow>Reach Us</SectionEyebrow>
+          <h2 className="mt-3 font-display text-2xl text-ink">Get in touch.</h2>
+          <ul className="mt-6 space-y-4 text-sm">
+            <li className="flex items-center gap-3 text-ink/70">
+              <Phone size={16} className="shrink-0 text-brass" aria-hidden="true" />
+              <span>
+                <span className="font-medium text-ink">Phone:</span> (555) 123-4567
+              </span>
             </li>
-            <li>
-              <span className="font-semibold text-slate-900">Email:</span>{' '}
-              info@saelitehomeinspection.com
+            <li className="flex items-center gap-3 text-ink/70">
+              <Mail size={16} className="shrink-0 text-brass" aria-hidden="true" />
+              <span>
+                <span className="font-medium text-ink">Email:</span> info@saelitehomeinspection.com
+              </span>
             </li>
-            <li>
-              <span className="font-semibold text-slate-900">Service Area:</span> Greater San
-              Antonio, TX
+            <li className="flex items-center gap-3 text-ink/70">
+              <MapPin size={16} className="shrink-0 text-brass" aria-hidden="true" />
+              <span>
+                <span className="font-medium text-ink">Service Area:</span> Greater San Antonio, TX
+              </span>
             </li>
-            <li>
-              <span className="font-semibold text-slate-900">Hours:</span> Mon - Sat, 7 AM - 7 PM
+            <li className="flex items-center gap-3 text-ink/70">
+              <Clock size={16} className="shrink-0 text-brass" aria-hidden="true" />
+              <span>
+                <span className="font-medium text-ink">Hours:</span> Mon - Sat, 7 AM - 7 PM
+              </span>
             </li>
           </ul>
-        </div>
+        </Reveal>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <Reveal index={1} as="form" onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-slate-700">
+            <label htmlFor="name" className="block text-sm font-medium text-ink">
               Full Name
             </label>
             <input
@@ -63,12 +83,12 @@ function Contact() {
               required
               value={form.name}
               onChange={handleChange}
-              className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-blue-700 focus:outline-none"
+              className={inputClasses}
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-slate-700">
+            <label htmlFor="email" className="block text-sm font-medium text-ink">
               Email
             </label>
             <input
@@ -78,12 +98,12 @@ function Contact() {
               required
               value={form.email}
               onChange={handleChange}
-              className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-blue-700 focus:outline-none"
+              className={inputClasses}
             />
           </div>
 
           <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-slate-700">
+            <label htmlFor="phone" className="block text-sm font-medium text-ink">
               Phone
             </label>
             <input
@@ -92,12 +112,12 @@ function Contact() {
               type="tel"
               value={form.phone}
               onChange={handleChange}
-              className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-blue-700 focus:outline-none"
+              className={inputClasses}
             />
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-slate-700">
+            <label htmlFor="message" className="block text-sm font-medium text-ink">
               Message
             </label>
             <textarea
@@ -107,24 +127,28 @@ function Contact() {
               required
               value={form.message}
               onChange={handleChange}
-              className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-blue-700 focus:outline-none"
+              className={inputClasses}
             />
           </div>
 
-          <button
-            type="submit"
-            disabled={status === 'submitting'}
-            className="w-full rounded-md bg-blue-700 px-4 py-2 font-semibold text-white transition-colors hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-60"
-          >
+          <Button type="submit" variant="primary" disabled={status === 'submitting'} className="w-full">
             {status === 'submitting' ? 'Sending...' : 'Send Message'}
-          </button>
+          </Button>
 
-          {status === 'success' && (
-            <p className="text-sm font-medium text-green-700">
-              Thanks! We'll be in touch shortly.
-            </p>
-          )}
-        </form>
+          <AnimatePresence>
+            {status === 'success' && (
+              <motion.p
+                initial={{ opacity: 0, y: -4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                className="flex items-center gap-2 text-sm font-medium text-verified"
+              >
+                <CheckCircle2 size={16} aria-hidden="true" />
+                Thanks! We'll be in touch shortly.
+              </motion.p>
+            )}
+          </AnimatePresence>
+        </Reveal>
       </section>
     </div>
   )
