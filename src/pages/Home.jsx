@@ -4,7 +4,7 @@ import SectionEyebrow from '../components/SectionEyebrow'
 import Button from '../components/Button'
 import StatBlock from '../components/StatBlock'
 import InspectionCard from '../components/InspectionCard'
-import HouseBlueprint from '../components/HouseBlueprint'
+import WaveMesh from '../components/WaveMesh'
 import BlobShape from '../components/BlobShape'
 import FaqItem from '../components/FaqItem'
 import FlowLines from '../components/FlowLines'
@@ -146,7 +146,7 @@ function Home() {
               className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-accent-vivid/20 blur-3xl"
               aria-hidden="true"
             />
-            <HouseBlueprint className="w-full" />
+            <WaveMesh className="w-full" />
           </Reveal>
         </div>
       </section>
