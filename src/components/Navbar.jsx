@@ -152,7 +152,7 @@ function Navbar() {
         <div className="col-start-3 hidden items-center justify-end md:flex">
           <NavLink
             to="/contact"
-            className="group flex items-center gap-2 rounded-full border border-slate-700 px-4 py-2.5 text-[11px] font-bold uppercase tracking-[0.08em] text-slate-800 transition-all duration-300 hover:bg-slate-800 hover:text-white"
+            className="group flex items-center gap-2 whitespace-nowrap rounded-full border border-slate-700 px-4 py-2.5 text-[11px] font-bold uppercase tracking-[0.08em] text-slate-800 transition-all duration-300 hover:bg-slate-800 hover:text-white"
           >
             <span>Book Inspection</span>
             <ArrowUpRight

@@ -184,16 +184,16 @@ function Home() {
         </div>
 
         {/* House Photo */}
-        <div className="relative h-[280px] w-full sm:h-[380px] lg:h-[480px]">
+        <div className="relative h-[320px] w-full sm:h-[420px] lg:h-[520px]">
           <div
-            className="absolute inset-0 bg-cover bg-[center_58%]"
+            className="absolute inset-0 bg-cover bg-[center_88%] sm:bg-[center_75%] lg:bg-[center_70%]"
             style={{
               backgroundImage: `url(${heroImage})`,
             }}
             aria-hidden="true"
           />
           <div
-            className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white to-transparent sm:h-24"
+            className="pointer-events-none absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-white to-transparent sm:h-14"
             aria-hidden="true"
           />
         </div>
