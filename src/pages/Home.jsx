@@ -127,12 +127,6 @@ function Home() {
           aria-hidden="true"
         />
 
-        {/* Scrim for text legibility */}
-        <div
-          className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/15 to-transparent"
-          aria-hidden="true"
-        />
-
         {/* Hero Content */}
         <div className="relative mx-auto flex max-w-6xl justify-start px-4 pb-16 pt-32 sm:px-6 sm:pt-36 lg:pt-40">
           <div className="mx-auto flex max-w-3xl flex-col items-center text-center gap-4">
