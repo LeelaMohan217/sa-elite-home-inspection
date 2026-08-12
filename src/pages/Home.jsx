@@ -117,13 +117,19 @@ function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative min-h-[700px] overflow-hidden border-b border-hairline">
+      <section className="relative min-h-[760px] overflow-hidden border-b border-hairline sm:min-h-[820px] lg:min-h-[880px]">
         {/* Background Image */}
         <div
-          className="absolute inset-0 bg-cover bg-[center_18%]"
+          className="absolute inset-0 bg-cover bg-[center_38%]"
           style={{
             backgroundImage: `url(${heroImage})`,
           }}
+          aria-hidden="true"
+        />
+
+        {/* Scrim for text legibility */}
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/15 to-transparent"
           aria-hidden="true"
         />
 
@@ -137,7 +143,7 @@ function Home() {
             <Reveal index={1}>
               <h1 className="max-w-2xl text-4xl leading-[1.05] text-white sm:text-6xl lg:text-7xl">
                 See Beyond the{" "}
-                <em className="font-surfer text-slate-800">Surface</em>
+                <em className="font-surfer text-accent-light">Surface</em>
               </h1>
             </Reveal>
 
