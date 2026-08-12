@@ -127,6 +127,12 @@ function Home() {
           aria-hidden="true"
         />
 
+        {/* Contrast Scrim */}
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-ink/45 via-ink/35 to-ink/70"
+          aria-hidden="true"
+        />
+
         {/* Hero Content */}
         <div className="relative mx-auto flex max-w-6xl justify-start px-4 pt-32 sm:px-6 sm:pt-36 lg:pt-40">
           <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
@@ -137,7 +143,7 @@ function Home() {
             <Reveal index={1}>
               <h1 className="mt-5 text-5xl leading-[1.05] text-white sm:text-6xl lg:text-7xl">
                 See Beyond the{" "}
-                <em className="font-surfer text-slate-700">Surface</em>
+                <em className="font-surfer text-accent-light">Surface</em>
               </h1>
             </Reveal>
 
@@ -157,7 +163,7 @@ function Home() {
                 Schedule an Inspection
               </Button>
 
-              <Button to="/services" variant="secondary">
+              <Button to="/services" variant="outline">
                 View Services
               </Button>
             </Reveal>
