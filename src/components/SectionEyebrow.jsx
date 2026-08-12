@@ -4,7 +4,7 @@ function SectionEyebrow({ children, tone = 'light', className = '' }) {
     <p
       className={`flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] ${toneClasses} ${className}`}
     >
-      <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+      <span className="h-1.5 w-1.5 rounded-full bg-slate-700" aria-hidden="true" />
       {children}
     </p>
   )

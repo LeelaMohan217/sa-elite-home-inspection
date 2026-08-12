@@ -1,142 +1,302 @@
-import { useEffect, useState } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
-import { AnimatePresence, motion } from 'framer-motion'
-import { Menu, X, ArrowRight } from 'lucide-react'
-import Button from './Button'
+import { useEffect, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu, X, ArrowUpRight } from "lucide-react";
+import logo from "../assets/Mobile-App-Icon.svg";
 
 const links = [
-  { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
-  { to: '/services', label: 'Services' },
-  { to: '/prices', label: 'Prices' },
-  { to: '/contact', label: 'Contact' },
-]
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/services", label: "Services" },
+  { to: "/prices", label: "Prices" },
+  { to: "/contact", label: "Contact" },
+];
 
 const menuVariants = {
-  hidden: { opacity: 0, y: -8 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.2, staggerChildren: 0.04, delayChildren: 0.05 } },
-  exit: { opacity: 0, y: -8, transition: { duration: 0.15 } },
-}
+  hidden: {
+    opacity: 0,
+    y: -10,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.25,
+      ease: [0.22, 1, 0.36, 1],
+      staggerChildren: 0.04,
+      delayChildren: 0.04,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -8,
+    transition: {
+      duration: 0.18,
+      ease: "easeOut",
+    },
+  },
+};
 
 const itemVariants = {
-  hidden: { opacity: 0, y: -6 },
-  visible: { opacity: 1, y: 0 },
-}
+  hidden: {
+    opacity: 0,
+    y: -6,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.2,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
 
 function Logo() {
   return (
-    <span className="flex items-center gap-3">
-      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-ink text-xs font-extrabold tracking-wide text-accent-light">
-        SA
-      </span>
-      <span className="leading-tight">
-        <span className="block text-lg font-extrabold italic text-ink">Elite</span>
-        <span className="block text-[10px] font-semibold uppercase tracking-[0.18em] text-ink/60">
-          Home Inspection
-        </span>
-      </span>
+    <span className="group flex items-center">
+      <img
+        src={logo}
+        alt="SA Elite Home Inspection"
+        className="h-12 w-12 object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+      />
     </span>
-  )
+  );
 }
 
 function Navbar() {
-  const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const location = useLocation()
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24);
+    };
+
+    onScroll();
+
+    window.addEventListener("scroll", onScroll, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
 
   useEffect(() => {
-    setOpen(false)
-  }, [location.pathname])
+    setOpen(false);
+  }, [location.pathname]);
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b transition-[background-color,box-shadow,border-color] duration-300 ease-out ${
+      className={`fixed left-0 right-0 top-0 z-50 border-b transition-all duration-500 ease-out ${
         scrolled
-          ? 'border-hairline bg-paper/90 shadow-[0_1px_0_rgba(0,7,45,0.04)] backdrop-blur-md'
-          : 'border-transparent bg-transparent'
+          ? "border-white/60 bg-white/70 shadow-[0_8px_30px_rgba(15,23,42,0.08)] backdrop-blur-xl backdrop-saturate-150"
+          : "border-transparent bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-        <NavLink to="/" aria-label="SA Elite Home Inspection home">
-          <Logo />
-        </NavLink>
+      <nav
+        className={`mx-auto grid max-w-7xl grid-cols-[1fr_auto_1fr] items-center px-5 transition-all duration-500 sm:px-8 lg:px-10 ${
+          scrolled ? "py-3" : "py-5"
+        }`}
+      >
+        {/* LEFT — Logo */}
+        <div className="flex items-center justify-start">
+          <NavLink to="/" aria-label="SA Elite Home Inspection home">
+            <Logo />
+          </NavLink>
+        </div>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        {/* CENTER — Navigation */}
+        <ul className="hidden items-center justify-center gap-8 md:flex">
           {links.map((link) => (
             <li key={link.to}>
               <NavLink
                 to={link.to}
-                end={link.to === '/'}
+                end={link.to === "/"}
                 className={({ isActive }) =>
-                  `relative py-1 text-sm font-medium transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:bg-accent after:transition-all after:duration-200 ${
+                  `group relative flex items-center py-2 text-[13px] font-semibold tracking-[0.01em] transition-colors duration-200 ${
                     isActive
-                      ? 'text-ink after:w-full'
-                      : 'text-ink/70 after:w-0 hover:text-accent-dark hover:after:w-full'
+                      ? "text-slate-900"
+                      : "text-slate-600 hover:text-slate-900"
                   }`
                 }
               >
-                {link.label}
+                {({ isActive }) => (
+                  <>
+                    <span>{link.label}</span>
+
+                    <span
+                      className={`absolute -bottom-0.5 left-0 h-[2px] rounded-full bg-slate-700 transition-all duration-300 ease-out ${
+                        isActive ? "w-full" : "w-0 group-hover:w-full"
+                      }`}
+                    />
+                  </>
+                )}
               </NavLink>
             </li>
           ))}
         </ul>
 
-        <div className="hidden md:block">
-          <Button to="/contact" variant="primary" icon={ArrowRight}>
-            Book Inspection
-          </Button>
+        {/* RIGHT — CTA */}
+        <div className="hidden items-center justify-end md:flex">
+          <NavLink
+            to="/contact"
+            className="group flex items-center gap-2 rounded-full bg-slate-800 px-4 py-2.5 text-[13px] font-semibold text-white shadow-[0_5px_16px_rgba(15,23,42,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-900 hover:shadow-[0_8px_20px_rgba(15,23,42,0.16)]"
+          >
+            <span>Book Inspection</span>
+
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/10 transition-transform duration-300 group-hover:translate-x-0.5">
+              <ArrowUpRight size={13} strokeWidth={2.5} />
+            </span>
+          </NavLink>
         </div>
 
-        <button
-          type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-hairline text-ink md:hidden"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-          onClick={() => setOpen((prev) => !prev)}
-        >
-          {open ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
-        </button>
+        {/* MOBILE MENU BUTTON */}
+        <div className="flex justify-end md:hidden">
+          <button
+            type="button"
+            className={`relative z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 ${
+              open
+                ? "border-slate-700 bg-slate-800 text-white"
+                : scrolled
+                  ? "border-white/70 bg-white/40 text-slate-700 backdrop-blur-md"
+                  : "border-slate-300/70 bg-white/20 text-slate-700 backdrop-blur-sm"
+            }`}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((prev) => !prev)}
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              {open ? (
+                <motion.span
+                  key="close"
+                  initial={{
+                    opacity: 0,
+                    rotate: -45,
+                    scale: 0.8,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    rotate: 0,
+                    scale: 1,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    rotate: 45,
+                    scale: 0.8,
+                  }}
+                >
+                  <X size={18} strokeWidth={2} />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="menu"
+                  initial={{
+                    opacity: 0,
+                    rotate: 45,
+                    scale: 0.8,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    rotate: 0,
+                    scale: 1,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    rotate: -45,
+                    scale: 0.8,
+                  }}
+                >
+                  <Menu size={18} strokeWidth={2} />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </button>
+        </div>
       </nav>
 
+      {/* MOBILE MENU */}
       <AnimatePresence>
         {open && (
-          <motion.ul
-            variants={menuVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            className="flex flex-col gap-1 border-t border-hairline bg-paper px-4 py-4 md:hidden"
+          <motion.div
+            initial={{
+              opacity: 0,
+              height: 0,
+            }}
+            animate={{
+              opacity: 1,
+              height: "auto",
+            }}
+            exit={{
+              opacity: 0,
+              height: 0,
+            }}
+            transition={{
+              duration: 0.3,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="overflow-hidden border-t border-white/60 bg-white/85 backdrop-blur-xl md:hidden"
           >
-            {links.map((link) => (
-              <motion.li key={link.to} variants={itemVariants}>
-                <NavLink
-                  to={link.to}
-                  end={link.to === '/'}
-                  className={({ isActive }) =>
-                    `block py-2 text-sm font-medium ${isActive ? 'text-ink' : 'text-ink/70'}`
-                  }
+            <motion.ul
+              variants={menuVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="mx-auto max-w-7xl px-5 py-4 sm:px-8"
+            >
+              {links.map((link) => (
+                <motion.li
+                  key={link.to}
+                  variants={itemVariants}
+                  className="border-b border-slate-200/70 last:border-0"
                 >
-                  {link.label}
+                  <NavLink
+                    to={link.to}
+                    end={link.to === "/"}
+                    className={({ isActive }) =>
+                      `flex items-center justify-between py-4 text-[15px] font-semibold transition-colors ${
+                        isActive ? "text-slate-900" : "text-slate-600"
+                      }`
+                    }
+                  >
+                    {({ isActive }) => (
+                      <>
+                        <span>{link.label}</span>
+
+                        <span
+                          className={`h-1.5 w-1.5 rounded-full bg-slate-700 transition-opacity ${
+                            isActive ? "opacity-100" : "opacity-0"
+                          }`}
+                        />
+                      </>
+                    )}
+                  </NavLink>
+                </motion.li>
+              ))}
+
+              <motion.li variants={itemVariants} className="pt-5">
+                <NavLink
+                  to="/contact"
+                  className="group flex w-full items-center justify-center gap-2 rounded-full bg-slate-800 px-5 py-3 text-sm font-semibold text-white shadow-[0_6px_18px_rgba(15,23,42,0.12)] transition-all duration-300 hover:bg-slate-900"
+                >
+                  <span>Book Inspection</span>
+
+                  <ArrowUpRight
+                    size={16}
+                    strokeWidth={2.4}
+                    className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
                 </NavLink>
               </motion.li>
-            ))}
-            <motion.li variants={itemVariants} className="pt-2">
-              <Button to="/contact" variant="primary" icon={ArrowRight} className="w-full">
-                Book Inspection
-              </Button>
-            </motion.li>
-          </motion.ul>
+            </motion.ul>
+          </motion.div>
         )}
       </AnimatePresence>
     </header>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

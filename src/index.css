@@ -18,6 +18,7 @@
 
   /* Typography */
   --font-sans: "Urbanist", ui-sans-serif, system-ui, sans-serif;
+  --font-surfer: "Original Surfer", cursive;
 }
 
 @layer base {

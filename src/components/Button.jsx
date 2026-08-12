@@ -7,8 +7,8 @@ const BASE =
   'disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0'
 
 const VARIANTS = {
-  primary: 'bg-accent-vivid text-paper shadow-cta hover:bg-accent-dark hover:shadow-cta-hover',
-  secondary: 'border border-hairline text-ink hover:border-accent hover:text-accent',
+  primary: 'bg-slate-700 text-paper shadow-cta hover:bg-slate-800 hover:shadow-cta-hover',
+  secondary: 'border border-slate-700 text-slate-700 hover:border-slate-700 hover:text-slate-700',
   invert: 'bg-paper text-ink hover:bg-accent-light',
   ghost: 'text-accent hover:text-accent-dark',
   outline: 'border border-paper/50 text-paper hover:bg-paper hover:text-ink',
