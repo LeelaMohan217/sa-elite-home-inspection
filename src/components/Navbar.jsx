@@ -54,12 +54,21 @@ const itemVariants = {
 
 function Logo() {
   return (
-    <span className="group flex items-center">
+    <span className="group flex items-center gap-2.5">
       <img
         src={logo}
         alt="SA Elite Home Inspection"
-        className="h-12 w-12 object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+        className="h-12 w-12 translate-y-1 object-contain transition-transform duration-300 group-hover:scale-[1.03]"
       />
+
+      <span className="flex flex-col leading-tight">
+        <span className="text-sm font-extrabold tracking-[0.02em] text-slate-800">
+          SA ELITE
+        </span>
+        <span className="text-[11px] font-semibold tracking-[0.08em] text-slate-800">
+          HOME INSPECTIONS
+        </span>
+      </span>
     </span>
   );
 }
@@ -89,28 +98,40 @@ function Navbar() {
     setOpen(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <header
-      className={`fixed left-0 right-0 top-0 z-50 border-b transition-all duration-500 ease-out ${
-        scrolled
-          ? "border-white/60 bg-white/70 shadow-[0_8px_30px_rgba(15,23,42,0.08)] backdrop-blur-xl backdrop-saturate-150"
-          : "border-transparent bg-transparent"
+      className={`fixed inset-x-0 top-0 z-50 flex flex-col border-b transition-all duration-500 ease-out ${
+        open ? "bottom-0" : ""
+      } ${
+        open
+          ? "border-hairline bg-white"
+          : scrolled
+            ? "border-white/60 bg-white/70 shadow-[0_8px_30px_rgba(15,23,42,0.08)] backdrop-blur-xl backdrop-saturate-150"
+            : "border-transparent bg-transparent"
       }`}
     >
       <nav
-        className={`mx-auto grid max-w-7xl grid-cols-[1fr_auto_1fr] items-center px-5 transition-all duration-500 sm:px-8 lg:px-10 ${
+        className={`mx-auto grid w-full max-w-7xl shrink-0 grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center px-5 transition-all duration-500 sm:px-8 lg:px-10 ${
           scrolled ? "py-3" : "py-5"
         }`}
       >
         {/* LEFT — Logo */}
-        <div className="flex items-center justify-start">
+        <div className="col-start-1 flex items-center justify-start">
           <NavLink to="/" aria-label="SA Elite Home Inspection home">
             <Logo />
           </NavLink>
         </div>
 
         {/* CENTER — Navigation */}
-        <ul className="hidden items-center justify-center gap-8 md:flex">
+        <ul className="col-start-2 hidden items-center justify-center gap-8 md:flex">
           {links.map((link) => (
             <li key={link.to}>
               <NavLink
@@ -141,7 +162,7 @@ function Navbar() {
         </ul>
 
         {/* RIGHT — CTA */}
-        <div className="hidden items-center justify-end md:flex">
+        <div className="col-start-3 hidden items-center justify-end md:flex">
           <NavLink
             to="/contact"
             className="group flex items-center gap-2 rounded-full bg-slate-800 px-4 py-2.5 text-[13px] font-semibold text-white shadow-[0_5px_16px_rgba(15,23,42,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-900 hover:shadow-[0_8px_20px_rgba(15,23,42,0.16)]"
@@ -155,7 +176,7 @@ function Navbar() {
         </div>
 
         {/* MOBILE MENU BUTTON */}
-        <div className="flex justify-end md:hidden">
+        <div className="col-start-3 flex justify-end md:hidden">
           <button
             type="button"
             className={`relative z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 ${
@@ -224,28 +245,28 @@ function Navbar() {
           <motion.div
             initial={{
               opacity: 0,
-              height: 0,
+              y: -8,
             }}
             animate={{
               opacity: 1,
-              height: "auto",
+              y: 0,
             }}
             exit={{
               opacity: 0,
-              height: 0,
+              y: -8,
             }}
             transition={{
-              duration: 0.3,
+              duration: 0.25,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="overflow-hidden border-t border-white/60 bg-white/85 backdrop-blur-xl md:hidden"
+            className="flex-1 overflow-y-auto border-t border-hairline bg-white md:hidden"
           >
             <motion.ul
               variants={menuVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="mx-auto max-w-7xl px-5 py-4 sm:px-8"
+              className="mx-auto flex h-full max-w-7xl flex-col px-5 py-4 sm:px-8"
             >
               {links.map((link) => (
                 <motion.li
@@ -277,7 +298,7 @@ function Navbar() {
                 </motion.li>
               ))}
 
-              <motion.li variants={itemVariants} className="pt-5">
+              <motion.li variants={itemVariants} className="mt-auto pb-5 pt-5">
                 <NavLink
                   to="/contact"
                   className="group flex w-full items-center justify-center gap-2 rounded-full bg-slate-800 px-5 py-3 text-sm font-semibold text-white shadow-[0_6px_18px_rgba(15,23,42,0.12)] transition-all duration-300 hover:bg-slate-900"
