@@ -103,14 +103,14 @@ function Navbar() {
         }`}
       >
         {/* LEFT — Logo */}
-        <div className="flex items-center justify-start">
+        <div className="col-start-1 flex items-center justify-start">
           <NavLink to="/" aria-label="SA Elite Home Inspection home">
             <Logo />
           </NavLink>
         </div>
 
         {/* CENTER — Navigation */}
-        <ul className="hidden items-center justify-center gap-8 md:flex">
+        <ul className="col-start-2 hidden items-center justify-center gap-8 md:flex">
           {links.map((link) => (
             <li key={link.to}>
               <NavLink
@@ -141,7 +141,7 @@ function Navbar() {
         </ul>
 
         {/* RIGHT — CTA */}
-        <div className="hidden items-center justify-end md:flex">
+        <div className="col-start-3 hidden items-center justify-end md:flex">
           <NavLink
             to="/contact"
             className="group flex items-center gap-2 rounded-full bg-slate-800 px-4 py-2.5 text-[13px] font-semibold text-white shadow-[0_5px_16px_rgba(15,23,42,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-900 hover:shadow-[0_8px_20px_rgba(15,23,42,0.16)]"
@@ -155,7 +155,7 @@ function Navbar() {
         </div>
 
         {/* MOBILE MENU BUTTON */}
-        <div className="flex justify-end md:hidden">
+        <div className="col-start-3 flex justify-end md:hidden">
           <button
             type="button"
             className={`relative z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 ${
