@@ -128,14 +128,14 @@ function Home() {
         />
 
         {/* Hero Content */}
-        <div className="relative mx-auto flex min-h-300 max-w-6xl justify-start px-4 pt-32 sm:px-6 sm:pt-36 lg:pt-40">
+        <div className="relative mx-auto flex max-w-6xl justify-start px-4 pb-16 pt-32 sm:px-6 sm:pt-36 lg:pt-40">
           <div className="mx-auto flex max-w-3xl flex-col items-center text-center gap-4">
             <Reveal index={0}>
               <SectionEyebrow>PROFESSIONAL HOME INSPECTIONS</SectionEyebrow>
             </Reveal>
 
             <Reveal index={1}>
-              <h1 className="w-2xl text-5xl leading-[1.05] text-white sm:text-6xl lg:text-7xl">
+              <h1 className="max-w-2xl text-4xl leading-[1.05] text-white sm:text-6xl lg:text-7xl">
                 See Beyond the{" "}
                 <em className="font-surfer text-slate-800">Surface</em>
               </h1>
