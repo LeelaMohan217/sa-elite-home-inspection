@@ -120,7 +120,7 @@ function Home() {
       <section className="relative min-h-[700px] overflow-hidden border-b border-hairline">
         {/* Background Image */}
         <div
-          className="absolute inset-0 bg-cover bg-[center_65%]"
+          className="absolute inset-0 bg-cover bg-[center_75%]"
           style={{
             backgroundImage: `url(${heroImage})`,
           }}
@@ -129,30 +129,27 @@ function Home() {
 
         {/* Hero Content */}
         <div className="relative mx-auto flex min-h-300 max-w-6xl justify-start px-4 pt-32 sm:px-6 sm:pt-36 lg:pt-40">
-          <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+          <div className="mx-auto flex max-w-3xl flex-col items-center text-center gap-4">
             <Reveal index={0}>
               <SectionEyebrow>PROFESSIONAL HOME INSPECTIONS</SectionEyebrow>
             </Reveal>
 
             <Reveal index={1}>
-              <h1 className="w-2xl mt-5 text-5xl leading-[1.05] text-white sm:text-6xl lg:text-7xl">
+              <h1 className="w-2xl text-5xl leading-[1.05] text-white sm:text-6xl lg:text-7xl">
                 See Beyond the{" "}
-                <em className="font-surfer text-slate-700">Surface</em>
+                <em className="font-surfer text-slate-800">Surface</em>
               </h1>
             </Reveal>
 
             <Reveal index={2}>
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-white">
+              <p className="max-w-xl text-base leading-relaxed text-white">
                 Thorough, honest home inspections that help you make informed
                 decisions — whether you're buying, selling, or maintaining your
                 home.
               </p>
             </Reveal>
 
-            <Reveal
-              index={3}
-              className="mt-8 flex flex-wrap justify-center gap-4"
-            >
+            <Reveal index={3} className="flex flex-wrap justify-center gap-4">
               <Button to="/contact" variant="primary" icon={ArrowRight}>
                 Schedule an Inspection
               </Button>
@@ -167,42 +164,15 @@ function Home() {
 
       {/* Why Choose Us */}
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
-        <SectionEyebrow>Why Choose Us</SectionEyebrow>
+        <SectionEyebrow>ABOUT US</SectionEyebrow>
 
-        <h2 className="mt-3 text-3xl text-accent sm:text-4xl">
-          Built on precision, not guesswork.
+        <h2 className="mt-3 text-3xl text-slate-800 sm:text-4xl md:text-5xl">
+          A Clearer Look at Your Home. A More Confident Decision.
         </h2>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {highlights.map((item, i) => (
-            <InspectionCard key={item.title} index={i} tone={item.tone}>
-              <item.icon
-                size={22}
-                className={
-                  item.tone === "ink"
-                    ? "text-accent-light"
-                    : "text-accent-vivid"
-                }
-                aria-hidden="true"
-              />
-
-              <h3
-                className={`mt-4 text-lg font-bold ${
-                  item.tone === "ink" ? "text-paper" : "text-ink"
-                }`}
-              >
-                {item.title}
-              </h3>
-
-              <p
-                className={`mt-2 text-sm ${
-                  item.tone === "ink" ? "text-paper/70" : "text-ink/70"
-                }`}
-              >
-                {item.description}
-              </p>
-            </InspectionCard>
-          ))}
+        <div className="mt-10 grid grid-col-1 md:grid-cols-2 gap-6">
+          <div>Image</div>
+          <div>Description</div>
         </div>
       </section>
 
@@ -224,17 +194,14 @@ function Home() {
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
         <SectionEyebrow>Our Process</SectionEyebrow>
 
-        <h2 className="mt-3 text-3xl text-accent sm:text-4xl">How it works.</h2>
+        <h2 className="mt-3 text-3xl text-slate-800 sm:text-4xl md:text-5xl">
+          How it works.
+        </h2>
 
         <div className="relative mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          <div
-            className="absolute inset-x-0 top-5 hidden h-px bg-hairline lg:block"
-            aria-hidden="true"
-          />
-
           {steps.map((item, i) => (
             <Reveal key={item.step} index={i}>
-              <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-accent bg-paper text-xs font-extrabold text-accent">
+              <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-slate-800 bg-paper text-xs font-extrabold text-slate-800">
                 {item.step}
               </span>
 
@@ -253,7 +220,7 @@ function Home() {
             <div>
               <SectionEyebrow>Popular Services</SectionEyebrow>
 
-              <h2 className="mt-3 text-3xl text-accent sm:text-4xl">
+              <h2 className="mt-3 text-3xl text-slate-800 sm:text-5xl">
                 What we inspect.
               </h2>
             </div>
@@ -263,48 +230,34 @@ function Home() {
             </Button>
           </div>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            <InspectionCard
-              index={0}
-              tone="accent"
-              decorated
-              className="flex flex-col justify-between sm:col-span-2"
-            >
-              <div>
-                <h3 className="text-2xl font-bold text-paper">Inspection</h3>
-
-                <p className="mt-3 max-w-md text-paper/80">
-                  A complete top-to-bottom inspection covering structure,
-                  electrical, plumbing, and safety — for flats and villas alike.
-                </p>
-              </div>
-
-              <Button to="/services" variant="outline" className="mt-6 w-fit">
-                View Service
-              </Button>
-            </InspectionCard>
-
-            <InspectionCard index={1}>
-              <h3 className="text-lg font-bold text-ink">
-                Multi Stage Inspection
-              </h3>
-
-              <p className="mt-2 text-sm text-ink/70">
-                Checks at every key construction stage, catching issues before
-                they're hidden.
+          <div className="mt-10 grid gap-6 grid-cols-1 sm:grid-cols-3 md:grid-col-3">
+            <div className="flex flex-col items-start">
+              <h1>Inspection</h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+                vel nisi illum molestiae at facilis officiis reiciendis
+                voluptatibus enim, temporibus cupiditate quidem laudantium
+                libero reprehenderit fuga esse odio inventore! Nesciunt?
               </p>
-            </InspectionCard>
-
-            <InspectionCard index={2}>
-              <h3 className="text-lg font-bold text-ink">
-                Dampness Inspection
-              </h3>
-
-              <p className="mt-2 text-sm text-ink/70">
-                A focused check for moisture and seepage issues common in flats
-                and older homes.
+            </div>
+            <div className="flex flex-col items-start">
+              <h1>Dampness Inspection</h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+                vel nisi illum molestiae at facilis officiis reiciendis
+                voluptatibus enim, temporibus cupiditate quidem laudantium
+                libero reprehenderit fuga esse odio inventore! Nesciunt?
               </p>
-            </InspectionCard>
+            </div>
+            <div className="flex flex-col items-start">
+              <h1>Multi Stage Inspection</h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+                vel nisi illum molestiae at facilis officiis reiciendis
+                voluptatibus enim, temporibus cupiditate quidem laudantium
+                libero reprehenderit fuga esse odio inventore! Nesciunt?
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -313,7 +266,7 @@ function Home() {
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
         <SectionEyebrow>Client Stories</SectionEyebrow>
 
-        <h2 className="mt-3 text-3xl text-accent sm:text-4xl">
+        <h2 className="mt-3 text-3xl text-slate-800 sm:text-5xl">
           What our clients say.
         </h2>
 
@@ -322,7 +275,7 @@ function Home() {
             <Reveal
               key={testimonial.author}
               index={i}
-              className="relative border-l-2 border-hairline pl-6"
+              className="relative border-hairline pl-6"
             >
               <span
                 className="pointer-events-none absolute -left-2 -top-4 text-6xl font-black text-ink/10"
@@ -350,7 +303,7 @@ function Home() {
             <Reveal>
               <SectionEyebrow>FAQ</SectionEyebrow>
 
-              <h2 className="mt-3 text-3xl text-accent sm:text-4xl">
+              <h2 className="mt-3 text-3xl text-slate-800 sm:text-5xl">
                 Common questions.
               </h2>
             </Reveal>
@@ -372,13 +325,7 @@ function Home() {
       </section>
 
       {/* CTA */}
-      <Reveal as="section" className="relative overflow-hidden bg-ink">
-        <BlobShape
-          className="pointer-events-none absolute -right-32 -top-40 h-[28rem] w-[28rem] opacity-30"
-          from="var(--color-accent-vivid)"
-          to="var(--color-ink)"
-        />
-
+      <Reveal as="section" className="relative overflow-hidden bg-slate-800">
         <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-5 px-4 py-20 text-center sm:px-6">
           <SectionEyebrow tone="dark">Ready When You Are</SectionEyebrow>
 
