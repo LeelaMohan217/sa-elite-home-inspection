@@ -120,7 +120,7 @@ function Home() {
       <section className="relative min-h-[700px] overflow-hidden border-b border-hairline">
         {/* Background Image */}
         <div
-          className="absolute inset-0 bg-cover bg-[center_75%]"
+          className="absolute inset-0 bg-cover bg-[center_18%]"
           style={{
             backgroundImage: `url(${heroImage})`,
           }}
