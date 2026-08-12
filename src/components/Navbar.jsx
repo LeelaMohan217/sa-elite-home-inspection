@@ -54,20 +54,12 @@ const itemVariants = {
 
 function Logo() {
   return (
-    <span className="group flex items-center gap-2.5">
+    <span className="group flex items-center">
       <img
         src={logo}
-        alt=""
-        className="h-9 w-9 object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+        alt="SA Elite Home Inspection"
+        className="h-12 w-12 object-contain transition-transform duration-300 group-hover:scale-[1.03]"
       />
-      <span className="leading-tight">
-        <span className="block text-sm font-extrabold tracking-[0.02em] text-slate-900">
-          SA ELITE
-        </span>
-        <span className="block whitespace-nowrap text-[10px] font-semibold uppercase tracking-[0.1em] text-slate-500">
-          Home Inspections
-        </span>
-      </span>
     </span>
   );
 }
@@ -111,24 +103,24 @@ function Navbar() {
         }`}
       >
         {/* LEFT — Logo */}
-        <div className="col-start-1 flex items-center justify-start">
+        <div className="flex items-center justify-start">
           <NavLink to="/" aria-label="SA Elite Home Inspection home">
             <Logo />
           </NavLink>
         </div>
 
         {/* CENTER — Navigation */}
-        <ul className="col-start-2 hidden items-center justify-center gap-8 md:flex">
+        <ul className="hidden items-center justify-center gap-8 md:flex">
           {links.map((link) => (
             <li key={link.to}>
               <NavLink
                 to={link.to}
                 end={link.to === "/"}
                 className={({ isActive }) =>
-                  `group relative flex items-center py-2 text-[11px] font-bold uppercase tracking-[0.12em] transition-colors duration-200 ${
+                  `group relative flex items-center py-2 text-[13px] font-semibold tracking-[0.01em] transition-colors duration-200 ${
                     isActive
                       ? "text-slate-900"
-                      : "text-slate-700 hover:text-slate-900"
+                      : "text-slate-600 hover:text-slate-900"
                   }`
                 }
               >
@@ -149,22 +141,21 @@ function Navbar() {
         </ul>
 
         {/* RIGHT — CTA */}
-        <div className="col-start-3 hidden items-center justify-end md:flex">
+        <div className="hidden items-center justify-end md:flex">
           <NavLink
             to="/contact"
-            className="group flex items-center gap-2 whitespace-nowrap rounded-full border border-slate-700 px-4 py-2.5 text-[11px] font-bold uppercase tracking-[0.08em] text-slate-800 transition-all duration-300 hover:bg-slate-800 hover:text-white"
+            className="group flex items-center gap-2 rounded-full bg-slate-800 px-4 py-2.5 text-[13px] font-semibold text-white shadow-[0_5px_16px_rgba(15,23,42,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-900 hover:shadow-[0_8px_20px_rgba(15,23,42,0.16)]"
           >
             <span>Book Inspection</span>
-            <ArrowUpRight
-              size={13}
-              strokeWidth={2.5}
-              className="transition-transform duration-300 group-hover:translate-x-0.5"
-            />
+
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/10 transition-transform duration-300 group-hover:translate-x-0.5">
+              <ArrowUpRight size={13} strokeWidth={2.5} />
+            </span>
           </NavLink>
         </div>
 
         {/* MOBILE MENU BUTTON */}
-        <div className="col-start-3 flex justify-end md:hidden">
+        <div className="flex justify-end md:hidden">
           <button
             type="button"
             className={`relative z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 ${
