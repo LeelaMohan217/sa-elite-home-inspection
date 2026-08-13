@@ -161,6 +161,20 @@ function Home() {
           </div>
         </div>
       </section>
+      
+      {/* Stats */}
+      <section className="border-y border-hairline bg-surface/60">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-4 py-14 sm:px-6 md:grid-cols-4">
+          {stats.map((stat, i) => (
+            <StatBlock
+              key={stat.label}
+              value={stat.value}
+              label={stat.label}
+              index={i}
+            />
+          ))}
+        </div>
+      </section>
 
       {/* Why Choose Us */}
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
@@ -173,20 +187,6 @@ function Home() {
         <div className="mt-10 grid grid-col-1 md:grid-cols-2 gap-6">
           <div>Image</div>
           <div>Description</div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="border-y border-hairline bg-surface/60">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-4 py-14 sm:px-6 md:grid-cols-4">
-          {stats.map((stat, i) => (
-            <StatBlock
-              key={stat.label}
-              value={stat.value}
-              label={stat.label}
-              index={i}
-            />
-          ))}
         </div>
       </section>
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import logo from "../assets/Mobile-App-Icon.svg";
+import logo from "../assets/S-House-Logo-Mark.svg";
 
 const links = [
   { to: "/", label: "Home" },
@@ -52,20 +52,31 @@ const itemVariants = {
   },
 };
 
-function Logo() {
+function Logo({ scrolled }) {
   return (
     <span className="group flex items-center gap-2.5">
       <img
         src={logo}
         alt="SA Elite Home Inspection"
-        className="h-12 w-12 translate-y-1 object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+        className={`h-8 w-8 translate-y-1 object-contain transition-all duration-500 ${
+          scrolled ? "invert" : ""
+        } group-hover:scale-[1.03]`}
       />
 
       <span className="flex flex-col leading-tight">
-        <span className="text-sm font-extrabold tracking-[0.02em] text-slate-800">
+        <span
+          className={`text-sm font-extrabold tracking-[0.04em] transition-colors duration-500 ${
+            scrolled ? "text-slate-900" : "text-white"
+          }`}
+        >
           SA ELITE
         </span>
-        <span className="text-[11px] font-semibold tracking-[0.08em] text-slate-800">
+
+        <span
+          className={`text-[11px] font-normal tracking-[0.08em] transition-colors duration-500 ${
+            scrolled ? "text-slate-900" : "text-white"
+          }`}
+        >
           HOME INSPECTIONS
         </span>
       </span>
@@ -126,10 +137,11 @@ function Navbar() {
         {/* LEFT — Logo */}
         <div className="col-start-1 flex items-center justify-start">
           <NavLink to="/" aria-label="SA Elite Home Inspection home">
-            <Logo />
+            <Logo scrolled={scrolled} />
           </NavLink>
         </div>
 
+        {/* CENTER — Navigation */}
         {/* CENTER — Navigation */}
         <ul className="col-start-2 hidden items-center justify-center gap-8 md:flex">
           {links.map((link) => (
@@ -138,10 +150,14 @@ function Navbar() {
                 to={link.to}
                 end={link.to === "/"}
                 className={({ isActive }) =>
-                  `group relative flex items-center py-2 text-[13px] font-semibold tracking-[0.01em] transition-colors duration-200 ${
-                    isActive
-                      ? "text-slate-900"
-                      : "text-slate-600 hover:text-slate-900"
+                  `group relative flex items-center py-2 text-[13px] font-semibold tracking-[0.01em] transition-colors duration-500 ${
+                    scrolled
+                      ? isActive
+                        ? "text-slate-900"
+                        : "text-slate-600 hover:text-slate-900"
+                      : isActive
+                        ? "text-white"
+                        : "text-white/80 hover:text-white"
                   }`
                 }
               >
@@ -150,9 +166,9 @@ function Navbar() {
                     <span>{link.label}</span>
 
                     <span
-                      className={`absolute -bottom-0.5 left-0 h-[2px] rounded-full bg-slate-700 transition-all duration-300 ease-out ${
-                        isActive ? "w-full" : "w-0 group-hover:w-full"
-                      }`}
+                      className={`absolute -bottom-0.5 left-0 h-[2px] rounded-full transition-all duration-300 ease-out ${
+                        scrolled ? "bg-slate-700" : "bg-white"
+                      } ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
                     />
                   </>
                 )}
