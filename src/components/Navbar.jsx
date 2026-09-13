@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, ArrowUpRight } from "lucide-react";
-import logo from "../assets/S-House-Logo-Mark.svg";
+import { Menu, X } from "lucide-react";
+import logo from "../assets/Logo.svg";
 
 const links = [
   { to: "/", label: "Home" },
@@ -52,31 +52,20 @@ const itemVariants = {
   },
 };
 
-function Logo({ scrolled }) {
+function Logo() {
   return (
     <span className="group flex items-center gap-2.5">
       <img
         src={logo}
         alt="SA Elite Home Inspection"
-        className={`h-8 w-8 translate-y-1 object-contain transition-all duration-500 ${
-          scrolled ? "invert" : ""
-        } group-hover:scale-[1.03]`}
+        className="h-[33.75px] w-[33.75px] object-contain transition-transform duration-300 group-hover:scale-[1.03]"
       />
 
       <span className="flex flex-col leading-tight">
-        <span
-          className={`text-sm font-extrabold tracking-[0.04em] transition-colors duration-500 ${
-            scrolled ? "text-slate-900" : "text-white"
-          }`}
-        >
-          SA ELITE
+        <span className="text-sm font-extrabold tracking-[0.02em] text-black">
+          AKSHARA ELITE
         </span>
-
-        <span
-          className={`text-[11px] font-normal tracking-[0.08em] transition-colors duration-500 ${
-            scrolled ? "text-slate-900" : "text-white"
-          }`}
-        >
+        <span className="text-[11px] font-semibold tracking-[0.08em] text-black">
           HOME INSPECTIONS
         </span>
       </span>
@@ -130,77 +119,54 @@ function Navbar() {
       }`}
     >
       <nav
-        className={`mx-auto grid w-full max-w-7xl shrink-0 grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center px-5 transition-all duration-500 sm:px-8 lg:px-10 ${
-          scrolled ? "py-3" : "py-5"
-        }`}
+        className="mx-auto grid w-full max-w-7xl shrink-0 grid-cols-[auto_1fr_auto] items-center px-5 py-4 sm:px-8 lg:px-10"
       >
         {/* LEFT — Logo */}
         <div className="col-start-1 flex items-center justify-start">
           <NavLink to="/" aria-label="SA Elite Home Inspection home">
-            <Logo scrolled={scrolled} />
+            <Logo />
           </NavLink>
         </div>
 
-        {/* CENTER — Navigation */}
-        {/* CENTER — Navigation */}
-        <ul className="col-start-2 hidden items-center justify-center gap-8 md:flex">
+        {/* Navigation — centred in the viewport */}
+        <ul className="col-start-2 hidden items-center justify-center gap-7 lg:flex">
           {links.map((link) => (
             <li key={link.to}>
               <NavLink
                 to={link.to}
                 end={link.to === "/"}
                 className={({ isActive }) =>
-                  `group relative flex items-center py-2 text-[13px] font-semibold tracking-[0.01em] transition-colors duration-500 ${
-                    scrolled
-                      ? isActive
-                        ? "text-slate-900"
-                        : "text-slate-600 hover:text-slate-900"
-                      : isActive
-                        ? "text-white"
-                        : "text-white/80 hover:text-white"
+                  `flex items-center py-2 text-[15px] font-semibold tracking-[0.01em] transition-colors duration-200 ${
+                    isActive ? "text-black" : "text-black/55 hover:text-black"
                   }`
                 }
               >
-                {({ isActive }) => (
-                  <>
-                    <span>{link.label}</span>
-
-                    <span
-                      className={`absolute -bottom-0.5 left-0 h-[2px] rounded-full transition-all duration-300 ease-out ${
-                        scrolled ? "bg-slate-700" : "bg-white"
-                      } ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
-                    />
-                  </>
-                )}
+                {link.label}
               </NavLink>
             </li>
           ))}
         </ul>
 
         {/* RIGHT — CTA */}
-        <div className="col-start-3 hidden items-center justify-end md:flex">
+        <div className="col-start-3 hidden items-center justify-end lg:flex">
           <NavLink
             to="/contact"
-            className="group flex items-center gap-2 rounded-full bg-slate-800 px-4 py-2.5 text-[13px] font-semibold text-white shadow-[0_5px_16px_rgba(15,23,42,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-900 hover:shadow-[0_8px_20px_rgba(15,23,42,0.16)]"
+            className="rounded-[3px] border border-black bg-black px-4 py-2.5 text-[13px] font-semibold tracking-[0.01em] text-white transition-colors duration-500 ease-in-out hover:bg-black/80"
           >
-            <span>Book Inspection</span>
-
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/10 transition-transform duration-300 group-hover:translate-x-0.5">
-              <ArrowUpRight size={13} strokeWidth={2.5} />
-            </span>
+            Book an Inspection
           </NavLink>
         </div>
 
         {/* MOBILE MENU BUTTON */}
-        <div className="col-start-3 flex justify-end md:hidden">
+        <div className="col-start-3 flex justify-end lg:hidden">
           <button
             type="button"
-            className={`relative z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 ${
+            className={`relative z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-500 ease-in-out ${
               open
-                ? "border-slate-700 bg-slate-800 text-white"
+                ? "border-black bg-black text-white"
                 : scrolled
-                  ? "border-white/70 bg-white/40 text-slate-700 backdrop-blur-md"
-                  : "border-slate-300/70 bg-white/20 text-slate-700 backdrop-blur-sm"
+                  ? "border-white/70 bg-white/40 text-black backdrop-blur-md"
+                  : "border-black/30 bg-white/20 text-black backdrop-blur-sm"
             }`}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
@@ -275,7 +241,7 @@ function Navbar() {
               duration: 0.25,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="flex-1 overflow-y-auto border-t border-hairline bg-white md:hidden"
+            className="flex-1 overflow-y-auto border-t border-hairline bg-white lg:hidden"
           >
             <motion.ul
               variants={menuVariants}
@@ -288,14 +254,14 @@ function Navbar() {
                 <motion.li
                   key={link.to}
                   variants={itemVariants}
-                  className="border-b border-slate-200/70 last:border-0"
+                  className="border-b border-black/10 last:border-0"
                 >
                   <NavLink
                     to={link.to}
                     end={link.to === "/"}
                     className={({ isActive }) =>
                       `flex items-center justify-between py-4 text-[15px] font-semibold transition-colors ${
-                        isActive ? "text-slate-900" : "text-slate-600"
+                        isActive ? "text-black" : "text-black/55"
                       }`
                     }
                   >
@@ -304,7 +270,7 @@ function Navbar() {
                         <span>{link.label}</span>
 
                         <span
-                          className={`h-1.5 w-1.5 rounded-full bg-slate-700 transition-opacity ${
+                          className={`h-1.5 w-1.5 rounded-full bg-black transition-opacity ${
                             isActive ? "opacity-100" : "opacity-0"
                           }`}
                         />
@@ -317,15 +283,9 @@ function Navbar() {
               <motion.li variants={itemVariants} className="mt-auto pb-5 pt-5">
                 <NavLink
                   to="/contact"
-                  className="group flex w-full items-center justify-center gap-2 rounded-full bg-slate-800 px-5 py-3 text-sm font-semibold text-white shadow-[0_6px_18px_rgba(15,23,42,0.12)] transition-all duration-300 hover:bg-slate-900"
+                  className="flex w-full items-center justify-center rounded-[3px] bg-black px-5 py-3.5 text-sm font-semibold text-white transition-all duration-500 ease-in-out hover:-translate-y-0.5 hover:bg-black/85 hover:shadow-cta active:translate-y-0 active:duration-150"
                 >
-                  <span>Book Inspection</span>
-
-                  <ArrowUpRight
-                    size={16}
-                    strokeWidth={2.4}
-                    className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  />
+                  Book an Inspection
                 </NavLink>
               </motion.li>
             </motion.ul>

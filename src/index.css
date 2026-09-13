@@ -16,8 +16,13 @@
   --color-verified: #123499;
   --color-verified-light: #a9bdf5;
 
+  /* Home hero — warm off-white ground + charcoal drawn from the brand mark */
+  --color-canvas: #f5f4f1;
+  --color-charcoal: #1f2733;
+
   /* Typography */
   --font-sans: "Urbanist", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Newsreader", ui-serif, Georgia, "Times New Roman", serif;
   --font-surfer: "Original Surfer", cursive;
 }
 

@@ -1,40 +1,9 @@
-import { ShieldCheck, Clock, FileCheck, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Reveal from "../components/Reveal";
 import SectionEyebrow from "../components/SectionEyebrow";
 import Button from "../components/Button";
-import StatBlock from "../components/StatBlock";
-import InspectionCard from "../components/InspectionCard";
-import BlobShape from "../components/BlobShape";
 import FaqItem from "../components/FaqItem";
-import heroImage from "../assets/hero.png";
-
-const highlights = [
-  {
-    icon: ShieldCheck,
-    title: "Certified Inspectors",
-    description: "Licensed, experienced inspectors who know what to look for.",
-    tone: "ink",
-  },
-  {
-    icon: Clock,
-    title: "Same-Week Availability",
-    description: "Flexible scheduling so you never miss a closing deadline.",
-    tone: "paper",
-  },
-  {
-    icon: FileCheck,
-    title: "Detailed Digital Reports",
-    description: "Clear, photo-backed reports delivered within 24 hours.",
-    tone: "paper",
-  },
-];
-
-const stats = [
-  { label: "Homes Inspected", value: "1,200+" },
-  { label: "Years of Experience", value: "15+" },
-  { label: "Client Satisfaction", value: "98%" },
-  { label: "Avg. Report Turnaround", value: "24 hrs" },
-];
+import Hero from "../components/Hero";
 
 const steps = [
   {
@@ -116,65 +85,7 @@ const faqs = [
 function Home() {
   return (
     <div>
-      {/* Hero Section */}
-      <section className="relative min-h-[760px] overflow-hidden border-b border-hairline sm:min-h-[820px] lg:min-h-[880px]">
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-[center_38%]"
-          style={{
-            backgroundImage: `url(${heroImage})`,
-          }}
-          aria-hidden="true"
-        />
-
-        {/* Hero Content */}
-        <div className="relative mx-auto flex max-w-6xl justify-start px-4 pb-16 pt-32 sm:px-6 sm:pt-36 lg:pt-40">
-          <div className="mx-auto flex max-w-3xl flex-col items-center text-center gap-4">
-            <Reveal index={0}>
-              <SectionEyebrow>PROFESSIONAL HOME INSPECTIONS</SectionEyebrow>
-            </Reveal>
-
-            <Reveal index={1}>
-              <h1 className="max-w-2xl text-4xl leading-[1.05] text-white sm:text-6xl lg:text-7xl">
-                See Beyond the{" "}
-                <em className="font-surfer text-accent-light">Surface</em>
-              </h1>
-            </Reveal>
-
-            <Reveal index={2}>
-              <p className="max-w-xl text-base leading-relaxed text-white">
-                Thorough, honest home inspections that help you make informed
-                decisions — whether you're buying, selling, or maintaining your
-                home.
-              </p>
-            </Reveal>
-
-            <Reveal index={3} className="flex flex-wrap justify-center gap-4">
-              <Button to="/contact" variant="primary" icon={ArrowRight}>
-                Schedule an Inspection
-              </Button>
-
-              <Button to="/services" variant="secondary">
-                View Services
-              </Button>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-      
-      {/* Stats */}
-      <section className="border-y border-hairline bg-surface/60">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-4 py-14 sm:px-6 md:grid-cols-4">
-          {stats.map((stat, i) => (
-            <StatBlock
-              key={stat.label}
-              value={stat.value}
-              label={stat.label}
-              index={i}
-            />
-          ))}
-        </div>
-      </section>
+      <Hero />
 
       {/* Why Choose Us */}
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
