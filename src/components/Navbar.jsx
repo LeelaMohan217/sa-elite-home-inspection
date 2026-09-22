@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import logo from "../assets/Logo.svg";
+import logo from "../assets/Logo-full.png";
 
 const links = [
   { to: "/", label: "Home" },
@@ -54,22 +54,13 @@ const itemVariants = {
 
 function Logo() {
   return (
-    <span className="group flex items-center gap-2.5">
-      <img
-        src={logo}
-        alt="AKSHARA Elite Home Inspection"
-        className="h-[33.75px] w-[33.75px] object-contain transition-transform duration-300 group-hover:scale-[1.03]"
-      />
-
-      <span className="flex flex-col leading-tight">
-        <span className="text-sm font-extrabold tracking-[0.02em] text-ink">
-          AKSHARA ELITE
-        </span>
-        <span className="text-[11px] font-semibold tracking-[0.08em] text-ink">
-          HOME INSPECTIONS
-        </span>
-      </span>
-    </span>
+    <img
+      src={logo}
+      alt="AKSHARA Elite Home Inspections"
+      width={641}
+      height={108}
+      className="h-8 w-auto object-contain transition-transform duration-300 hover:scale-[1.03] sm:h-9"
+    />
   );
 }
 
