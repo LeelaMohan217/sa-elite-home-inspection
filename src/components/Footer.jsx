@@ -28,8 +28,6 @@ function FooterHeading({ children }) {
 }
 
 function Footer() {
-  const year = new Date().getFullYear()
-
   return (
     <footer className="bg-ink text-paper">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 pt-16 pb-12 sm:grid-cols-2 sm:gap-x-10 sm:px-8 sm:pt-20 lg:grid-cols-12 lg:px-10">
@@ -107,7 +105,7 @@ function Footer() {
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <div className="flex flex-col gap-2 border-t border-paper/10 py-6 text-sm text-paper/45 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {year} AKSHARA Elite Home Inspections. All rights reserved.</p>
+          <p>© 2025 AKSHARA Elite Home Inspections. All rights reserved.</p>
           <p>Hyderabad, India</p>
         </div>
       </div>
