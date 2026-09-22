@@ -12,10 +12,26 @@ export const hero = {
 };
 
 export const trustBadges = [
-  { icon: ShieldCheck, label: "Licensed & Insured" },
-  { icon: Award, label: "Certified Professionals" },
-  { icon: UserCheck, label: "Background-Checked Inspectors" },
-  { icon: Clock, label: "On-Time, Every Time" },
+  {
+    icon: ShieldCheck,
+    label: "Licensed & Insured",
+    description: "Every inspection is carried out by a licensed, insured professional.",
+  },
+  {
+    icon: Award,
+    label: "Certified Professionals",
+    description: "Trained to assess structure, electrical, plumbing and roofing.",
+  },
+  {
+    icon: UserCheck,
+    label: "Background-Checked Inspectors",
+    description: "Every inspector is verified before they enter your home.",
+  },
+  {
+    icon: Clock,
+    label: "On-Time, Every Time",
+    description: "We arrive when we say we will, with your report within 24 hours.",
+  },
 ];
 
 export const inspectorCredentials = [

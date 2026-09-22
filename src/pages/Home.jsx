@@ -62,27 +62,35 @@ function Home() {
       </section> */}
 
       {/* Trust Badges */}
-      <section className="mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:px-10">
-        <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
+      <section className="mx-auto max-w-7xl px-5 pt-4 sm:px-8 sm:pt-8 lg:px-10">
+        <ul className="grid grid-cols-1 gap-px overflow-hidden border-y border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
           {trustBadges.map((badge, i) => (
             <Reveal
+              as="li"
               key={badge.label}
               index={i}
-              className="flex flex-col items-center gap-3 rounded-2xl border border-hairline bg-paper p-6 text-center shadow-elevate"
+              className="flex gap-4 bg-paper py-7 sm:flex-col sm:gap-5 sm:px-7 sm:py-9 lg:first:pl-0 lg:last:pr-0"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-accent/10">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-hairline">
                 <badge.icon
-                  size={20}
-                  className="text-accent-vivid"
+                  size={18}
+                  strokeWidth={1.75}
+                  className="text-ink"
                   aria-hidden="true"
                 />
               </span>
-              <span className="text-sm font-semibold text-ink">
-                {badge.label}
+
+              <span className="flex flex-col gap-1.5 pt-2 sm:pt-0">
+                <span className="text-[15px] font-medium tracking-tight text-ink">
+                  {badge.label}
+                </span>
+                <span className="text-sm leading-relaxed text-stone">
+                  {badge.description}
+                </span>
               </span>
             </Reveal>
           ))}
-        </div>
+        </ul>
       </section>
 
       {/* Why Choose Us */}
