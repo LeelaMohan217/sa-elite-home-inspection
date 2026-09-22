@@ -2,7 +2,7 @@
 
 @theme {
   /* Palette — warm monochrome with one restrained accent. See DESIGN.md. */
-  --color-ink: #111110; /* primary text, primary buttons, logo */
+  --color-ink: #000000; /* primary text, primary buttons, logo */
   --color-ink-800: #2b2a27; /* hover state for ink surfaces */
   --color-paper: #fafaf8; /* page background */
   --color-surface: #f2f1ed; /* cards, alternating sections */

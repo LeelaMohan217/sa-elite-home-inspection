@@ -248,7 +248,7 @@ function Home() {
               className="absolute top-2.5 right-0 bottom-0 left-2.5 rounded-2xl border border-hairline bg-paper sm:top-4 sm:left-4"
             />
 
-            <div className="relative rounded-2xl border border-hairline bg-paper p-5 shadow-[0_30px_60px_-30px_rgba(17,17,16,0.18)] sm:p-8">
+            <div className="relative rounded-2xl border border-hairline bg-paper p-5 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.18)] sm:p-8">
               <div className="flex items-center justify-between gap-4">
                 <span className="flex items-center gap-2.5">
                   <img src={logoMark} alt="" className="h-5 w-5" />

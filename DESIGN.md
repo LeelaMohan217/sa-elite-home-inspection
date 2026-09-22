@@ -23,7 +23,7 @@ accent is used sparingly.
 
 | Token | Hex | Use |
 | --- | --- | --- |
-| `ink` | `#111110` | Text, primary buttons, logo |
+| `ink` | `#000000` | Text, primary buttons, logo, footer and dark bands |
 | `ink-800` | `#2b2a27` | Hover on ink surfaces |
 | `paper` | `#fafaf8` | Page background |
 | `surface` | `#f2f1ed` | Cards, alternating sections |
