@@ -105,7 +105,7 @@ function Navbar() {
         open
           ? "border-hairline bg-paper"
           : scrolled
-            ? "border-paper/60 bg-paper/70 shadow-[0_8px_30px_rgba(15,23,42,0.08)] backdrop-blur-xl backdrop-saturate-150"
+            ? "border-hairline bg-paper shadow-[0_8px_30px_rgba(17,17,16,0.06)]"
             : "border-transparent bg-transparent"
       }`}
     >

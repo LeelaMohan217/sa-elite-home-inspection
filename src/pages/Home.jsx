@@ -560,37 +560,56 @@ function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10">
-        <SectionEyebrow>Client Stories</SectionEyebrow>
+      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
+        <Reveal>
+          <SectionEyebrow>
+            <span className="h-px w-6 bg-stone/60" aria-hidden="true" />
+            Client stories
+          </SectionEyebrow>
 
-        <h2 className="mt-3 text-3xl text-ink sm:text-5xl">
-          What our clients say.
-        </h2>
+          <h2 className="mt-5 text-balance text-h2 text-ink">
+            What our clients{" "}
+            <span className="font-serif font-normal italic tracking-[-0.01em] text-accent">
+              say.
+            </span>
+          </h2>
+        </Reveal>
 
-        <div className="mt-10 grid gap-10 md:grid-cols-3">
-          {testimonials.map((testimonial, i) => (
-            <Reveal
-              key={testimonial.author}
-              index={i}
-              className="relative border-hairline pl-6"
-            >
-              <span
-                className="pointer-events-none absolute -left-2 -top-4 text-6xl font-black text-ink/10"
-                aria-hidden="true"
-              >
-                "
-              </span>
+        <ul className="mt-12 grid gap-4 sm:mt-14 lg:grid-cols-3 lg:gap-5">
+          {testimonials.map((testimonial, i) => {
+            const [name, role] = testimonial.author.split(", ");
+            const initials = name
+              .split(" ")
+              .map((part) => part[0])
+              .join("");
 
-              <blockquote className="text-sm leading-relaxed text-ink/80">
-                "{testimonial.quote}"
-              </blockquote>
+            return (
+              <Reveal as="li" key={testimonial.author} index={i}>
+                <figure className="flex h-full flex-col rounded-2xl border border-hairline bg-paper p-6 sm:p-8">
+                  <span className="flex gap-0.5 text-ink" aria-label="Rated 5 out of 5">
+                    {Array.from({ length: 5 }).map((_, star) => (
+                      <Star key={star} size={14} fill="currentColor" strokeWidth={0} aria-hidden="true" />
+                    ))}
+                  </span>
 
-              <figcaption className="mt-4 text-xs font-bold uppercase tracking-[0.08em] text-ink/60">
-                {testimonial.author}
-              </figcaption>
-            </Reveal>
-          ))}
-        </div>
+                  <blockquote className="mt-5 flex-1 text-pretty text-[17px] leading-relaxed text-ink">
+                    {testimonial.quote}
+                  </blockquote>
+
+                  <figcaption className="mt-8 flex items-center gap-3 border-t border-hairline pt-5">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface text-xs font-medium text-ink">
+                      {initials}
+                    </span>
+                    <span className="flex flex-col">
+                      <span className="text-sm font-medium text-ink">{name}</span>
+                      {role && <span className="text-sm text-stone">{role}</span>}
+                    </span>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            );
+          })}
+        </ul>
       </section>
 
       {/* FAQ */}
