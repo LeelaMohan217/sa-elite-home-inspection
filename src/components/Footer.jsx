@@ -1,59 +1,115 @@
-import { Phone, Mail, MapPin, Clock } from 'lucide-react'
-import Reveal from './Reveal'
-import BlobShape from './BlobShape'
+import { Link } from 'react-router-dom'
+import { Phone, Mail, MapPin } from 'lucide-react'
+import logo from '../assets/Logo-full-light.png'
+
+const links = [
+  { to: '/', label: 'Home' },
+  { to: '/about', label: 'About' },
+  { to: '/services', label: 'Services' },
+  { to: '/prices', label: 'Prices' },
+  { to: '/contact', label: 'Contact' },
+]
+
+const contact = {
+  phone: '+91 98765 43210',
+  email: 'info@saelitehomeinspection.com',
+  area: 'Serving Hyderabad and surrounding areas',
+}
+
+const hours = [
+  { days: 'Mon – Sat', time: '7:00 AM – 7:00 PM' },
+  { days: 'Sunday', time: 'By appointment' },
+]
+
+function FooterHeading({ children }) {
+  return (
+    <p className="text-eyebrow font-medium uppercase text-paper/45">{children}</p>
+  )
+}
 
 function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="relative overflow-hidden border-t border-hairline-dark bg-ink text-paper/80">
-
-      <Reveal className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-3">
-        <div>
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-paper text-xs font-extrabold tracking-wide text-paper">
-            AE
-          </span>
-          <p className="mt-4 text-xl font-extrabold italic text-paper">Akshara Elite Home Inspection</p>
-          <p className="mt-2 text-sm text-paper/60">
+    <footer className="bg-ink text-paper">
+      <div className="mx-auto grid max-w-7xl gap-12 px-5 pt-16 pb-12 sm:grid-cols-2 sm:gap-x-10 sm:px-8 sm:pt-20 lg:grid-cols-12 lg:px-10">
+        <div className="lg:col-span-3">
+          <Link to="/" aria-label="AKSHARA Elite Home Inspections home" className="inline-block">
+            <img
+              src={logo}
+              alt="AKSHARA Elite Home Inspections"
+              width={641}
+              height={108}
+              className="h-9 w-auto"
+            />
+          </Link>
+          <p className="mt-6 max-w-xs text-[15px] leading-relaxed text-paper/60">
             Thorough, honest home inspections you can rely on before you buy or sell.
           </p>
         </div>
 
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-paper">Contact</p>
-          <ul className="mt-4 space-y-3 text-sm text-paper/70">
-            <li className="flex items-center gap-3">
-              <Phone size={16} className="shrink-0 text-paper" aria-hidden="true" />
-              +91 98765 43210
+        <nav aria-label="Footer" className="lg:col-span-2">
+          <FooterHeading>Explore</FooterHeading>
+          <ul className="mt-5 grid grid-cols-2 gap-x-6 gap-y-3 text-[15px] lg:grid-cols-1">
+            {links.map((link) => (
+              <li key={link.to}>
+                <Link
+                  to={link.to}
+                  className="text-paper/70 transition-colors duration-200 hover:text-paper"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="lg:col-span-4">
+          <FooterHeading>Contact</FooterHeading>
+          <ul className="mt-5 space-y-3 text-[15px] text-paper/70">
+            <li>
+              <a
+                href={`tel:${contact.phone.replace(/\s/g, '')}`}
+                className="inline-flex items-center gap-3 transition-colors duration-200 hover:text-paper"
+              >
+                <Phone size={15} strokeWidth={1.75} className="shrink-0 text-paper/45" aria-hidden="true" />
+                {contact.phone}
+              </a>
             </li>
-            <li className="flex items-center gap-3">
-              <Mail size={16} className="shrink-0 text-paper" aria-hidden="true" />
-              info@saelitehomeinspection.com
+            <li>
+              <a
+                href={`mailto:${contact.email}`}
+                className="inline-flex items-center gap-3 [overflow-wrap:anywhere] transition-colors duration-200 hover:text-paper"
+              >
+                <Mail size={15} strokeWidth={1.75} className="shrink-0 text-paper/45" aria-hidden="true" />
+                {contact.email}
+              </a>
             </li>
-            <li className="flex items-center gap-3">
-              <MapPin size={16} className="shrink-0 text-paper" aria-hidden="true" />
-              Serving Hyderabad and surrounding areas
+            <li className="flex items-start gap-3">
+              <MapPin size={15} strokeWidth={1.75} className="mt-1 shrink-0 text-paper/45" aria-hidden="true" />
+              {contact.area}
             </li>
           </ul>
         </div>
 
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-paper">Hours</p>
-          <ul className="mt-4 space-y-3 text-sm text-paper/70">
-            <li className="flex items-center gap-3">
-              <Clock size={16} className="shrink-0 text-paper" aria-hidden="true" />
-              Mon - Sat: 7:00 AM - 7:00 PM
-            </li>
-            <li className="flex items-center gap-3">
-              <Clock size={16} className="shrink-0 text-paper" aria-hidden="true" />
-              Sunday: By appointment
-            </li>
-          </ul>
+        <div className="lg:col-span-3">
+          <FooterHeading>Hours</FooterHeading>
+          <dl className="mt-5 space-y-3 text-[15px]">
+            {hours.map((row) => (
+              <div key={row.days} className="flex justify-between gap-6 border-b border-paper/10 pb-3">
+                <dt className="whitespace-nowrap text-paper/70">{row.days}</dt>
+                <dd className="whitespace-nowrap text-paper">{row.time}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
-      </Reveal>
+      </div>
 
-      <div className="relative border-t border-hairline-dark py-4 text-center text-xs font-semibold uppercase tracking-[0.12em] text-paper/40">
-        © {year} AKSHARA Elite Home Inspection. All rights reserved.
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+        <div className="flex flex-col gap-2 border-t border-paper/10 py-6 text-sm text-paper/45 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {year} AKSHARA Elite Home Inspections. All rights reserved.</p>
+          <p>Hyderabad, India</p>
+        </div>
       </div>
     </footer>
   )
