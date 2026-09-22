@@ -51,6 +51,28 @@ export const serviceAreas = [
   "Miyapur",
 ];
 
+export const serviceAreaIntro = "We inspect flats, villas, and independent houses across Hyderabad and the surrounding areas, working with homebuyers, sellers, real estate agents, and builders alike.";
+
+// Longer "about the company" copy shown under the service area.
+export const aboutBlocks = [
+  {
+    title: "Who we are",
+    body: "AKSHARA Elite Home Inspection is a locally owned inspection company built on trust, training, and attention to detail. We were founded with a simple belief: that every homebuyer and seller in Hyderabad deserves an honest, detailed picture of a property's condition before any decision is made. Unlike inspectors who rush through a walkthrough with a generic checklist, our team takes the time to understand the specific construction style, age, and quirks of each property, so nothing gets overlooked. We've worked with first-time buyers navigating their very first purchase, seasoned investors comparing multiple properties, and sellers who want a clear record of a home's condition before it goes on the market.",
+  },
+  {
+    title: "How it works",
+    body: "Our process is designed to be simple and transparent from start to finish. You can book online or by phone, and we'll confirm a time that works for you, usually within minutes. On the day of the inspection, a licensed professional walks the entire property in person — roof to foundation — documenting everything with photos rather than vague notes. Within 24 hours, you'll receive a clear, easy-to-read digital report that explains exactly what was found and what it means for you. If anything in the report needs further explanation, you can call us directly and talk it through with the inspector who was actually on site, not a call center reading from a script.",
+  },
+  {
+    title: "What we check",
+    body: "Every inspection covers the systems that matter most: structural integrity, electrical wiring and panels, plumbing, and safety features, along with a dedicated dampness and moisture check that's especially important during Hyderabad's monsoon season. Whether you're buying a compact 1BHK flat, a spacious villa, or evaluating a property mid-construction, we tailor the inspection checklist to match the property type so you're never paying for checks that don't apply to your home. For under-construction properties, we also offer multi-stage inspections timed to key milestones, so structural issues are caught while they're still easy and affordable to fix.",
+  },
+  {
+    title: "Our independence",
+    body: "Our inspectors are licensed, background-checked, and continually trained on the latest building codes and safety standards, so you can trust the findings in every report. We never upsell repairs or push you toward contractors we have a relationship with — our only job is to report exactly what we find, so you can negotiate, plan, or walk away with complete confidence in your decision. That independence is the whole point: a report is only useful if you can trust that it wasn't written to sell you something, and we take that seriously on every single job we take on, large or small.",
+  },
+];
+
 export const highlights = [
   "Certified, background-checked inspectors",
   "Digital reports with photos within 24 hours",

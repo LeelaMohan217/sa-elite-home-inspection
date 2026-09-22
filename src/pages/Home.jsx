@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import {
   ArrowRight,
   ArrowUpRight,
+  MapPin,
   Check,
   AlertTriangle,
   ShieldCheck,
@@ -14,7 +15,6 @@ import Button from "../components/Button";
 import FaqItem from "../components/FaqItem";
 import Hero from "../components/Hero";
 import StatBlock from "../components/StatBlock";
-import Tag from "../components/Tag";
 import aboutImage from "../assets/hero.png";
 import inspectorImage from "../assets/hero.png";
 import logoMark from "../assets/favicon.svg";
@@ -23,6 +23,8 @@ import {
   trustBadges,
   inspectorCredentials,
   serviceAreas,
+  serviceAreaIntro,
+  aboutBlocks,
   highlights,
   stats,
   reportItems,
@@ -455,91 +457,59 @@ function Home() {
       </section>
 
       {/* Service Area */}
-      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10">
-        <div className="mx-auto max-w-2xl text-center">
-          <SectionEyebrow className="justify-center">Service Area</SectionEyebrow>
+      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-10">
+          <Reveal className="lg:col-span-6">
+            <SectionEyebrow>
+              <span className="h-px w-6 bg-stone/60" aria-hidden="true" />
+              Service area
+            </SectionEyebrow>
 
-          <h2 className="mt-3 text-3xl text-ink sm:text-4xl md:text-5xl">
-            Wherever you are in Hyderabad, we've got you covered.
-          </h2>
+            <h2 className="mt-5 text-balance text-h2 text-ink">
+              Wherever you are in{" "}
+              <span className="font-serif font-normal italic tracking-[-0.01em] text-accent">
+                Hyderabad,
+              </span>{" "}
+              we've got you covered.
+            </h2>
+          </Reveal>
+
+          <Reveal index={1} className="max-w-xl lg:col-span-5 lg:col-start-8 lg:pt-10">
+            <p className="text-pretty text-lead text-stone">{serviceAreaIntro}</p>
+
+            <ul className="mt-7 flex flex-wrap gap-2">
+              {serviceAreas.map((area) => (
+                <li
+                  key={area}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-paper px-3.5 py-2 text-sm text-ink"
+                >
+                  <MapPin size={13} strokeWidth={1.75} className="text-stone" aria-hidden="true" />
+                  {area}
+                </li>
+              ))}
+            </ul>
+
+            <p className="mt-6 text-sm text-stone">
+              Don't see your area?{" "}
+              <Link
+                to="/contact"
+                className="font-medium text-ink underline decoration-hairline underline-offset-4 transition-colors hover:decoration-ink"
+              >
+                Ask us about availability
+              </Link>
+              .
+            </p>
+          </Reveal>
         </div>
 
-        <div className="mt-6 space-y-4 text-ink/70">
-          <p>
-            AKSHARA Elite Home Inspection is a locally owned inspection
-            company built on trust, training, and attention to detail. We
-            were founded with a simple belief: that every homebuyer and
-            seller in Hyderabad deserves an honest, detailed picture of a
-            property's condition before any decision is made. Unlike
-            inspectors who rush through a walkthrough with a generic
-            checklist, our team takes the time to understand the specific
-            construction style, age, and quirks of each property, so
-            nothing gets overlooked. We've worked with first-time buyers
-            navigating their very first purchase, seasoned investors
-            comparing multiple properties, and sellers who want a clear
-            record of a home's condition before it goes on the market.
-          </p>
-
-          <p>
-            Our process is designed to be simple and transparent from start
-            to finish. You can book online or by phone, and we'll confirm a
-            time that works for you, usually within minutes. On the day of
-            the inspection, a licensed professional walks the entire
-            property in person — roof to foundation — documenting
-            everything with photos rather than vague notes. Within 24
-            hours, you'll receive a clear, easy-to-read digital report that
-            explains exactly what was found and what it means for you. If
-            anything in the report needs further explanation, you can call
-            us directly and talk it through with the inspector who was
-            actually on site, not a call center reading from a script.
-          </p>
-
-          <p>
-            Every inspection covers the systems that matter most:
-            structural integrity, electrical wiring and panels, plumbing,
-            and safety features, along with a dedicated dampness and
-            moisture check that's especially important during Hyderabad's
-            monsoon season. Whether you're buying a compact 1BHK flat, a
-            spacious villa, or evaluating a property mid-construction, we
-            tailor the inspection checklist to match the property type so
-            you're never paying for checks that don't apply to your home.
-            For under-construction properties, we also offer multi-stage
-            inspections timed to key milestones, so structural issues are
-            caught while they're still easy and affordable to fix.
-          </p>
-
-          <p>
-            Our inspectors are licensed, background-checked, and
-            continually trained on the latest building codes and safety
-            standards, so you can trust the findings in every report. We
-            never upsell repairs or push you toward contractors we have a
-            relationship with — our only job is to report exactly what we
-            find, so you can negotiate, plan, or walk away with complete
-            confidence in your decision. That independence is the whole
-            point: a report is only useful if you can trust that it wasn't
-            written to sell you something, and we take that seriously on
-            every single job we take on, large or small.
-          </p>
-
-          <p>
-            We inspect flats, villas, and independent houses across
-            Hyderabad and the surrounding areas, working with homebuyers,
-            sellers, real estate agents, and builders alike. Below are some
-            of the neighborhoods we serve on a regular basis, but this list
-            isn't exhaustive — if you don't see your area listed, reach out
-            and we'll be happy to confirm availability and scheduling for
-            your specific location. As we grow, we're continually adding
-            coverage to nearby townships and gated communities as well, so
-            it's always worth asking even if you're just outside the areas
-            listed here.
-          </p>
-        </div>
-
-        <div className="mt-8 flex flex-wrap gap-3">
-          {serviceAreas.map((area) => (
-            <Tag key={area} tone="outline">
-              {area}
-            </Tag>
+        <div className="mt-16 grid gap-x-10 gap-y-10 sm:mt-20 md:grid-cols-2">
+          {aboutBlocks.map((block, i) => (
+            <Reveal key={block.title} index={i % 2} className="border-t border-hairline pt-6">
+              <h3 className="text-h3 text-ink">{block.title}</h3>
+              <p className="mt-3 text-pretty text-[15px] leading-relaxed text-stone">
+                {block.body}
+              </p>
+            </Reveal>
           ))}
         </div>
       </section>
