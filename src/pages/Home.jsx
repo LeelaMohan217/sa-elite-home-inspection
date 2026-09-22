@@ -658,62 +658,56 @@ function Home() {
         </div>
       </section>
 
-      {/* Guarantee */}
-      <section className="border-t border-hairline">
-        <Reveal className="mx-auto flex max-w-7xl flex-col items-center gap-3 px-5 py-14 text-center sm:px-8 sm:flex-row sm:gap-5 sm:text-left lg:px-10">
-          <ShieldCheck
-            size={32}
-            strokeWidth={1.5}
-            className="shrink-0 text-accent-vivid"
+      {/* CTA + promise */}
+      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
+        <Reveal className="relative isolate overflow-hidden rounded-3xl bg-ink px-6 py-16 text-center text-paper sm:px-12 sm:py-24">
+          {/* Same faint grid as the hero, in reverse */}
+          <div
             aria-hidden="true"
+            className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgb(250_250_248/0.07)_1px,transparent_1px),linear-gradient(to_bottom,rgb(250_250_248/0.07)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_45%,black_20%,transparent_75%)]"
           />
-          <p className="text-ink/70">
-            <span className="font-bold text-ink">Our Promise:</span> if anything
-            in your report isn't clear, we'll walk through the findings with you
-            again — at no extra charge.
+
+          <SectionEyebrow tone="dark" className="justify-center text-paper/55">
+            <span className="h-px w-6 bg-paper/30" aria-hidden="true" />
+            Ready when you are
+            <span className="h-px w-6 bg-paper/30" aria-hidden="true" />
+          </SectionEyebrow>
+
+          <h2 className="mx-auto mt-6 max-w-3xl text-balance text-h1 text-paper">
+            Ready to book your{" "}
+            <span className="font-serif font-normal italic tracking-[-0.01em] text-accent-light">
+              inspection?
+            </span>
+          </h2>
+
+          <p className="mx-auto mt-6 max-w-xl text-pretty text-lead text-paper/65">
+            Reach out today and we'll get you scheduled with one of our
+            certified inspectors.
+          </p>
+
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Button to="/contact" variant="invert" icon={ArrowRight} className="w-full sm:w-auto">
+              Book an Inspection
+            </Button>
+            <Button to="/prices" variant="outline" className="w-full sm:w-auto">
+              View Pricing
+            </Button>
+          </div>
+
+          <p className="mx-auto mt-12 flex max-w-xl items-start justify-center gap-3 border-t border-paper/10 pt-8 text-left text-sm leading-relaxed text-paper/60 sm:items-center">
+            <ShieldCheck
+              size={18}
+              strokeWidth={1.75}
+              className="mt-0.5 shrink-0 text-paper/80 sm:mt-0"
+              aria-hidden="true"
+            />
+            <span>
+              <span className="font-medium text-paper">Our promise:</span> if
+              anything in your report isn't clear, we'll walk through the
+              findings with you again, at no extra charge.
+            </span>
           </p>
         </Reveal>
-      </section>
-
-      {/* CTA */}
-      <section className="relative overflow-hidden bg-accent-dark">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 lg:px-10 md:grid-cols-2 md:items-center md:gap-14">
-          <Reveal>
-            <SectionEyebrow tone="dark">Ready When You Are</SectionEyebrow>
-
-            <h2 className="mt-3 text-3xl text-paper sm:text-4xl">
-              Ready to book your{" "}
-              <em className="text-accent-light not-italic">inspection</em>?
-            </h2>
-
-            <p className="mt-4 max-w-xl text-paper/70">
-              Reach out today and we'll get you scheduled with one of our
-              certified inspectors.
-            </p>
-
-            <Button
-              to="/contact"
-              variant="invert"
-              icon={ArrowRight}
-              className="mt-8"
-            >
-              Get in Touch
-            </Button>
-          </Reveal>
-
-          <Reveal
-            index={1}
-            className="relative aspect-[4/3] w-full overflow-hidden rounded-[3px]"
-          >
-            <img
-              src={inspectorImage}
-              alt="A certified inspector kneeling to examine the flooring in an empty room during a home inspection."
-              loading="lazy"
-              decoding="async"
-              className="h-full w-full object-cover object-[68%_35%] saturate-[0.85] contrast-[1.05]"
-            />
-          </Reveal>
-        </div>
       </section>
     </div>
   );

@@ -8,9 +8,9 @@ const BASE =
 const VARIANTS = {
   primary: 'bg-ink text-paper hover:bg-ink-800',
   secondary: 'border border-hairline bg-paper text-ink hover:border-ink/25',
-  invert: 'bg-paper text-ink hover:bg-accent-light',
+  invert: 'bg-paper text-ink hover:bg-paper/85',
   ghost: 'text-ink hover:text-accent',
-  outline: 'border border-paper/50 text-paper hover:bg-paper hover:text-ink',
+  outline: 'border border-paper/25 text-paper hover:border-paper/60',
 }
 
 function Button({
