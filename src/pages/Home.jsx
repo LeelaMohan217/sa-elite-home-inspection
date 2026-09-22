@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   ArrowRight,
+  ArrowUpRight,
   Check,
   AlertTriangle,
   ShieldCheck,
@@ -11,7 +13,6 @@ import SectionEyebrow from "../components/SectionEyebrow";
 import Button from "../components/Button";
 import FaqItem from "../components/FaqItem";
 import Hero from "../components/Hero";
-import InspectionCard from "../components/InspectionCard";
 import StatBlock from "../components/StatBlock";
 import Tag from "../components/Tag";
 import aboutImage from "../assets/hero.png";
@@ -382,37 +383,74 @@ function Home() {
       </section>
 
       {/* Popular Services */}
-      <section className="border-t border-hairline bg-surface/60 py-20 sm:py-24">
+      <section className="border-y border-hairline bg-surface py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div className="max-w-2xl">
-              <SectionEyebrow>Popular Services</SectionEyebrow>
+          <div className="flex items-end justify-between gap-6">
+            <Reveal className="max-w-2xl">
+              <SectionEyebrow>
+                <span className="h-px w-6 bg-stone/60" aria-hidden="true" />
+                Popular services
+              </SectionEyebrow>
 
-              <h2 className="mt-3 max-w-sm text-3xl text-ink sm:text-5xl">
-                Services tailored to every home.
+              <h2 className="mt-5 text-balance text-h2 text-ink">
+                Services tailored to every{" "}
+                <span className="font-serif font-normal italic tracking-[-0.01em] text-accent">
+                  home.
+                </span>
               </h2>
+            </Reveal>
+
+            <div className="hidden shrink-0 md:block">
+              <Button to="/services" variant="secondary" icon={ArrowRight}>
+                View all services
+              </Button>
             </div>
-
-            <Button to="/services" variant="ghost" icon={ArrowRight}>
-              View all services
-            </Button>
           </div>
 
-          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          <ul className="mt-12 grid gap-4 sm:mt-14 lg:grid-cols-3 lg:gap-5">
             {services.map((service, i) => (
-              <InspectionCard key={service.title} index={i}>
-                <service.icon
-                  size={22}
-                  className="text-accent-vivid"
-                  aria-hidden="true"
-                />
-                <h3 className="mt-4 font-bold text-ink">{service.title}</h3>
-                <p className="mt-2 text-sm text-ink/70">
-                  {service.description}
-                </p>
-              </InspectionCard>
+              <Reveal as="li" key={service.title} index={i}>
+                <Link
+                  to="/services"
+                  className="group flex h-full flex-col rounded-2xl border border-hairline bg-paper p-6 transition-colors duration-300 hover:border-ink/20 sm:p-8 md:grid md:grid-cols-[auto_1fr_auto] md:items-start md:gap-8 lg:flex lg:min-h-[21rem] lg:items-stretch lg:gap-0"
+                >
+                  <div className="flex items-start justify-between md:contents lg:flex">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline">
+                      <service.icon
+                        size={19}
+                        strokeWidth={1.75}
+                        className="text-ink"
+                        aria-hidden="true"
+                      />
+                    </span>
+
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-hairline text-ink transition-colors md:order-3 lg:order-none duration-300 group-hover:border-ink group-hover:bg-ink group-hover:text-paper">
+                      <ArrowUpRight size={16} strokeWidth={1.75} aria-hidden="true" />
+                    </span>
+                  </div>
+
+                  <div className="mt-10 md:order-2 md:mt-0 lg:order-none lg:mt-auto">
+                    <p className="text-sm tabular-nums text-stone">
+                      {String(i + 1).padStart(2, "0")}
+                    </p>
+                    <h3 className="mt-2 text-h3 text-ink">{service.title}</h3>
+                    <p className="mt-3 text-[15px] leading-relaxed text-stone">
+                      {service.description}
+                    </p>
+                  </div>
+                </Link>
+              </Reveal>
             ))}
-          </div>
+          </ul>
+
+          <Button
+            to="/services"
+            variant="secondary"
+            icon={ArrowRight}
+            className="mt-8 w-full md:hidden"
+          >
+            View all services
+          </Button>
         </div>
       </section>
 
