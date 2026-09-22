@@ -66,7 +66,11 @@ export const stats = [
 
 export const reportItems = [
   { label: "Roof & Exterior", status: "ok" },
-  { label: "Electrical System", status: "flagged" },
+  {
+    label: "Electrical System",
+    status: "flagged",
+    note: "Loose connection at the main panel. We recommend a licensed electrician review it before closing.",
+  },
   { label: "Plumbing", status: "ok" },
   { label: "HVAC", status: "ok" },
   { label: "Foundation & Structure", status: "ok" },

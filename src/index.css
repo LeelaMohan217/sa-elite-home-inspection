@@ -15,6 +15,8 @@
   --color-accent-vivid: #1f3a5f;
   --color-verified: #1f3a5f;
   --color-verified-light: #d6dde8;
+  --color-caution: #8a5a12; /* flagged findings only */
+  --color-caution-light: #f5ecda;
 
   /* Typography */
   --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;

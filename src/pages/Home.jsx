@@ -3,7 +3,6 @@ import {
   ArrowRight,
   Check,
   AlertTriangle,
-  FileText,
   ShieldCheck,
   Star,
 } from "lucide-react";
@@ -17,6 +16,7 @@ import StatBlock from "../components/StatBlock";
 import Tag from "../components/Tag";
 import aboutImage from "../assets/hero.png";
 import inspectorImage from "../assets/hero.png";
+import logoMark from "../assets/favicon.svg";
 import {
   hero,
   trustBadges,
@@ -206,80 +206,123 @@ function Home() {
       </section> */}
 
       {/* Sample Report */}
-      <section className="border-t border-hairline bg-surface/60 py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-          <div className="grid gap-10 md:grid-cols-2 md:items-center md:gap-14">
-            <Reveal>
-              <SectionEyebrow>The Deliverable</SectionEyebrow>
+      <section className="border-y border-hairline bg-surface py-16 sm:py-24">
+        <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-12 lg:items-center lg:gap-10 lg:px-10">
+          <Reveal className="max-w-2xl lg:col-span-5 lg:max-w-none">
+            <SectionEyebrow>
+              <span className="h-px w-6 bg-stone/60" aria-hidden="true" />
+              The deliverable
+            </SectionEyebrow>
 
-              <h2 className="mt-3 text-3xl text-ink sm:text-4xl md:text-5xl">
-                See exactly what you'll receive.
-              </h2>
+            <h2 className="mt-5 text-balance text-h2 text-ink">
+              See exactly what you'll{" "}
+              <span className="font-serif font-normal italic tracking-[-0.01em] text-accent">
+                receive.
+              </span>
+            </h2>
 
-              <p className="mt-6 text-ink/70">
-                Every inspection ends with a clear, photo-backed digital report,
-                not a checklist full of jargon. Each system is marked as good to
-                go or flagged for follow-up, with photos and plain-language
-                notes so you know exactly what it means.
-              </p>
+            <p className="mt-6 text-pretty text-lead text-stone">
+              Every inspection ends with a clear, photo-backed digital report,
+              not a checklist full of jargon. Each system is marked as good to
+              go or flagged for follow-up, with photos and plain-language notes
+              so you know exactly what it means.
+            </p>
 
-              <Button
-                to="/contact"
-                variant="secondary"
-                icon={ArrowRight}
-                className="mt-8"
-              >
-                Ask About Sample Reports
-              </Button>
-            </Reveal>
-
-            <Reveal
-              index={1}
-              className="overflow-hidden rounded-[3px] border border-ink/10 bg-paper shadow-elevate"
+            <Button
+              to="/contact"
+              variant="secondary"
+              icon={ArrowRight}
+              className="mt-9 w-full sm:w-fit"
             >
-              <div className="flex items-center gap-2.5 border-b border-hairline bg-surface/80 px-5 py-3.5">
-                <FileText
-                  size={16}
-                  className="shrink-0 text-ink/50"
-                  aria-hidden="true"
-                />
-                <span className="text-xs font-semibold text-ink/60">
-                  Inspection-Report.pdf
+              Ask About Sample Reports
+            </Button>
+          </Reveal>
+
+          {/* Mock report, with a second sheet peeking out behind it */}
+          <Reveal index={1} className="relative pr-2.5 pb-2.5 sm:pr-4 sm:pb-4 lg:col-span-6 lg:col-start-7">
+            <div
+              aria-hidden="true"
+              className="absolute top-2.5 right-0 bottom-0 left-2.5 rounded-2xl border border-hairline bg-paper sm:top-4 sm:left-4"
+            />
+
+            <div className="relative rounded-2xl border border-hairline bg-paper p-5 shadow-[0_30px_60px_-30px_rgba(17,17,16,0.18)] sm:p-8">
+              <div className="flex items-center justify-between gap-4">
+                <span className="flex items-center gap-2.5">
+                  <img src={logoMark} alt="" className="h-5 w-5" />
+                  <span className="text-[15px] font-medium tracking-tight text-ink">
+                    Inspection Report
+                  </span>
+                </span>
+                <span className="rounded-full border border-hairline px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.12em] text-stone">
+                  Sample
                 </span>
               </div>
 
-              <div className="p-6">
-                <p className="text-xs font-bold uppercase tracking-[0.1em] text-ink/40">
-                  Sample Property, Hyderabad
-                </p>
-                <p className="mt-1 text-sm text-ink/60">
-                  Sample report — for illustration only
-                </p>
+              <dl className="mt-6 grid grid-cols-2 gap-4 border-y border-hairline py-5 text-sm">
+                <div>
+                  <dt className="text-xs text-stone">Property</dt>
+                  <dd className="mt-1 font-medium text-ink">Sample home, Hyderabad</dd>
+                </div>
+                <div>
+                  <dt className="text-xs text-stone">Delivered</dt>
+                  <dd className="mt-1 font-medium text-ink">Within 24 hours</dd>
+                </div>
+              </dl>
 
-                <ul className="mt-6 divide-y divide-hairline">
+              <div className="mt-5">
+                <p className="flex items-baseline justify-between gap-4 text-sm">
+                  <span className="font-medium text-ink">Summary</span>
+                  <span className="text-stone">
+                    {reportItems.filter((item) => item.status === "ok").length} of{" "}
+                    {reportItems.length}
+                    <span className="hidden sm:inline"> systems in good condition</span>
+                    <span className="sm:hidden"> good</span>
+                  </span>
+                </p>
+                <div className="mt-3 flex gap-1" aria-hidden="true">
                   {reportItems.map((item) => (
-                    <li
+                    <span
                       key={item.label}
-                      className="flex items-center justify-between gap-4 py-3 text-sm"
-                    >
-                      <span className="font-medium text-ink">{item.label}</span>
+                      className={`h-1.5 flex-1 rounded-full ${
+                        item.status === "ok" ? "bg-accent" : "bg-caution"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              <ul className="mt-6 divide-y divide-hairline">
+                {reportItems.map((item) => (
+                  <li key={item.label} className="py-3.5">
+                    <div className="flex items-center justify-between gap-4 text-sm">
+                      <span className="text-ink">{item.label}</span>
                       {item.status === "ok" ? (
-                        <span className="flex items-center gap-1.5 text-verified">
-                          <Check size={14} strokeWidth={3} aria-hidden="true" />
-                          Good condition
+                        <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-accent-light/60 px-2.5 py-1 text-xs font-medium text-accent">
+                          <Check size={12} strokeWidth={2.5} aria-hidden="true" />
+                          Good
                         </span>
                       ) : (
-                        <span className="flex items-center gap-1.5 text-ink/60">
-                          <AlertTriangle size={14} aria-hidden="true" />
-                          Flagged for follow-up
+                        <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-caution-light px-2.5 py-1 text-xs font-medium text-caution">
+                          <AlertTriangle size={12} strokeWidth={2.5} aria-hidden="true" />
+                          Follow up
                         </span>
                       )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-          </div>
+                    </div>
+
+                    {item.note && (
+                      <p className="mt-3 rounded-lg bg-caution-light/60 px-3.5 py-3 text-[13px] leading-relaxed text-ink/80">
+                        {item.note}
+                      </p>
+                    )}
+                  </li>
+                ))}
+              </ul>
+
+              <p className="mt-4 text-xs text-stone">
+                Sample report, for illustration only.
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 

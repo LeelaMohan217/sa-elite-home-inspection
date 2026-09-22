@@ -32,6 +32,8 @@ accent is used sparingly.
 | `accent` | `#1f3a5f` | Serif accent words, links, focus rings, small dots |
 | `accent-dark` | `#142840` | Dark feature sections |
 | `accent-light` | `#d6dde8` | Tints behind accent content |
+| `caution` | `#8a5a12` | Flagged findings only (report UI) |
+| `caution-light` | `#f5ecda` | Background behind a flagged note |
 
 Rules:
 
