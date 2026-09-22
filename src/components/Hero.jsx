@@ -10,7 +10,7 @@ const fadeUp = {
 };
 
 function Hero({
-  eyebrow = "Licensed inspectors · San Antonio, TX",
+  eyebrow = "Certified Home Inspections",
   headline = "Know the home before you make it yours.",
   lead = "We check the structure, electrical, plumbing and roofing before you sign anything, and send you a detailed report within 24 hours.",
   primaryCta = { label: "Book an Inspection", to: "/contact" },

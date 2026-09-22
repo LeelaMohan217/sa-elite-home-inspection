@@ -38,6 +38,7 @@ function Home() {
   return (
     <div>
       <Hero
+        eyebrow={hero.eyebrow}
         headline={hero.headline}
         lead={hero.lead}
         primaryCta={hero.primaryCta}
