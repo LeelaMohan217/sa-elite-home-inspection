@@ -613,36 +613,48 @@ function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-hairline bg-surface/60 py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,420px)_1fr]">
-            <Reveal>
-              <SectionEyebrow>FAQ</SectionEyebrow>
+      <section className="border-y border-hairline bg-surface py-16 sm:py-24">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-12 lg:gap-10 lg:px-10">
+          <Reveal className="lg:col-span-4">
+            <SectionEyebrow>
+              <span className="h-px w-6 bg-stone/60" aria-hidden="true" />
+              FAQ
+            </SectionEyebrow>
 
-              <h2 className="mt-3 text-3xl text-ink sm:text-5xl">
-                Got Questions? We've Got Answers.
-              </h2>
-            </Reveal>
+            <h2 className="mt-5 text-balance text-h2 text-ink">
+              Got questions? We've got{" "}
+              <span className="font-serif font-normal italic tracking-[-0.01em] text-accent">
+                answers.
+              </span>
+            </h2>
 
-            <Reveal
-              index={1}
-              className="divide-y divide-hairline rounded-2xl border border-hairline bg-paper"
-            >
-              {faqs.map((faq) => (
-                <FaqItem
-                  key={faq.question}
-                  question={faq.question}
-                  answer={faq.answer}
-                  open={openFaq === faq.question}
-                  onToggle={() =>
-                    setOpenFaq((prev) =>
-                      prev === faq.question ? null : faq.question
-                    )
-                  }
-                />
-              ))}
-            </Reveal>
-          </div>
+            <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-stone">
+              Still have a question?{" "}
+              <Link
+                to="/contact"
+                className="font-medium text-ink underline decoration-hairline underline-offset-4 transition-colors hover:decoration-ink"
+              >
+                Talk to an inspector
+              </Link>
+              .
+            </p>
+          </Reveal>
+
+          <Reveal index={1} className="border-t border-hairline lg:col-span-7 lg:col-start-6">
+            {faqs.map((faq) => (
+              <FaqItem
+                key={faq.question}
+                question={faq.question}
+                answer={faq.answer}
+                open={openFaq === faq.question}
+                onToggle={() =>
+                  setOpenFaq((prev) =>
+                    prev === faq.question ? null : faq.question
+                  )
+                }
+              />
+            ))}
+          </Reveal>
         </div>
       </section>
 
