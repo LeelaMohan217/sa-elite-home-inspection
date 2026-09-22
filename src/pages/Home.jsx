@@ -515,39 +515,48 @@ function Home() {
       </section>
 
       {/* Featured Testimonial */}
-      <section className="relative overflow-hidden bg-ink py-20 sm:py-24">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:px-10 md:grid-cols-[0.85fr_1.15fr] md:items-center md:gap-14">
-          <Reveal className="relative aspect-[4/3] w-full overflow-hidden rounded-[3px]">
-            <img
-              src={inspectorImage}
-              alt="A certified inspector kneeling to examine the flooring in an empty room during a home inspection."
-              loading="lazy"
-              decoding="async"
-              className="h-full w-full object-cover object-[65%_30%] saturate-[0.85] contrast-[1.05]"
-            />
-          </Reveal>
+      <section className="bg-ink py-20 text-paper sm:py-32">
+        <Reveal className="mx-auto flex max-w-4xl flex-col items-center px-5 text-center sm:px-8 lg:px-10">
+          <SectionEyebrow tone="dark" className="text-paper/55">
+            <span className="h-px w-6 bg-paper/30" aria-hidden="true" />
+            Success story
+            <span className="h-px w-6 bg-paper/30" aria-hidden="true" />
+          </SectionEyebrow>
 
-          <Reveal index={1}>
-            <SectionEyebrow tone="dark">Success Story</SectionEyebrow>
+          <span
+            aria-hidden="true"
+            className="mt-10 h-10 font-serif text-7xl leading-none text-paper/25 sm:text-8xl"
+          >
+            &ldquo;
+          </span>
 
-            <div className="mt-5 flex gap-1 text-accent-vivid">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} size={18} fill="currentColor" strokeWidth={0} />
-              ))}
-            </div>
-
-            <blockquote className="mt-5 text-2xl font-medium leading-snug text-paper text-pretty sm:text-3xl">
-              "{featuredTestimonial.quote}"
+          <figure className="mt-4">
+            <blockquote className="text-balance font-serif text-[clamp(1.875rem,1.25rem+2.6vw,3.25rem)] leading-[1.15] tracking-[-0.01em] text-paper">
+              {featuredTestimonial.quote}
             </blockquote>
 
-            <p className="mt-6 text-sm font-semibold text-paper/70">
-              {featuredTestimonial.name}{" "}
-              <span className="font-normal text-paper/40">
-                — {featuredTestimonial.role}
+            <figcaption className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-5">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-paper/20 text-sm font-medium text-paper">
+                {featuredTestimonial.name
+                  .split(" ")
+                  .map((part) => part[0])
+                  .join("")}
               </span>
-            </p>
-          </Reveal>
-        </div>
+
+              <span className="flex flex-col items-center gap-1 sm:items-start">
+                <span className="text-[15px] font-medium text-paper">
+                  {featuredTestimonial.name}
+                  <span className="font-normal text-paper/50"> · {featuredTestimonial.role}</span>
+                </span>
+                <span className="flex gap-0.5 text-paper/80" aria-label="Rated 5 out of 5">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} size={13} fill="currentColor" strokeWidth={0} aria-hidden="true" />
+                  ))}
+                </span>
+              </span>
+            </figcaption>
+          </figure>
+        </Reveal>
       </section>
 
       {/* Testimonials */}
