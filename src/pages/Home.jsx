@@ -93,30 +93,23 @@ function Home() {
         </ul>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10">
-        <div className="mx-auto max-w-2xl text-center">
-          <SectionEyebrow className="justify-center">ABOUT US</SectionEyebrow>
+      {/* About Us */}
+      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-10">
+          <Reveal className="max-w-2xl lg:order-2 lg:col-span-5 lg:col-start-8 lg:max-w-none">
+            <SectionEyebrow>
+              <span className="h-px w-6 bg-stone/60" aria-hidden="true" />
+              About us
+            </SectionEyebrow>
 
-          <h2 className="mt-3 text-3xl text-ink sm:text-4xl md:text-5xl">
-            A Clearer Look at Your Home. A More Confident{" "}
-            <em className="text-accent not-italic">Decision.</em>
-          </h2>
-        </div>
+            <h2 className="mt-5 text-balance text-h2 text-ink">
+              A clearer look at your home. A more confident{" "}
+              <span className="font-serif font-normal italic tracking-[-0.01em] text-accent">
+                decision.
+              </span>
+            </h2>
 
-        <div className="mt-10 grid gap-10 md:grid-cols-2 md:items-start md:gap-14">
-          <Reveal className="relative aspect-[4/3] w-full overflow-hidden rounded-[3px] border border-ink/10">
-            <img
-              src={aboutImage}
-              alt="A certified inspector kneeling to examine the flooring in an empty room during a home inspection."
-              loading="lazy"
-              decoding="async"
-              className="h-full w-full object-cover object-[30%_40%] saturate-[0.85] contrast-[1.05]"
-            />
-          </Reveal>
-
-          <Reveal index={1} className="flex h-full flex-col">
-            <p className="text-ink/70">
+            <p className="mt-6 text-pretty text-lead text-stone">
               Every inspection is carried out in person by a licensed
               professional who walks the entire property, roof to foundation,
               and documents what they find with photos, not guesswork. You get a
@@ -124,15 +117,20 @@ function Home() {
               getting ready to sell.
             </p>
 
-            <ul className="mt-6 space-y-3 text-sm text-ink/70">
+            <ul className="mt-8 border-t border-hairline">
               {highlights.map((line) => (
-                <li key={line} className="flex items-start gap-2.5">
-                  <Check
-                    size={16}
-                    strokeWidth={3}
-                    className="mt-0.5 shrink-0 text-verified"
-                    aria-hidden="true"
-                  />
+                <li
+                  key={line}
+                  className="flex items-center gap-3.5 border-b border-hairline py-4 text-[15px] text-ink"
+                >
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent-light/60">
+                    <Check
+                      size={13}
+                      strokeWidth={2.5}
+                      className="text-accent"
+                      aria-hidden="true"
+                    />
+                  </span>
                   <span>{line}</span>
                 </li>
               ))}
@@ -142,10 +140,23 @@ function Home() {
               to="/services"
               variant="secondary"
               icon={ArrowRight}
-              className="mt-8 w-fit md:mt-auto"
+              className="mt-9 w-full sm:w-fit"
             >
               View Our Services
             </Button>
+          </Reveal>
+
+          <Reveal
+            index={1}
+            className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-surface sm:aspect-[4/3] lg:order-1 lg:col-span-6 lg:aspect-[4/5]"
+          >
+            <img
+              src={aboutImage}
+              alt="A certified inspector kneeling to examine the flooring in an empty room during a home inspection."
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full object-cover object-[62%_40%] saturate-[0.8] contrast-[1.03]"
+            />
           </Reveal>
         </div>
       </section>

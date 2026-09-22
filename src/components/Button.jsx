@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
 
 const BASE =
-  'inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-3 font-sans text-sm font-bold ' +
-  'transition-[background-color,color,border-color,box-shadow] duration-500 ease-in-out cursor-pointer ' +
+  'inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-3 font-sans text-sm font-medium ' +
+  'transition-[background-color,color,border-color] duration-300 cursor-pointer ' +
   'disabled:cursor-not-allowed disabled:opacity-60'
 
 const VARIANTS = {
-  primary: 'bg-ink text-paper shadow-cta hover:bg-ink/85 hover:shadow-cta-hover',
-  secondary: 'border border-ink/30 text-ink hover:border-ink hover:bg-ink hover:text-paper',
+  primary: 'bg-ink text-paper hover:bg-ink-800',
+  secondary: 'border border-hairline bg-paper text-ink hover:border-ink/25',
   invert: 'bg-paper text-ink hover:bg-accent-light',
   ghost: 'text-ink hover:text-accent',
   outline: 'border border-paper/50 text-paper hover:bg-paper hover:text-ink',
