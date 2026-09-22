@@ -1,15 +1,12 @@
-import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Plus } from 'lucide-react'
 
-function FaqItem({ question, answer }) {
-  const [open, setOpen] = useState(false)
-
+function FaqItem({ question, answer, open = false, onToggle }) {
   return (
     <div>
       <button
         type="button"
-        onClick={() => setOpen((prev) => !prev)}
+        onClick={onToggle}
         className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left cursor-pointer"
         aria-expanded={open}
       >

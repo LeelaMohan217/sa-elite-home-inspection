@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Phone, Mail, MapPin, Clock, CheckCircle2 } from 'lucide-react'
+import { CheckCircle2 } from 'lucide-react'
 import PageHero from '../components/PageHero'
 import SectionEyebrow from '../components/SectionEyebrow'
 import Reveal from '../components/Reveal'
 import Button from '../components/Button'
+import { contactDetails } from '../content/contact'
 
 const initialForm = { name: '', email: '', phone: '', message: '' }
 
@@ -44,30 +45,14 @@ function Contact() {
           <SectionEyebrow>Reach Us</SectionEyebrow>
           <h2 className="mt-3 text-2xl text-ink">Get in touch.</h2>
           <ul className="mt-6 space-y-4 text-sm">
-            <li className="flex items-center gap-3 text-ink/70">
-              <Phone size={16} className="shrink-0 text-accent-vivid" aria-hidden="true" />
-              <span>
-                <span className="font-semibold text-ink">Phone:</span> +91 98765 43210
-              </span>
-            </li>
-            <li className="flex items-center gap-3 text-ink/70">
-              <Mail size={16} className="shrink-0 text-accent-vivid" aria-hidden="true" />
-              <span>
-                <span className="font-semibold text-ink">Email:</span> info@saelitehomeinspection.com
-              </span>
-            </li>
-            <li className="flex items-center gap-3 text-ink/70">
-              <MapPin size={16} className="shrink-0 text-accent-vivid" aria-hidden="true" />
-              <span>
-                <span className="font-semibold text-ink">Service Area:</span> Greater Hyderabad
-              </span>
-            </li>
-            <li className="flex items-center gap-3 text-ink/70">
-              <Clock size={16} className="shrink-0 text-accent-vivid" aria-hidden="true" />
-              <span>
-                <span className="font-semibold text-ink">Hours:</span> Mon - Sat, 7 AM - 7 PM
-              </span>
-            </li>
+            {contactDetails.map((detail) => (
+              <li key={detail.label} className="flex items-center gap-3 text-ink/70">
+                <detail.icon size={16} className="shrink-0 text-accent-vivid" aria-hidden="true" />
+                <span>
+                  <span className="font-semibold text-ink">{detail.label}:</span> {detail.value}
+                </span>
+              </li>
+            ))}
           </ul>
         </Reveal>
 

@@ -57,15 +57,15 @@ function Logo() {
     <span className="group flex items-center gap-2.5">
       <img
         src={logo}
-        alt="SA Elite Home Inspection"
+        alt="AKSHARA Elite Home Inspection"
         className="h-[33.75px] w-[33.75px] object-contain transition-transform duration-300 group-hover:scale-[1.03]"
       />
 
       <span className="flex flex-col leading-tight">
-        <span className="text-sm font-extrabold tracking-[0.02em] text-black">
+        <span className="text-sm font-extrabold tracking-[0.02em] text-ink">
           AKSHARA ELITE
         </span>
-        <span className="text-[11px] font-semibold tracking-[0.08em] text-black">
+        <span className="text-[11px] font-semibold tracking-[0.08em] text-ink">
           HOME INSPECTIONS
         </span>
       </span>
@@ -112,9 +112,9 @@ function Navbar() {
         open ? "bottom-0" : ""
       } ${
         open
-          ? "border-hairline bg-white"
+          ? "border-hairline bg-paper"
           : scrolled
-            ? "border-white/60 bg-white/70 shadow-[0_8px_30px_rgba(15,23,42,0.08)] backdrop-blur-xl backdrop-saturate-150"
+            ? "border-paper/60 bg-paper/70 shadow-[0_8px_30px_rgba(15,23,42,0.08)] backdrop-blur-xl backdrop-saturate-150"
             : "border-transparent bg-transparent"
       }`}
     >
@@ -123,7 +123,7 @@ function Navbar() {
       >
         {/* LEFT — Logo */}
         <div className="col-start-1 flex items-center justify-start">
-          <NavLink to="/" aria-label="SA Elite Home Inspection home">
+          <NavLink to="/" aria-label="AKSHARA Elite Home Inspection home">
             <Logo />
           </NavLink>
         </div>
@@ -137,7 +137,7 @@ function Navbar() {
                 end={link.to === "/"}
                 className={({ isActive }) =>
                   `flex items-center py-2 text-[15px] font-semibold tracking-[0.01em] transition-colors duration-200 ${
-                    isActive ? "text-black" : "text-black/55 hover:text-black"
+                    isActive ? "text-ink" : "text-ink/55 hover:text-ink"
                   }`
                 }
               >
@@ -151,7 +151,7 @@ function Navbar() {
         <div className="col-start-3 hidden items-center justify-end lg:flex">
           <NavLink
             to="/contact"
-            className="rounded-[3px] border border-black bg-black px-4 py-2.5 text-[13px] font-semibold tracking-[0.01em] text-white transition-colors duration-500 ease-in-out hover:bg-black/80"
+            className="rounded-[3px] border border-blue-700 bg-blue-700 px-4 py-2.5 text-[13px] font-semibold tracking-[0.01em] text-paper transition-colors duration-500 ease-in-out hover:bg-blue-600"
           >
             Book an Inspection
           </NavLink>
@@ -163,10 +163,10 @@ function Navbar() {
             type="button"
             className={`relative z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-500 ease-in-out ${
               open
-                ? "border-black bg-black text-white"
+                ? "border-ink bg-ink text-paper"
                 : scrolled
-                  ? "border-white/70 bg-white/40 text-black backdrop-blur-md"
-                  : "border-black/30 bg-white/20 text-black backdrop-blur-sm"
+                  ? "border-paper/70 bg-paper/40 text-ink backdrop-blur-md"
+                  : "border-ink/30 bg-paper/20 text-ink backdrop-blur-sm"
             }`}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
@@ -241,7 +241,7 @@ function Navbar() {
               duration: 0.25,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="flex-1 overflow-y-auto border-t border-hairline bg-white lg:hidden"
+            className="flex-1 overflow-y-auto border-t border-hairline bg-paper lg:hidden"
           >
             <motion.ul
               variants={menuVariants}
@@ -254,14 +254,14 @@ function Navbar() {
                 <motion.li
                   key={link.to}
                   variants={itemVariants}
-                  className="border-b border-black/10 last:border-0"
+                  className="border-b border-ink/10 last:border-0"
                 >
                   <NavLink
                     to={link.to}
                     end={link.to === "/"}
                     className={({ isActive }) =>
                       `flex items-center justify-between py-4 text-[15px] font-semibold transition-colors ${
-                        isActive ? "text-black" : "text-black/55"
+                        isActive ? "text-ink" : "text-ink/55"
                       }`
                     }
                   >
@@ -270,7 +270,7 @@ function Navbar() {
                         <span>{link.label}</span>
 
                         <span
-                          className={`h-1.5 w-1.5 rounded-full bg-black transition-opacity ${
+                          className={`h-1.5 w-1.5 rounded-full bg-ink transition-opacity ${
                             isActive ? "opacity-100" : "opacity-0"
                           }`}
                         />
@@ -283,7 +283,7 @@ function Navbar() {
               <motion.li variants={itemVariants} className="mt-auto pb-5 pt-5">
                 <NavLink
                   to="/contact"
-                  className="flex w-full items-center justify-center rounded-[3px] bg-black px-5 py-3.5 text-sm font-semibold text-white transition-all duration-500 ease-in-out hover:-translate-y-0.5 hover:bg-black/85 hover:shadow-cta active:translate-y-0 active:duration-150"
+                  className="flex w-full items-center justify-center rounded-[3px] bg-ink px-5 py-3.5 text-sm font-semibold text-paper transition-colors duration-500 ease-in-out hover:bg-ink/80"
                 >
                   Book an Inspection
                 </NavLink>

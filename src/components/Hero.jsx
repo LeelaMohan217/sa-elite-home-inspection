@@ -1,37 +1,23 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
+import AvatarCircles from "./AvatarCircles";
 import heroImage from "../assets/hero.png";
 
 const EASE = [0.16, 1, 0.3, 1];
 
-/**
- * Home hero.
- *
- * Two-column layout — copy on the left, an inspector-at-work photograph on
- * the right — held inside the same max-w-7xl / padding rhythm as the navbar
- * so both line up edge to edge. The photo keeps its own fixed, moderate
- * aspect ratio rather than stretching to match the text column. It keeps a
- * touch of color but is pulled slightly toward neutral (desaturated,
- * contrast lifted) and framed with the same hairline border and near-square
- * corner radius as the rest of the UI, so it reads as part of the same
- * system rather than a pasted-in stock photo. Stacks (text above image)
- * below `lg`. No section background — it sits directly on the page's white,
- * same as the rest of the site.
- *
- * Two quiet entrances only: the text block eases up once, the photograph fades
- * in. Both are dropped for `prefers-reduced-motion` by the app-level
- * <MotionConfig reducedMotion="user">.
- */
+function formatCompact(value) {
+  if (value >= 1000) return `${(value / 1000).toFixed(1).replace(/\.0$/, "")}k`;
+  return `${value}`;
+}
+
 function Hero({
   headline = "Know the home before you make it yours.",
   lead = "We check the structure, electrical, plumbing and roofing before you sign anything, and send you a detailed report within 24 hours.",
   primaryCta = { label: "Book an Inspection", to: "/contact" },
   secondaryCta = { label: "View Our Services", to: "/services" },
-  trust = [
-    "Certified inspectors. Digital reports within 24 hours.",
-    "Serving Hyderabad and surrounding areas.",
-  ],
+  stat = { value: 1200, suffix: "+", label: "Homes Inspected" },
+  reviewers = ["MG", "DR", "PK"],
   image = {
     src: heroImage,
     alt: "A certified inspector kneeling to examine the flooring in an empty room during a home inspection.",
@@ -39,9 +25,13 @@ function Hero({
     height: 1024,
   },
 }) {
+  const headlineWords = headline.split(" ");
+  const emphasisWord = headlineWords.pop();
+  const headlineLead = headlineWords.join(" ");
+
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden pt-20">
-      <div className="mx-auto grid w-full max-w-7xl gap-12 px-5 py-12 sm:px-8 sm:py-16 lg:grid-cols-2 lg:items-center lg:gap-10 lg:px-10 lg:py-16">
+      <div className="mx-auto grid w-full max-w-7xl gap-16 px-5 py-12 sm:px-8 sm:py-16 lg:grid-cols-2 lg:items-center lg:gap-10 lg:px-10 lg:py-16">
         {/* LEFT — copy */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -49,29 +39,29 @@ function Hero({
           transition={{ duration: 0.6, ease: EASE }}
           className="flex flex-col"
         >
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-black/45">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-ink/45">
             Home Inspection Services
           </p>
 
-          <h1 className="mt-4 text-[2.9rem] font-extrabold leading-[1.06] tracking-[-0.02em] text-black text-pretty sm:text-[3.3rem] lg:text-[3.1rem] xl:text-[3.6rem]">
-            {headline}
+          <h1 className="mt-4 text-ink/90 text-4xl font-bold sm:text-5xl lg:text-6xl ">
+            {headlineLead} {emphasisWord}
           </h1>
 
-          <p className="mt-6 max-w-md text-base leading-relaxed text-black/55 lg:text-[17px]">
+          <p className="mt-6 text-base leading-relaxed text-ink/55 lg:text-[17px]">
             {lead}
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
             <Link
               to={primaryCta.to}
-              className="inline-flex items-center justify-center rounded-[3px] bg-black px-6 py-3.5 text-[15px] font-semibold text-white transition-colors duration-500 ease-in-out hover:bg-black/80"
+              className="inline-flex items-center justify-center rounded-[3px] bg-blue-700 px-6 py-2.5 text-[15px] font-semibold text-paper transition-colors duration-500 ease-in-out hover:bg-blue-600"
             >
               {primaryCta.label}
             </Link>
 
             <Link
               to={secondaryCta.to}
-              className="group inline-flex items-center gap-2 text-[15px] font-semibold text-black"
+              className="group inline-flex items-center gap-2 text-[15px] font-semibold text-blue-700"
             >
               {secondaryCta.label}
               <ArrowRight
@@ -81,44 +71,51 @@ function Hero({
               />
             </Link>
           </div>
-
-          {trust?.length > 0 && (
-            <div className="mt-10 flex flex-col gap-3 border-t border-black/10 pt-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-8 sm:gap-y-3">
-              {trust.map((line) => (
-                <span
-                  key={line}
-                  className="flex items-center gap-2.5 text-[13px] leading-relaxed text-black/55"
-                >
-                  <Check
-                    size={14}
-                    strokeWidth={3}
-                    className="shrink-0 text-black"
-                  />
-                  {line}
-                </span>
-              ))}
-            </div>
-          )}
         </motion.div>
 
-        {/* RIGHT — photograph */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
-          className="relative aspect-[4/3] w-full overflow-hidden rounded-[3px] border border-black/10"
-        >
-          <img
-            src={image.src}
-            alt={image.alt}
-            width={image.width}
-            height={image.height}
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-            className="h-full w-full object-cover object-[68%_35%] saturate-[0.85] contrast-[1.05]"
-          />
-        </motion.div>
+        {/* RIGHT — photograph with floating cards */}
+        <div className="relative">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
+            className="relative aspect-[4/3] w-full overflow-hidden rounded-[3px] border border-ink/10"
+          >
+            <img
+              src={image.src}
+              alt={image.alt}
+              width={image.width}
+              height={image.height}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              className="h-full w-full object-cover object-[68%_35%] saturate-[0.85] contrast-[1.05]"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: EASE, delay: 0.4 }}
+            className="absolute -bottom-6 left-1/2 flex w-max -translate-x-1/2 items-center gap-3 rounded-2xl border border-ink/10 bg-paper px-4 py-3.5 shadow-elevate-hover"
+          >
+            <AvatarCircles avatars={reviewers} total={formatCompact(stat.value)} />
+
+            <span className="h-8 w-px shrink-0 bg-hairline" aria-hidden="true" />
+
+            <span>
+              <span className="flex gap-0.5 text-accent-vivid">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} size={13} fill="currentColor" strokeWidth={0} />
+                ))}
+              </span>
+              <span className="mt-1 block text-xs text-ink/55">
+                Trusted by {stat.value.toLocaleString("en-US")}
+                {stat.suffix} homeowners
+              </span>
+            </span>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -2,15 +2,14 @@ import { Link } from 'react-router-dom'
 
 const BASE =
   'inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-3 font-sans text-sm font-bold ' +
-  'transition-[background-color,color,border-color,transform,box-shadow] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] cursor-pointer ' +
-  'hover:-translate-y-0.5 active:translate-y-0 motion-reduce:hover:translate-y-0 ' +
-  'disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0'
+  'transition-[background-color,color,border-color,box-shadow] duration-500 ease-in-out cursor-pointer ' +
+  'disabled:cursor-not-allowed disabled:opacity-60'
 
 const VARIANTS = {
-  primary: 'bg-slate-800 text-paper shadow-cta hover:bg-slate-800 hover:shadow-cta-hover',
-  secondary: 'border border-slate-700 text-slate-700 hover:border-slate-700 hover:text-slate-700',
+  primary: 'bg-ink text-paper shadow-cta hover:bg-ink/85 hover:shadow-cta-hover',
+  secondary: 'border border-ink/30 text-ink hover:border-ink hover:bg-ink hover:text-paper',
   invert: 'bg-paper text-ink hover:bg-accent-light',
-  ghost: 'text-slate-800 hover:text-slate-900',
+  ghost: 'text-ink hover:text-accent',
   outline: 'border border-paper/50 text-paper hover:bg-paper hover:text-ink',
 }
 

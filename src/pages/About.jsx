@@ -1,33 +1,15 @@
-import { ShieldCheck, ClipboardCheck, MessageCircle } from 'lucide-react'
 import PageHero from '../components/PageHero'
 import SectionEyebrow from '../components/SectionEyebrow'
 import Reveal from '../components/Reveal'
 import InspectionCard from '../components/InspectionCard'
-
-const values = [
-  {
-    icon: ShieldCheck,
-    title: 'Integrity First',
-    description: 'We report exactly what we find — no upselling, no conflicts of interest.',
-  },
-  {
-    icon: ClipboardCheck,
-    title: 'Thoroughness',
-    description: 'Every inspection follows a rigorous, standardized checklist from roof to foundation.',
-  },
-  {
-    icon: MessageCircle,
-    title: 'Clear Communication',
-    description: "We explain findings in plain language, so you know what's serious and what isn't.",
-  },
-]
+import { values } from '../content/about'
 
 function About() {
   return (
     <div>
       <PageHero
         eyebrow="About Us"
-        title="About SA Elite Home Inspection"
+        title="About AKSHARA Elite Home Inspection"
         subtitle="A locally owned inspection company built on trust, training, and attention to detail."
       />
 
@@ -36,7 +18,7 @@ function About() {
         <Reveal>
           <h2 className="mt-3 text-3xl text-accent">A closer look, every time.</h2>
           <p className="mt-6 text-ink/70">
-            SA Elite Home Inspection was founded to give homebuyers and sellers in Hyderabad
+            AKSHARA Elite Home Inspection was founded to give homebuyers and sellers in Hyderabad
             an honest, detailed picture of a property's condition. We know that
             for most people, a home is the biggest purchase they'll ever make — our job is to
             make sure you go into that purchase with your eyes open.
