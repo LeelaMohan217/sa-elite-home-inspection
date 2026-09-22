@@ -327,34 +327,58 @@ function Home() {
       </section>
 
       {/* Process */}
-      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10">
-        <div className="mx-auto max-w-5xl text-center">
-          <SectionEyebrow className="justify-center">Our Process</SectionEyebrow>
+      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
+        <div className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-10">
+          <Reveal className="lg:col-span-6">
+            <SectionEyebrow>
+              <span className="h-px w-6 bg-stone/60" aria-hidden="true" />
+              Our process
+            </SectionEyebrow>
 
-          <h2 className="mt-3 text-3xl text-ink sm:text-4xl md:text-5xl">
-            A simple, four-step process built around clear communication, so
-            you always know exactly what's happening and what it means for
-            your home.
-          </h2>
+            <h2 className="mt-5 text-balance text-h2 text-ink">
+              Four steps from booking to{" "}
+              <span className="font-serif font-normal italic tracking-[-0.01em] text-accent">
+                clarity.
+              </span>
+            </h2>
+          </Reveal>
+
+          <Reveal index={1} className="max-w-xl lg:col-span-5 lg:col-start-8">
+            <p className="text-pretty text-lead text-stone">
+              A simple process built around clear communication, so you always
+              know exactly what's happening and what it means for your home.
+            </p>
+          </Reveal>
         </div>
 
-        <div className="relative mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Timeline: vertical on phones; horizontal rows (2x2, then 1x4) from sm.
+            Each step draws its own line across the gap; overflow-hidden trims
+            the end of each row. */}
+        <ol className="relative mt-14 grid gap-10 before:absolute before:top-2 before:bottom-2 before:left-[7px] before:w-px before:bg-hairline sm:mt-16 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-14 sm:overflow-hidden sm:before:hidden lg:grid-cols-4">
           {steps.map((item, i) => (
             <Reveal
+              as="li"
               key={item.step}
               index={i}
-              className="relative rounded-2xl border border-hairline bg-paper p-6 shadow-elevate"
+              className="relative pl-10 sm:pt-12 sm:pl-0 sm:before:absolute sm:before:top-[7px] sm:before:left-0 sm:before:h-px sm:before:w-[calc(100%+2rem)] sm:before:bg-hairline"
             >
-              <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-ink text-sm font-extrabold text-paper">
-                {item.step}
+              <span
+                aria-hidden="true"
+                className="absolute top-1 left-0 z-10 flex h-[15px] w-[15px] items-center justify-center rounded-full border border-ink/25 bg-paper sm:top-0"
+              >
+                <span className="h-[5px] w-[5px] rounded-full bg-ink" />
               </span>
 
-              <h3 className="mt-5 font-bold text-ink">{item.title}</h3>
+              <p className="text-sm tabular-nums text-stone">Step {item.step}</p>
 
-              <p className="mt-2 text-sm text-ink/70">{item.description}</p>
+              <h3 className="mt-3 text-h3 text-ink">{item.title}</h3>
+
+              <p className="mt-2.5 max-w-sm text-[15px] leading-relaxed text-stone">
+                {item.description}
+              </p>
             </Reveal>
           ))}
-        </div>
+        </ol>
       </section>
 
       {/* Popular Services */}
