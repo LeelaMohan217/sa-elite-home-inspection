@@ -1,25 +1,43 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette */
-  --color-ink: #000000;
-  --color-ink-800: #0a2472;
-  --color-paper: #ffffff;
-  --color-surface: #f1f3fb;
-  --color-stone: #64748b;
-  --color-hairline: #e3e6f0;
-  --color-hairline-dark: #223066;
-  --color-accent: #123499;
-  --color-accent-dark: #051650;
-  --color-accent-light: #a9bdf5;
-  --color-accent-vivid: #2547ea;
-  --color-verified: #123499;
-  --color-verified-light: #a9bdf5;
+  /* Palette — warm monochrome with one restrained accent. See DESIGN.md. */
+  --color-ink: #111110; /* primary text, primary buttons, logo */
+  --color-ink-800: #2b2a27; /* hover state for ink surfaces */
+  --color-paper: #fafaf8; /* page background */
+  --color-surface: #f2f1ed; /* cards, alternating sections */
+  --color-stone: #6b6a65; /* secondary text (5.1:1 on paper) */
+  --color-hairline: #e5e3dd; /* borders and dividers */
+  --color-hairline-dark: #2b2a27;
+  --color-accent: #1f3a5f; /* deep slate navy — links, focus, highlights */
+  --color-accent-dark: #142840;
+  --color-accent-light: #d6dde8;
+  --color-accent-vivid: #1f3a5f;
+  --color-verified: #1f3a5f;
+  --color-verified-light: #d6dde8;
 
   /* Typography */
-  --font-sans: "Urbanist", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Newsreader", ui-serif, Georgia, "Times New Roman", serif;
-  --font-surfer: "Original Surfer", cursive;
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, "Times New Roman", serif;
+
+  /* Type scale — fluid from 375px to 1440px viewports */
+  --text-display: clamp(2.75rem, 1.8rem + 4.2vw, 5.25rem);
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.04em;
+  --text-h1: clamp(2.25rem, 1.7rem + 2.6vw, 3.75rem);
+  --text-h1--line-height: 1.05;
+  --text-h1--letter-spacing: -0.035em;
+  --text-h2: clamp(1.875rem, 1.5rem + 1.7vw, 3rem);
+  --text-h2--line-height: 1.1;
+  --text-h2--letter-spacing: -0.03em;
+  --text-h3: 1.375rem;
+  --text-h3--line-height: 1.3;
+  --text-h3--letter-spacing: -0.015em;
+  --text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --text-lead--line-height: 1.6;
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1;
+  --text-eyebrow--letter-spacing: 0.16em;
 }
 
 @layer base {
@@ -35,7 +53,7 @@
   h2,
   h3,
   h4 {
-    @apply font-sans font-bold tracking-tight;
+    @apply font-sans font-medium tracking-tight;
   }
 
   ::selection {

@@ -42,7 +42,7 @@ function Home() {
         lead={hero.lead}
         primaryCta={hero.primaryCta}
         secondaryCta={hero.secondaryCta}
-        stat={stats[0]}
+        stats={[stats[0], stats[1], stats[3]]}
       />
 
       {/* Stats */}
@@ -91,7 +91,7 @@ function Home() {
 
           <h2 className="mt-3 text-3xl text-ink sm:text-4xl md:text-5xl">
             A Clearer Look at Your Home. A More Confident{" "}
-            <em className="text-blue-700 not-italic">Decision.</em>
+            <em className="text-accent not-italic">Decision.</em>
           </h2>
         </div>
 
