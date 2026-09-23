@@ -46,7 +46,7 @@ function Home() {
         lead={hero.lead}
         primaryCta={hero.primaryCta}
         secondaryCta={hero.secondaryCta}
-        stats={[stats[0], stats[1], stats[3]]}
+        stats={stats}
       />
 
       {/* Stats */}

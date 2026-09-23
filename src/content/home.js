@@ -81,9 +81,8 @@ export const highlights = [
 
 export const stats = [
   { label: "Homes Inspected", value: 400, suffix: "+" },
-  { label: "Years of Experience", value: 15, suffix: "+" },
-  { label: "Client Satisfaction", value: 98, suffix: "%" },
-  { label: "Avg. Report Turnaround", value: 24, suffix: " hrs" },
+  { label: "User Satisfaction", value: 98, suffix: "%" },
+  { label: "Avg. Report Turnaround", value: 48, suffix: " hrs" },
 ];
 
 export const reportItems = [
