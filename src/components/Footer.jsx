@@ -38,7 +38,7 @@ function Footer() {
               alt="AKSHARA Elite Home Inspections"
               width={354}
               height={51}
-              className="h-7 w-auto"
+              className="h-6 w-auto"
             />
           </Link>
           <p className="mt-6 max-w-xs text-[15px] leading-relaxed text-paper/60">

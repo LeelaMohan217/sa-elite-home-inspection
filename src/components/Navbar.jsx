@@ -59,7 +59,7 @@ function Logo() {
       alt="AKSHARA Elite Home Inspections"
       width={354}
       height={51}
-      className="h-6 w-auto transition-transform duration-300 hover:scale-[1.03] sm:h-7"
+      className="h-5 w-auto transition-transform duration-300 hover:scale-[1.03] sm:h-6"
     />
   );
 }
