@@ -7,7 +7,7 @@ function Logo({ tone = 'dark', className = '' }) {
     <img
       src={tone === 'light' ? wordmarkLight : wordmarkDark}
       alt="AKSHARA Elite Home Inspections"
-      width={354}
+      width={347}
       height={51}
       className={`h-auto ${className}`}
     />

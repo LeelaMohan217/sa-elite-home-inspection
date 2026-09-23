@@ -33,7 +33,7 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 pt-16 pb-12 sm:grid-cols-2 sm:gap-x-10 sm:px-8 sm:pt-20 lg:grid-cols-12 lg:px-10">
         <div className="lg:col-span-3">
           <Link to="/" aria-label="AKSHARA Elite Home Inspections home" className="inline-block">
-            <Logo tone="light" className="w-[167px]" />
+            <Logo tone="light" className="w-[163px]" />
           </Link>
           <p className="mt-6 max-w-xs text-[15px] leading-relaxed text-paper/60">
             Thorough, honest home inspections you can rely on before you buy or sell.
