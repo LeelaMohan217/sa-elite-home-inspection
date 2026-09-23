@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import logo from "../assets/Logo.svg";
+import Logo from "./Logo";
 
 const links = [
   { to: "/", label: "Home" },
@@ -51,18 +51,6 @@ const itemVariants = {
     },
   },
 };
-
-function Logo() {
-  return (
-    <img
-      src={logo}
-      alt="AKSHARA Elite Home Inspections"
-      width={354}
-      height={51}
-      className="h-5 w-auto transition-transform duration-300 hover:scale-[1.03] sm:h-6"
-    />
-  );
-}
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -115,7 +103,7 @@ function Navbar() {
         {/* LEFT — Logo */}
         <div className="col-start-1 flex items-center justify-start">
           <NavLink to="/" aria-label="AKSHARA Elite Home Inspection home">
-            <Logo />
+            <Logo className="w-[139px] transition-transform duration-300 hover:scale-[1.03] sm:w-[167px]" />
           </NavLink>
         </div>
 

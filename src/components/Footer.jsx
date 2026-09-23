@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Phone, Mail, MapPin } from 'lucide-react'
-import logo from '../assets/Logo-light.svg'
+import Logo from './Logo'
 
 const links = [
   { to: '/', label: 'Home' },
@@ -33,13 +33,7 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 pt-16 pb-12 sm:grid-cols-2 sm:gap-x-10 sm:px-8 sm:pt-20 lg:grid-cols-12 lg:px-10">
         <div className="lg:col-span-3">
           <Link to="/" aria-label="AKSHARA Elite Home Inspections home" className="inline-block">
-            <img
-              src={logo}
-              alt="AKSHARA Elite Home Inspections"
-              width={354}
-              height={51}
-              className="h-6 w-auto"
-            />
+            <Logo tone="light" className="w-[167px]" />
           </Link>
           <p className="mt-6 max-w-xs text-[15px] leading-relaxed text-paper/60">
             Thorough, honest home inspections you can rely on before you buy or sell.
