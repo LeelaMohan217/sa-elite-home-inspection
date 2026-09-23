@@ -43,7 +43,7 @@ const fadeUp = (delay, skip) => ({
 function Hero({
   eyebrow = "Certified Home Inspections",
   headline = "Know the home before you make it yours.",
-  lead = "We check the structure, electrical, plumbing and roofing before you sign anything, and send you a detailed report within 24 hours.",
+  lead = "We check the structure, electrical, plumbing and roofing before you sign anything, and send you a detailed report within 48 hours.",
   primaryCta = { label: "Book an Inspection", to: "/contact" },
   secondaryCta = { label: "View Our Services", to: "/services" },
   stats = [],

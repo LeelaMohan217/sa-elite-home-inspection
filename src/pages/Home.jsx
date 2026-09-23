@@ -268,7 +268,7 @@ function Home() {
                 </div>
                 <div>
                   <dt className="text-xs text-stone">Delivered</dt>
-                  <dd className="mt-1 font-medium text-ink">Within 24 hours</dd>
+                  <dd className="mt-1 font-medium text-ink">Within 48 hours</dd>
                 </div>
               </dl>
 

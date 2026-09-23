@@ -7,7 +7,7 @@ export const plans = [
     description: "Ideal for 1BHK apartments and compact flats.",
     features: [
       "Full structural & systems review",
-      "Digital report within 24 hrs",
+      "Digital report within 48 hrs",
       "Dampness check included",
     ],
   },

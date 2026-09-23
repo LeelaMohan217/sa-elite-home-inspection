@@ -6,7 +6,7 @@ import { ShieldCheck, Award, UserCheck, Clock, Search, Layers, Droplets } from "
 export const hero = {
   eyebrow: "Certified Home Inspections",
   headline: "Know the home before you make it yours.",
-  lead: "We check the structure, electrical, plumbing and roofing before you sign anything, and send you a detailed report within 24 hours.",
+  lead: "We check the structure, electrical, plumbing and roofing before you sign anything, and send you a detailed report within 48 hours.",
   primaryCta: { label: "Book an Inspection", to: "/contact" },
   secondaryCta: { label: "View Our Services", to: "/services" },
 };
@@ -30,7 +30,7 @@ export const trustBadges = [
   {
     icon: Clock,
     label: "On-Time, Every Time",
-    description: "We arrive when we say we will, with your report within 24 hours.",
+    description: "We arrive when we say we will, with your report within 48 hours.",
   },
 ];
 
@@ -61,7 +61,7 @@ export const aboutBlocks = [
   },
   {
     title: "How it works",
-    body: "Our process is designed to be simple and transparent from start to finish. You can book online or by phone, and we'll confirm a time that works for you, usually within minutes. On the day of the inspection, a licensed professional walks the entire property in person — roof to foundation — documenting everything with photos rather than vague notes. Within 24 hours, you'll receive a clear, easy-to-read digital report that explains exactly what was found and what it means for you. If anything in the report needs further explanation, you can call us directly and talk it through with the inspector who was actually on site, not a call center reading from a script.",
+    body: "Our process is designed to be simple and transparent from start to finish. You can book online or by phone, and we'll confirm a time that works for you, usually within minutes. On the day of the inspection, a licensed professional walks the entire property in person — roof to foundation — documenting everything with photos rather than vague notes. Within 48 hours, you'll receive a clear, easy-to-read digital report that explains exactly what was found and what it means for you. If anything in the report needs further explanation, you can call us directly and talk it through with the inspector who was actually on site, not a call center reading from a script.",
   },
   {
     title: "What we check",
@@ -75,7 +75,7 @@ export const aboutBlocks = [
 
 export const highlights = [
   "Certified, background-checked inspectors",
-  "Digital reports with photos within 24 hours",
+  "Digital reports with photos within 48 hours",
   "No upselling — we report only what we find",
 ];
 
@@ -134,7 +134,7 @@ export const steps = [
   {
     step: "03",
     title: "Get Your Digital Report",
-    description: "Receive a clear, photo-backed report within 24 hours.",
+    description: "Receive a clear, photo-backed report within 48 hours.",
   },
   {
     step: "04",
@@ -188,7 +188,7 @@ export const faqs = [
   {
     question: "How soon will I get my report?",
     answer:
-      "You'll receive a clear, photo-backed digital report within 24 hours of the inspection.",
+      "You'll receive a clear, photo-backed digital report within 48 hours of the inspection.",
   },
   {
     question: "What is a Multi Stage Inspection?",
