@@ -100,10 +100,7 @@ function Home() {
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-10">
           <Reveal className="max-w-2xl lg:order-2 lg:col-span-5 lg:col-start-8 lg:max-w-none">
-            <SectionEyebrow>
-              <span className="h-px w-6 bg-stone/60" aria-hidden="true" />
-              About us
-            </SectionEyebrow>
+            <SectionEyebrow>About us</SectionEyebrow>
 
             <h2 className="mt-5 text-balance text-h2 text-ink">
               A clearer look at your home. A more confident{" "}
@@ -212,10 +209,7 @@ function Home() {
       <section className="border-y border-hairline bg-surface py-16 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-12 lg:items-center lg:gap-10 lg:px-10">
           <Reveal className="max-w-2xl lg:col-span-5 lg:max-w-none">
-            <SectionEyebrow>
-              <span className="h-px w-6 bg-stone/60" aria-hidden="true" />
-              The deliverable
-            </SectionEyebrow>
+            <SectionEyebrow>The deliverable</SectionEyebrow>
 
             <h2 className="mt-5 text-balance text-h2 text-ink">
               See exactly what you'll{" "}
@@ -333,10 +327,7 @@ function Home() {
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
         <div className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-10">
           <Reveal className="lg:col-span-6">
-            <SectionEyebrow>
-              <span className="h-px w-6 bg-stone/60" aria-hidden="true" />
-              Our process
-            </SectionEyebrow>
+            <SectionEyebrow>Our process</SectionEyebrow>
 
             <h2 className="mt-5 text-balance text-h2 text-ink">
               Four steps from booking to{" "}
@@ -389,10 +380,7 @@ function Home() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <div className="flex items-end justify-between gap-6">
             <Reveal className="max-w-2xl">
-              <SectionEyebrow>
-                <span className="h-px w-6 bg-stone/60" aria-hidden="true" />
-                Popular services
-              </SectionEyebrow>
+              <SectionEyebrow>Popular services</SectionEyebrow>
 
               <h2 className="mt-5 text-balance text-h2 text-ink">
                 Services tailored to every{" "}
@@ -460,10 +448,7 @@ function Home() {
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-10">
           <Reveal className="lg:col-span-6">
-            <SectionEyebrow>
-              <span className="h-px w-6 bg-stone/60" aria-hidden="true" />
-              Service area
-            </SectionEyebrow>
+            <SectionEyebrow>Service area</SectionEyebrow>
 
             <h2 className="mt-5 text-balance text-h2 text-ink">
               Wherever you are in{" "}
@@ -517,11 +502,7 @@ function Home() {
       {/* Featured Testimonial */}
       <section className="bg-ink py-20 text-paper sm:py-32">
         <Reveal className="mx-auto flex max-w-4xl flex-col items-center px-5 text-center sm:px-8 lg:px-10">
-          <SectionEyebrow tone="dark" className="text-paper/55">
-            <span className="h-px w-6 bg-paper/30" aria-hidden="true" />
-            Success story
-            <span className="h-px w-6 bg-paper/30" aria-hidden="true" />
-          </SectionEyebrow>
+          <SectionEyebrow tone="dark" className="text-paper/55">Success story</SectionEyebrow>
 
           <span
             aria-hidden="true"
@@ -562,10 +543,7 @@ function Home() {
       {/* Testimonials */}
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
         <Reveal>
-          <SectionEyebrow>
-            <span className="h-px w-6 bg-stone/60" aria-hidden="true" />
-            Client stories
-          </SectionEyebrow>
+          <SectionEyebrow>Client stories</SectionEyebrow>
 
           <h2 className="mt-5 text-balance text-h2 text-ink">
             What our clients{" "}
@@ -616,10 +594,7 @@ function Home() {
       <section className="border-y border-hairline bg-surface py-16 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-12 lg:gap-10 lg:px-10">
           <Reveal className="lg:col-span-4">
-            <SectionEyebrow>
-              <span className="h-px w-6 bg-stone/60" aria-hidden="true" />
-              FAQ
-            </SectionEyebrow>
+            <SectionEyebrow>FAQ</SectionEyebrow>
 
             <h2 className="mt-5 text-balance text-h2 text-ink">
               Got questions? We've got{" "}
@@ -667,11 +642,7 @@ function Home() {
             className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgb(250_250_248/0.07)_1px,transparent_1px),linear-gradient(to_bottom,rgb(250_250_248/0.07)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_45%,black_20%,transparent_75%)]"
           />
 
-          <SectionEyebrow tone="dark" className="justify-center text-paper/55">
-            <span className="h-px w-6 bg-paper/30" aria-hidden="true" />
-            Ready when you are
-            <span className="h-px w-6 bg-paper/30" aria-hidden="true" />
-          </SectionEyebrow>
+          <SectionEyebrow tone="dark" className="justify-center text-paper/55">Ready when you are</SectionEyebrow>
 
           <h2 className="mx-auto mt-6 max-w-3xl text-balance text-h1 text-paper">
             Ready to book your{" "}
