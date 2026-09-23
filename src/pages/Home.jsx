@@ -17,7 +17,7 @@ import Hero from "../components/Hero";
 import StatBlock from "../components/StatBlock";
 import aboutImage from "../assets/hero.png";
 import inspectorImage from "../assets/hero.png";
-import logoMark from "../assets/favicon.svg";
+import logoMark from "../assets/Logo-mark.svg";
 import {
   hero,
   trustBadges,
