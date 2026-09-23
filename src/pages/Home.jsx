@@ -65,35 +65,27 @@ function Home() {
       </section> */}
 
       {/* Trust Badges */}
-      <section className="mx-auto max-w-7xl px-5 pt-4 sm:px-8 sm:pt-8 lg:px-10">
-        <ul className="grid grid-cols-1 gap-px overflow-hidden border-y border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
-          {trustBadges.map((badge, i) => (
-            <Reveal
-              as="li"
-              key={badge.label}
-              index={i}
-              className="flex gap-4 bg-paper py-7 sm:flex-col sm:gap-5 sm:px-7 sm:py-9 lg:first:pl-0 lg:last:pr-0"
-            >
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-hairline">
+      <section className="mx-auto max-w-7xl px-5 pt-2 sm:px-8 lg:px-10">
+        <Reveal className="flex flex-col items-center gap-5 text-center">
+          <p className="text-sm text-stone">Why homeowners trust us</p>
+
+          <ul className="flex flex-wrap justify-center gap-2 sm:gap-3">
+            {trustBadges.map((badge) => (
+              <li
+                key={badge.label}
+                className="inline-flex items-center gap-2 rounded-full border border-hairline bg-paper px-4 py-2.5 text-sm font-medium text-ink sm:px-5"
+              >
                 <badge.icon
-                  size={18}
+                  size={16}
                   strokeWidth={1.75}
-                  className="text-ink"
+                  className="shrink-0 text-accent"
                   aria-hidden="true"
                 />
-              </span>
-
-              <span className="flex flex-col gap-1.5 pt-2 sm:pt-0">
-                <span className="text-[15px] font-medium tracking-tight text-ink">
-                  {badge.label}
-                </span>
-                <span className="text-sm leading-relaxed text-stone">
-                  {badge.description}
-                </span>
-              </span>
-            </Reveal>
-          ))}
-        </ul>
+                {badge.label}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </section>
 
       {/* About Us */}
