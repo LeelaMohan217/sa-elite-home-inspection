@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import logo from "../assets/Logo-full.png";
+import logo from "../assets/Logo.svg";
 
 const links = [
   { to: "/", label: "Home" },
@@ -57,9 +57,9 @@ function Logo() {
     <img
       src={logo}
       alt="AKSHARA Elite Home Inspections"
-      width={641}
-      height={108}
-      className="h-8 w-auto object-contain transition-transform duration-300 hover:scale-[1.03] sm:h-9"
+      width={354}
+      height={51}
+      className="h-6 w-auto transition-transform duration-300 hover:scale-[1.03] sm:h-7"
     />
   );
 }

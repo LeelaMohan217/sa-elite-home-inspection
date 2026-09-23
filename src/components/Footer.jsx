@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Phone, Mail, MapPin } from 'lucide-react'
-import logo from '../assets/Logo-full-light.png'
+import logo from '../assets/Logo-light.svg'
 
 const links = [
   { to: '/', label: 'Home' },
@@ -36,9 +36,9 @@ function Footer() {
             <img
               src={logo}
               alt="AKSHARA Elite Home Inspections"
-              width={641}
-              height={108}
-              className="h-9 w-auto"
+              width={354}
+              height={51}
+              className="h-7 w-auto"
             />
           </Link>
           <p className="mt-6 max-w-xs text-[15px] leading-relaxed text-paper/60">
