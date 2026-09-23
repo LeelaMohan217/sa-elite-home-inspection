@@ -64,8 +64,8 @@ function Home() {
         </div>
       </section> */}
 
-      {/* Trust Badges */}
-      <section className="mx-auto max-w-7xl px-5 pt-2 sm:px-8 lg:px-10">
+      {/* Trust Badges (hidden for now) */}
+      {/*<section className="mx-auto max-w-7xl px-5 pt-2 sm:px-8 lg:px-10">
         <Reveal className="flex flex-col items-center gap-5 text-center">
           <p className="text-sm text-stone">Why homeowners trust us</p>
 
@@ -86,7 +86,7 @@ function Home() {
             ))}
           </ul>
         </Reveal>
-      </section>
+      </section> */}
 
       {/* About Us */}
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
