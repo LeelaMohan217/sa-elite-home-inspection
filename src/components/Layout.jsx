@@ -21,7 +21,7 @@ function Layout() {
     <div className="flex min-h-screen flex-col">
       <Navbar />
       <main className="flex-1">
-        <AnimatePresence mode="wait" initial={false}>
+        <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
             variants={pageVariants}
