@@ -17,7 +17,7 @@ function StatBlock({ value, suffix = "", prefix = "", label, index = 0 }) {
       className="flex flex-col items-center gap-1.5 py-8 text-center sm:py-0"
     >
       <p className="text-4xl font-extrabold tabular-nums text-ink sm:text-[2.75rem]">
-        <CountUp value={value} prefix={prefix} suffix={suffix} duration={1.4} delay={index * 0.1} />
+        <CountUp value={value} prefix={prefix} suffix={suffix} duration={1.4} startAfter={index * 0.1} />
       </p>
       <p className="text-sm text-ink/55">{label}</p>
     </motion.div>

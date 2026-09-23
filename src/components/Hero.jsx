@@ -12,8 +12,8 @@ const T = {
   wordStagger: 0.07,
   lead: 0.8,
   leadStagger: 0.012,
-  ctas: 1.15,
-  stats: 1.3,
+  ctas: 0.85,
+  stats: 0.9,
 };
 
 // Masked "rise" reveal: the content slides up from below an invisible
@@ -135,7 +135,7 @@ function Hero({
                   <CountUp
                     value={stat.value}
                     suffix={stat.suffix}
-                    delay={T.stats + 0.2 + i * 0.1}
+                    startAfter={T.stats + i * 0.08}
                   />
                 </dd>
               </div>
