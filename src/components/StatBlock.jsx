@@ -1,25 +1,12 @@
-import { useEffect, useRef, useState } from "react";
-import { motion, useInView, animate } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import CountUp from "./CountUp";
 
 const EASE_OUT = [0.16, 1, 0.3, 1];
 
 function StatBlock({ value, suffix = "", prefix = "", label, index = 0 }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-10% 0px -10% 0px" });
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!inView) return;
-
-    const controls = animate(0, value, {
-      duration: 1.4,
-      delay: index * 0.1,
-      ease: EASE_OUT,
-      onUpdate: (latest) => setCount(latest),
-    });
-
-    return () => controls.stop();
-  }, [inView, value, index]);
 
   return (
     <motion.div
@@ -30,9 +17,7 @@ function StatBlock({ value, suffix = "", prefix = "", label, index = 0 }) {
       className="flex flex-col items-center gap-1.5 py-8 text-center sm:py-0"
     >
       <p className="text-4xl font-extrabold tabular-nums text-ink sm:text-[2.75rem]">
-        {prefix}
-        {Math.round(count).toLocaleString("en-US")}
-        {suffix}
+        <CountUp value={value} prefix={prefix} suffix={suffix} duration={1.4} delay={index * 0.1} />
       </p>
       <p className="text-sm text-ink/55">{label}</p>
     </motion.div>

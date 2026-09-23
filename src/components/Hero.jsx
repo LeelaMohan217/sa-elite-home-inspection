@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import CountUp from "./CountUp";
 
 const EASE = [0.16, 1, 0.3, 1];
 
@@ -91,12 +92,15 @@ function Hero({
             variants={fadeUp}
             className="mt-16 grid w-full max-w-2xl grid-cols-3 divide-x divide-hairline border-t border-hairline pt-8"
           >
-            {stats.map((stat) => (
+            {stats.map((stat, i) => (
               <div key={stat.label} className="flex flex-col items-center gap-1.5 px-2">
                 <dt className="order-2 text-xs text-stone sm:text-sm">{stat.label}</dt>
                 <dd className="order-1 text-2xl font-medium tracking-tight text-ink sm:text-3xl">
-                  {stat.value.toLocaleString("en-US")}
-                  {stat.suffix}
+                  <CountUp
+                    value={stat.value}
+                    suffix={stat.suffix}
+                    delay={0.5 + i * 0.1}
+                  />
                 </dd>
               </div>
             ))}
