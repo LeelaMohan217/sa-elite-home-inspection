@@ -7,7 +7,6 @@ import {
   AlertTriangle,
   CircleAlert,
   Paintbrush,
-  ShieldCheck,
   Star,
 } from "lucide-react";
 import Reveal from "../components/Reveal";
@@ -611,56 +610,6 @@ function Home() {
         </div>
       </section>
 
-      {/* CTA + promise */}
-      {/* The panel rises in, then its contents follow in turn */}
-      <RevealGroup as="section" className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
-        <RiseUp delay={0} className="relative isolate overflow-hidden rounded-3xl bg-ink px-6 py-16 text-center text-paper sm:px-12 sm:py-24">
-          {/* Same faint grid as the hero, in reverse */}
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgb(250_250_248/0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgb(250_250_248/0.08)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_45%,black_20%,transparent_75%)]"
-          />
-
-          <RiseUp delay={0.25}>
-            <SectionEyebrow tone="dark" className="justify-center">Ready when you are</SectionEyebrow>
-          </RiseUp>
-
-          <RiseUp as="h2" delay={0.4} className="mx-auto mt-6 max-w-3xl text-balance text-h1 text-paper">
-            Ready to book your{" "}
-            <span className="font-serif font-normal italic tracking-[-0.01em] text-accent-light">
-              inspection?
-            </span>
-          </RiseUp>
-
-          <RiseUp as="p" delay={0.55} className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-paper/70 sm:text-[17px]">
-            Reach out today and we'll get you scheduled with one of our
-            certified inspectors.
-          </RiseUp>
-
-          <RiseUp delay={0.7} className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button to="/contact" variant="invert" icon={ArrowRight} className="w-full sm:w-auto">
-              Book an Inspection
-            </Button>
-            <Button to="/prices" variant="outline" className="w-full sm:w-auto">
-              View Pricing
-            </Button>
-          </RiseUp>
-
-          <RiseUp as="p" delay={0.85} className="mx-auto mt-12 flex max-w-xl items-start justify-center gap-3 border-t border-paper/15 pt-8 text-left text-sm leading-relaxed text-paper/70 sm:items-center">
-            <ShieldCheck
-              size={18}
-              strokeWidth={1.75}
-              className="mt-0.5 shrink-0 text-paper/70 sm:mt-0"
-              aria-hidden="true"
-            />
-            <span>
-              <span className="font-medium text-paper">Our promise:</span> if
-              anything in your report isn't clear, we'll walk through the
-              findings with you again, at no extra charge.
-            </span>
-          </RiseUp>
-        </RiseUp>
-      </RevealGroup>
     </div>
   );
 }
