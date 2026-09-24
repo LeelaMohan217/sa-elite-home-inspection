@@ -41,15 +41,32 @@ export const serviceAreas = [
   "Kondapur",
   "Madhapur",
   "Hitech City",
-  "Kukatpally",
-  "Banjara Hills",
-  "Jubilee Hills",
+  "Financial District",
+  "Kokapet",
+  "Narsingi",
+  "Manikonda",
+  "Nallagandla",
+  "Tellapur",
+  "Chandanagar",
   "Miyapur",
+  "Bachupally",
+  "Nizampet",
+  "Kukatpally",
+  "Kompally",
+  "Jubilee Hills",
+  "Banjara Hills",
+  "Begumpet",
+  "Ameerpet",
+  "Secunderabad",
+  "Uppal",
+  "LB Nagar",
+  "Shamshabad",
 ];
 
 export const serviceAreaIntro = "We inspect flats, villas, and independent houses across Hyderabad and the surrounding areas, working with homebuyers, sellers, real estate agents, and builders alike.";
 
-// Longer "about the company" copy shown under the service area.
+// Longer "about the company" copy. Not shown on the home page; kept for the
+// About page.
 export const aboutBlocks = [
   {
     title: "Who we are",

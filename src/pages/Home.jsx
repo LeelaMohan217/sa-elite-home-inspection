@@ -27,7 +27,6 @@ import {
   inspectorCredentials,
   serviceAreas,
   serviceAreaIntro,
-  aboutBlocks,
   highlights,
   stats,
   reportItems,
@@ -479,60 +478,51 @@ function Home() {
 
       {/* Service Area */}
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
-        <RevealGroup className="grid gap-10 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-6">
-            <RiseUp delay={0}>
-              <SectionEyebrow>Service area</SectionEyebrow>
-            </RiseUp>
+        <RevealGroup className="mx-auto flex max-w-2xl flex-col items-center text-center">
+          <RiseUp delay={0}>
+            <SectionEyebrow className="justify-center">Service area</SectionEyebrow>
+          </RiseUp>
 
-            <RiseUp as="h2" delay={0.2} className="mt-5 text-balance text-h2 text-ink">
-              Wherever you are in{" "}
-              <span className="font-serif font-normal italic tracking-[-0.01em] text-accent">
-                Hyderabad,
-              </span>{" "}
-              we've got you covered.
-            </RiseUp>
-          </div>
+          <RiseUp as="h2" delay={0.2} className="mt-5 text-balance text-h2 text-ink">
+            Wherever you are in{" "}
+            <span className="font-serif font-normal italic tracking-[-0.01em] text-accent">
+              Hyderabad,
+            </span>{" "}
+            we've got you covered.
+          </RiseUp>
 
-          <div className="max-w-xl lg:col-span-5 lg:col-start-8 lg:pt-10">
-            <RiseUp as="p" delay={0.4} className="text-pretty text-base leading-relaxed text-stone sm:text-[17px]">
-              {serviceAreaIntro}
-            </RiseUp>
-
-            <RiseUp as="ul" delay={0.55} className="mt-7 flex flex-wrap gap-2">
-              {serviceAreas.map((area) => (
-                <li
-                  key={area}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-paper px-3.5 py-2 text-sm text-ink"
-                >
-                  <MapPin size={13} strokeWidth={1.75} className="text-stone" aria-hidden="true" />
-                  {area}
-                </li>
-              ))}
-            </RiseUp>
-
-            <RiseUp as="p" delay={0.7} className="mt-6 text-sm text-stone">
-              Don't see your area?{" "}
-              <Link
-                to="/contact"
-                className="font-medium text-ink underline decoration-hairline underline-offset-4 transition-colors hover:decoration-ink"
-              >
-                Ask us about availability
-              </Link>
-              .
-            </RiseUp>
-          </div>
+          <RiseUp as="p" delay={0.4} className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-stone sm:text-[17px]">
+            {serviceAreaIntro}
+          </RiseUp>
         </RevealGroup>
 
-        <RevealGroup className="mt-16 grid gap-x-10 gap-y-10 sm:mt-20 md:grid-cols-2">
-          {aboutBlocks.map((block, i) => (
-            <RiseUp key={block.title} delay={0.1 + i * 0.15} className="border-t border-hairline pt-6">
-              <h3 className="text-h3 text-ink">{block.title}</h3>
-              <p className="mt-3 text-pretty text-[15px] leading-relaxed text-stone">
-                {block.body}
-              </p>
-            </RiseUp>
-          ))}
+        {/* Neighbourhoods as light tiles; they cascade in quickly, then the
+            availability line follows */}
+        <RevealGroup className="mt-12 sm:mt-14">
+          <ul className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 lg:grid-cols-6">
+            {serviceAreas.map((area, i) => (
+              <RiseUp
+                as="li"
+                key={area}
+                delay={0.1 + i * 0.03}
+                className="flex items-center gap-2 rounded-lg border border-hairline bg-surface px-3.5 py-3 text-sm text-ink"
+              >
+                <MapPin size={14} strokeWidth={1.75} className="shrink-0 text-stone" aria-hidden="true" />
+                <span className="truncate">{area}</span>
+              </RiseUp>
+            ))}
+          </ul>
+
+          <RiseUp as="p" delay={0.1 + serviceAreas.length * 0.03} className="mt-8 text-center text-sm text-stone">
+            Don't see your area?{" "}
+            <Link
+              to="/contact"
+              className="font-medium text-ink underline decoration-hairline underline-offset-4 transition-colors hover:decoration-ink"
+            >
+              Ask us about availability
+            </Link>
+            .
+          </RiseUp>
         </RevealGroup>
       </section>
 
