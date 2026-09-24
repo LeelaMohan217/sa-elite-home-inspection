@@ -366,26 +366,26 @@ function Home() {
           </RiseUp>
         </RevealGroup>
 
-        {/* Poster-style step cards, alternating black and navy */}
+        {/* Light step cards: surface fill, hairline border, faint corner grid */}
         <RevealGroup as="ol" className="mt-12 grid gap-4 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
           {steps.map((item, i) => (
             <RiseUp
               as="li"
               key={item.step}
               delay={0.15 + i * 0.15}
-              className={`relative isolate flex min-h-[15rem] flex-col overflow-hidden rounded-2xl bg-ink p-7 text-paper sm:min-h-[17rem] sm:p-8 lg:min-h-[19rem]`}
+              className="relative isolate flex min-h-[15rem] flex-col overflow-hidden rounded-2xl border border-hairline bg-surface p-7 text-ink sm:min-h-[17rem] sm:p-8 lg:min-h-[19rem]"
             >
               {/* Faint grid, echoing the hero */}
               <div
                 aria-hidden="true"
-                className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgb(250_250_248/0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgb(250_250_248/0.08)_1px,transparent_1px)] bg-[size:36px_36px] [mask-image:radial-gradient(ellipse_90%_70%_at_100%_0%,black_10%,transparent_70%)]"
+                className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--color-hairline)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-hairline)_1px,transparent_1px)] bg-[size:36px_36px] [mask-image:radial-gradient(ellipse_90%_70%_at_100%_0%,black_10%,transparent_70%)]"
               />
 
               <div className="flex items-center justify-between">
-                <span className="text-eyebrow font-medium uppercase text-paper/55">
+                <span className="text-eyebrow font-medium uppercase text-stone">
                   Step {item.step}
                 </span>
-                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-paper/15">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline bg-paper">
                   <item.icon size={18} strokeWidth={1.75} aria-hidden="true" />
                 </span>
               </div>
@@ -396,7 +396,7 @@ function Home() {
                 <h3 className="text-[1.375rem] leading-snug font-medium tracking-tight lg:flex lg:min-h-[2lh] lg:items-end">
                   {item.title}
                 </h3>
-                <p className="mt-2.5 text-[15px] leading-relaxed text-paper/70 lg:min-h-[3lh]">
+                <p className="mt-2.5 text-[15px] leading-relaxed text-stone lg:min-h-[3lh]">
                   {item.description}
                 </p>
               </div>

@@ -14,7 +14,7 @@ tokens (never Tailwind's default palette such as `blue-700`).
 
 | Token | Hex | Use |
 | --- | --- | --- |
-| `ink` | `#000000` | Text, primary buttons, dark bands, process cards, footer |
+| `ink` | `#000000` | Text, primary buttons, dark bands, footer |
 | `paper` | `#fafaf8` | Page background; text on dark |
 | `surface` | `#f2f1ed` | Alternate section bands |
 | `hairline` | `#e5e3dd` | Borders and dividers |
