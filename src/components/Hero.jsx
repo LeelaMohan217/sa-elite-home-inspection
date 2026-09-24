@@ -88,7 +88,7 @@ function Hero({
           ))}
         </h1>
 
-        <p className="mt-7 max-w-xl text-pretty sm:max-w-2xl text-lead text-stone">
+        <p className="mt-7 max-w-xl text-pretty text-base leading-relaxed text-stone sm:text-[17px]">
           {leadWords.map((word, i) => (
             <span key={i}>
               <Rise delay={T.lead + i * T.leadStagger} duration={0.8} skip={skip}>
