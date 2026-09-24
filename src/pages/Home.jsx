@@ -32,7 +32,6 @@ import {
   reportItems,
   services,
   steps,
-  featuredTestimonial,
   testimonials,
   faqs,
 } from "../content/home";
@@ -511,51 +510,6 @@ function Home() {
             </Link>
             .
           </RiseUp>
-        </RevealGroup>
-      </section>
-
-      {/* Featured Testimonial */}
-      <section className="bg-ink py-20 text-paper sm:py-32">
-        <RevealGroup className="mx-auto flex max-w-4xl flex-col items-center px-5 text-center sm:px-8 lg:px-10">
-          <RiseUp delay={0}>
-            <SectionEyebrow tone="dark">Success story</SectionEyebrow>
-          </RiseUp>
-
-          <RiseUp
-            as="span"
-            delay={0.15}
-            aria-hidden="true"
-            className="mt-10 h-10 font-serif text-h1 leading-none text-paper/15"
-          >
-            &ldquo;
-          </RiseUp>
-
-          <figure className="mt-4">
-            <RiseUp as="blockquote" delay={0.3} className="text-balance font-serif text-h2 leading-[1.15] tracking-[-0.01em] text-paper">
-              {featuredTestimonial.quote}
-            </RiseUp>
-
-            <RiseUp as="figcaption" delay={0.5} className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-5">
-              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-paper/15 text-sm font-medium text-paper">
-                {featuredTestimonial.name
-                  .split(" ")
-                  .map((part) => part[0])
-                  .join("")}
-              </span>
-
-              <span className="flex flex-col items-center gap-1 sm:items-start">
-                <span className="text-[15px] font-medium text-paper">
-                  {featuredTestimonial.name}
-                  <span className="font-normal text-paper/70"> · {featuredTestimonial.role}</span>
-                </span>
-                <span className="flex gap-0.5 text-paper/70" aria-label="Rated 5 out of 5">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} size={13} fill="currentColor" strokeWidth={0} aria-hidden="true" />
-                  ))}
-                </span>
-              </span>
-            </RiseUp>
-          </figure>
         </RevealGroup>
       </section>
 
