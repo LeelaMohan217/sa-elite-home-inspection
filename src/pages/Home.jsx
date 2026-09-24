@@ -349,21 +349,19 @@ function Home() {
 
       {/* Process */}
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
-        <RevealGroup className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-10">
-          <div className="lg:col-span-6">
-            <RiseUp delay={0}>
-              <SectionEyebrow>Our process</SectionEyebrow>
-            </RiseUp>
+        <RevealGroup className="mx-auto flex max-w-2xl flex-col items-center text-center">
+          <RiseUp delay={0}>
+            <SectionEyebrow className="justify-center">Our process</SectionEyebrow>
+          </RiseUp>
 
-            <RiseUp as="h2" delay={0.2} className="mt-5 text-balance text-h2 text-ink">
-              Four steps from booking to{" "}
-              <span className="font-serif font-normal italic tracking-[-0.01em] text-accent">
-                clarity.
-              </span>
-            </RiseUp>
-          </div>
+          <RiseUp as="h2" delay={0.2} className="mt-5 text-balance text-h2 text-ink">
+            Four steps from booking to{" "}
+            <span className="font-serif font-normal italic tracking-[-0.01em] text-accent">
+              clarity.
+            </span>
+          </RiseUp>
 
-          <RiseUp as="p" delay={0.4} className="max-w-xl text-pretty text-base leading-relaxed text-stone sm:text-[17px] lg:col-span-5 lg:col-start-8">
+          <RiseUp as="p" delay={0.4} className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-stone sm:text-[17px]">
             A simple process built around clear communication, so you always
             know exactly what's happening and what it means for your home.
           </RiseUp>
@@ -376,7 +374,7 @@ function Home() {
               as="li"
               key={item.step}
               delay={0.15 + i * 0.15}
-              className={`relative isolate flex min-h-[19rem] flex-col overflow-hidden rounded-3xl p-7 text-paper sm:min-h-[24rem] sm:p-8 lg:min-h-[27rem] ${
+              className={`relative isolate flex min-h-[15rem] flex-col overflow-hidden rounded-3xl p-7 text-paper sm:min-h-[17rem] sm:p-8 lg:min-h-[19rem] ${
                 i % 2 ? "bg-accent" : "bg-ink"
               }`}
             >
@@ -394,13 +392,6 @@ function Home() {
                   <item.icon size={18} strokeWidth={1.75} aria-hidden="true" />
                 </span>
               </div>
-
-              <span
-                aria-hidden="true"
-                className="mt-6 font-serif text-[6.5rem] leading-[0.8] tracking-[-0.03em] text-paper italic sm:text-[7.5rem]"
-              >
-                {item.step}
-              </span>
 
               <div className="mt-auto pt-10">
                 {/* On desktop, reserve two title lines and three description
