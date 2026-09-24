@@ -1,7 +1,19 @@
 // Text and structured content for the Home page (src/pages/Home.jsx).
 // Kept separate from the component so copy can be edited without touching layout code.
 
-import { ShieldCheck, Award, UserCheck, Clock, Search, Layers, Droplets } from "lucide-react";
+import {
+  ShieldCheck,
+  Award,
+  UserCheck,
+  Clock,
+  Search,
+  Layers,
+  Droplets,
+  CalendarCheck,
+  ClipboardCheck,
+  FileText,
+  MessagesSquare,
+} from "lucide-react";
 
 export const hero = {
   eyebrow: "Certified Home Inspections",
@@ -107,23 +119,27 @@ export const services = [
 export const steps = [
   {
     step: "01",
+    icon: CalendarCheck,
     title: "Book Online or by Phone",
     description:
       "Pick a time that works for you — we'll confirm within minutes.",
   },
   {
     step: "02",
+    icon: ClipboardCheck,
     title: "We Inspect the Property",
     description:
       "A certified inspector examines every major system, top to bottom.",
   },
   {
     step: "03",
+    icon: FileText,
     title: "Get Your Digital Report",
     description: "Receive a clear, photo-backed report within 48 hours.",
   },
   {
     step: "04",
+    icon: MessagesSquare,
     title: "Ask Us Anything",
     description:
       "We're available to walk through the findings and answer questions.",

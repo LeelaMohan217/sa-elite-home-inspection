@@ -349,54 +349,72 @@ function Home() {
 
       {/* Process */}
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
-        <div className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-10">
-          <Reveal className="lg:col-span-6">
-            <SectionEyebrow>Our process</SectionEyebrow>
+        <RevealGroup className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-10">
+          <div className="lg:col-span-6">
+            <RiseUp delay={0}>
+              <SectionEyebrow>Our process</SectionEyebrow>
+            </RiseUp>
 
-            <h2 className="mt-5 text-balance text-h2 text-ink">
+            <RiseUp as="h2" delay={0.2} className="mt-5 text-balance text-h2 text-ink">
               Four steps from booking to{" "}
               <span className="font-serif font-normal italic tracking-[-0.01em] text-accent">
                 clarity.
               </span>
-            </h2>
-          </Reveal>
+            </RiseUp>
+          </div>
 
-          <Reveal index={1} className="max-w-xl lg:col-span-5 lg:col-start-8">
-            <p className="text-pretty text-lead text-stone">
-              A simple process built around clear communication, so you always
-              know exactly what's happening and what it means for your home.
-            </p>
-          </Reveal>
-        </div>
+          <RiseUp as="p" delay={0.4} className="max-w-xl text-pretty text-base leading-relaxed text-stone sm:text-[17px] lg:col-span-5 lg:col-start-8">
+            A simple process built around clear communication, so you always
+            know exactly what's happening and what it means for your home.
+          </RiseUp>
+        </RevealGroup>
 
-        {/* Timeline: vertical on phones; horizontal rows (2x2, then 1x4) from sm.
-            Each step draws its own line across the gap; overflow-hidden trims
-            the end of each row. */}
-        <ol className="relative mt-14 grid gap-10 before:absolute before:top-2 before:bottom-2 before:left-[7px] before:w-px before:bg-hairline sm:mt-16 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-14 sm:overflow-hidden sm:before:hidden lg:grid-cols-4">
+        {/* Poster-style step cards, alternating black and navy */}
+        <RevealGroup as="ol" className="mt-12 grid gap-4 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
           {steps.map((item, i) => (
-            <Reveal
+            <RiseUp
               as="li"
               key={item.step}
-              index={i}
-              className="relative pl-10 sm:pt-12 sm:pl-0 sm:before:absolute sm:before:top-[7px] sm:before:left-0 sm:before:h-px sm:before:w-[calc(100%+2rem)] sm:before:bg-hairline"
+              delay={0.15 + i * 0.15}
+              className={`relative isolate flex min-h-[19rem] flex-col overflow-hidden rounded-3xl p-7 text-paper sm:min-h-[24rem] sm:p-8 lg:min-h-[27rem] ${
+                i % 2 ? "bg-accent" : "bg-ink"
+              }`}
             >
+              {/* Faint grid, echoing the hero */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgb(250_250_248/0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgb(250_250_248/0.08)_1px,transparent_1px)] bg-[size:36px_36px] [mask-image:radial-gradient(ellipse_90%_70%_at_100%_0%,black_10%,transparent_70%)]"
+              />
+
+              <div className="flex items-center justify-between">
+                <span className="text-eyebrow font-medium uppercase text-paper/55">
+                  Step {item.step}
+                </span>
+                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-paper/20">
+                  <item.icon size={18} strokeWidth={1.75} aria-hidden="true" />
+                </span>
+              </div>
+
               <span
                 aria-hidden="true"
-                className="absolute top-1 left-0 z-10 flex h-[15px] w-[15px] items-center justify-center rounded-full border border-ink/25 bg-paper sm:top-0"
+                className="mt-6 font-serif text-[6.5rem] leading-[0.8] tracking-[-0.03em] text-paper italic sm:text-[7.5rem]"
               >
-                <span className="h-[5px] w-[5px] rounded-full bg-ink" />
+                {item.step}
               </span>
 
-              <p className="text-sm tabular-nums text-stone">Step {item.step}</p>
-
-              <h3 className="mt-3 text-h3 text-ink">{item.title}</h3>
-
-              <p className="mt-2.5 max-w-sm text-[15px] leading-relaxed text-stone">
-                {item.description}
-              </p>
-            </Reveal>
+              <div className="mt-auto pt-10">
+                {/* On desktop, reserve two title lines and three description
+                    lines so titles share a baseline and descriptions start level */}
+                <h3 className="text-[1.375rem] leading-snug font-medium tracking-tight lg:flex lg:min-h-[2lh] lg:items-end">
+                  {item.title}
+                </h3>
+                <p className="mt-2.5 text-[15px] leading-relaxed text-paper/65 lg:min-h-[3lh]">
+                  {item.description}
+                </p>
+              </div>
+            </RiseUp>
           ))}
-        </ol>
+        </RevealGroup>
       </section>
 
       {/* Popular Services */}
