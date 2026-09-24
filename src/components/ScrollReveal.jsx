@@ -7,9 +7,10 @@ import { motion, useReducedMotion } from "framer-motion";
 
 const EASE = [0.16, 1, 0.3, 1];
 
-// Plays once the block is properly on screen: at least 40% of it visible and
-// clear of the bottom fifth of the viewport.
-const VIEWPORT = { once: true, amount: 0.4, margin: "0px 0px -20% 0px" };
+// Plays once the block's top edge has risen about two-thirds of the way up
+// the screen, so it runs where the reader is looking, whatever the block's
+// height or the device.
+const VIEWPORT = { once: true, amount: "some", margin: "0px 0px -35% 0px" };
 
 export function RevealGroup({ as = "div", className = "", children }) {
   const Component = motion[as] ?? motion.div;

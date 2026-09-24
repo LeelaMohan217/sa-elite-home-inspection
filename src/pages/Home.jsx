@@ -6,6 +6,8 @@ import {
   MapPin,
   Check,
   AlertTriangle,
+  CircleAlert,
+  Paintbrush,
   ShieldCheck,
   Star,
 } from "lucide-react";
@@ -35,6 +37,17 @@ import {
   testimonials,
   faqs,
 } from "../content/home";
+
+// Sample report statuses. Severity levels follow the guide in AKSHARA
+// reports: major (function, safety or durability), minor (workmanship or
+// fitment) and cosmetic (finish only).
+const REPORT_STATUS = {
+  ok: { label: "Good", icon: Check, pill: "bg-accent-light/60 text-accent", bar: "bg-accent" },
+  major: { label: "Major", icon: AlertTriangle, pill: "bg-caution text-paper", bar: "bg-caution" },
+  minor: { label: "Minor", icon: CircleAlert, pill: "bg-caution-light text-caution", bar: "bg-caution/45" },
+  cosmetic: { label: "Cosmetic", icon: Paintbrush, pill: "bg-surface text-stone", bar: "bg-stone/35" },
+};
+const SEVERITIES = ["major", "minor", "cosmetic"];
 
 function Home() {
   const [openFaq, setOpenFaq] = useState(null);
@@ -204,118 +217,133 @@ function Home() {
       {/* Sample Report */}
       <section className="border-y border-hairline bg-surface py-16 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-12 lg:items-center lg:gap-10 lg:px-10">
-          <Reveal className="max-w-2xl lg:col-span-6 lg:max-w-none lg:pr-6">
-            <SectionEyebrow>The deliverable</SectionEyebrow>
+          <RevealGroup className="max-w-2xl lg:col-span-6 lg:max-w-none lg:pr-6">
+            <RiseUp delay={0}>
+              <SectionEyebrow>The deliverable</SectionEyebrow>
+            </RiseUp>
 
-            <h2 className="mt-5 text-balance text-h2 text-ink">
+            <RiseUp as="h2" delay={0.2} className="mt-5 text-balance text-h2 text-ink">
               See exactly what you'll{" "}
               <span className="font-serif font-normal italic tracking-[-0.01em] text-accent">
                 receive.
               </span>
-            </h2>
+            </RiseUp>
 
-            <p className="mt-6 text-pretty text-lead text-stone">
+            <RiseUp as="p" delay={0.4} className="mt-6 text-pretty text-base leading-relaxed text-stone sm:text-[17px]">
               Every inspection ends with a clear, photo-backed digital report,
-              not a checklist full of jargon. Each system is marked as good to
-              go or flagged for follow-up, with photos and plain-language notes
-              so you know exactly what it means.
-            </p>
+              not a checklist full of jargon. Each finding is graded as major,
+              minor or cosmetic, with photos and plain-language notes so you
+              know exactly what it means.
+            </RiseUp>
 
-            <Button
-              to="/contact"
-              variant="secondary"
-              icon={ArrowRight}
-              className="mt-9 w-full sm:w-fit"
-            >
-              Ask About Sample Reports
-            </Button>
-          </Reveal>
+            <RiseUp delay={0.6} className="mt-9">
+              <Button
+                to="/contact"
+                variant="secondary"
+                icon={ArrowRight}
+                className="w-full sm:w-fit"
+              >
+                Ask About Sample Reports
+              </Button>
+            </RiseUp>
+          </RevealGroup>
 
-          {/* Mock report, with a second sheet peeking out behind it */}
-          <Reveal index={1} className="relative pr-2.5 pb-2.5 sm:pr-4 sm:pb-4 lg:col-span-6 lg:col-start-7">
-            <div
-              aria-hidden="true"
-              className="absolute top-2.5 right-0 bottom-0 left-2.5 rounded-2xl border border-hairline bg-paper sm:top-4 sm:left-4"
-            />
+          {/* Mock report, with a second sheet peeking out behind it. The card
+              rises in, then its rows follow one by one. */}
+          <RevealGroup className="lg:col-span-6 lg:col-start-7">
+            <RiseUp delay={0.2} className="relative pr-2.5 pb-2.5 sm:pr-4 sm:pb-4">
+              <div
+                aria-hidden="true"
+                className="absolute top-2.5 right-0 bottom-0 left-2.5 rounded-2xl border border-hairline bg-paper sm:top-4 sm:left-4"
+              />
 
-            <div className="relative rounded-2xl border border-hairline bg-paper p-5 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.18)] sm:p-8">
-              <div className="flex items-center justify-between gap-4">
-                <span className="flex items-center gap-2.5">
-                  <img src={logoMark} alt="" className="h-5 w-5" />
-                  <span className="text-[15px] font-medium tracking-tight text-ink">
-                    Inspection Report
+              <div className="relative rounded-2xl border border-hairline bg-paper p-5 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.18)] sm:p-8">
+                <div className="flex items-center justify-between gap-4">
+                  <span className="flex items-center gap-2.5">
+                    <img src={logoMark} alt="" className="h-5 w-5" />
+                    <span className="text-[15px] font-medium tracking-tight text-ink">
+                      Inspection Report
+                    </span>
                   </span>
-                </span>
-                <span className="rounded-full border border-hairline px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.12em] text-stone">
-                  Sample
-                </span>
-              </div>
-
-              <dl className="mt-6 grid grid-cols-2 gap-4 border-y border-hairline py-5 text-sm">
-                <div>
-                  <dt className="text-xs text-stone">Property</dt>
-                  <dd className="mt-1 font-medium text-ink">Sample home, Hyderabad</dd>
-                </div>
-                <div>
-                  <dt className="text-xs text-stone">Delivered</dt>
-                  <dd className="mt-1 font-medium text-ink">Within 48 hours</dd>
-                </div>
-              </dl>
-
-              <div className="mt-5">
-                <p className="flex items-baseline justify-between gap-4 text-sm">
-                  <span className="font-medium text-ink">Summary</span>
-                  <span className="text-stone">
-                    {reportItems.filter((item) => item.status === "ok").length} of{" "}
-                    {reportItems.length}
-                    <span className="hidden sm:inline"> systems in good condition</span>
-                    <span className="sm:hidden"> good</span>
+                  <span className="rounded-full border border-hairline px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.12em] text-stone">
+                    Sample
                   </span>
+                </div>
+
+                <dl className="mt-6 grid grid-cols-2 gap-4 border-y border-hairline py-5 text-sm">
+                  <div>
+                    <dt className="text-xs text-stone">Property</dt>
+                    <dd className="mt-1 font-medium text-ink">Sample home, Hyderabad</dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs text-stone">Delivered</dt>
+                    <dd className="mt-1 font-medium text-ink">Within 48 hours</dd>
+                  </div>
+                </dl>
+
+                <div className="mt-5">
+                  <p className="flex items-baseline justify-between gap-4 text-sm">
+                    <span className="font-medium text-ink">Summary</span>
+                    <span className="text-stone">
+                      {reportItems.filter((item) => item.status === "ok").length} of{" "}
+                      {reportItems.length}
+                      <span className="hidden sm:inline"> systems in good condition</span>
+                      <span className="sm:hidden"> good</span>
+                    </span>
+                  </p>
+                  <div className="mt-3 flex gap-1" aria-hidden="true">
+                    {reportItems.map((item) => (
+                      <span
+                        key={item.label}
+                        className={`h-1.5 flex-1 rounded-full ${REPORT_STATUS[item.status].bar}`}
+                      />
+                    ))}
+                  </div>
+                  <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-stone">
+                    {SEVERITIES.map((severity) => (
+                      <span key={severity} className="inline-flex items-center gap-1.5">
+                        <span
+                          className={`h-2 w-2 rounded-full ${REPORT_STATUS[severity].bar}`}
+                          aria-hidden="true"
+                        />
+                        {reportItems.filter((item) => item.status === severity).length}{" "}
+                        {REPORT_STATUS[severity].label}
+                      </span>
+                    ))}
+                  </p>
+                </div>
+
+                <ul className="mt-6 divide-y divide-hairline">
+                  {reportItems.map((item, i) => {
+                    const status = REPORT_STATUS[item.status];
+                    return (
+                      <RiseUp as="li" key={item.label} delay={0.5 + i * 0.12} className="py-3.5">
+                        <div className="flex items-center justify-between gap-4 text-sm">
+                          <span className="text-ink">{item.label}</span>
+                          <span
+                            className={`inline-flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ${status.pill}`}
+                          >
+                            <status.icon size={12} strokeWidth={2.5} aria-hidden="true" />
+                            {status.label}
+                          </span>
+                        </div>
+
+                        {item.note && (
+                          <p className="mt-3 rounded-lg bg-caution-light/60 px-3.5 py-3 text-[13px] leading-relaxed text-ink/80">
+                            {item.note}
+                          </p>
+                        )}
+                      </RiseUp>
+                    );
+                  })}
+                </ul>
+
+                <p className="mt-4 text-xs text-stone">
+                  Sample report, for illustration only.
                 </p>
-                <div className="mt-3 flex gap-1" aria-hidden="true">
-                  {reportItems.map((item) => (
-                    <span
-                      key={item.label}
-                      className={`h-1.5 flex-1 rounded-full ${
-                        item.status === "ok" ? "bg-accent" : "bg-caution"
-                      }`}
-                    />
-                  ))}
-                </div>
               </div>
-
-              <ul className="mt-6 divide-y divide-hairline">
-                {reportItems.map((item) => (
-                  <li key={item.label} className="py-3.5">
-                    <div className="flex items-center justify-between gap-4 text-sm">
-                      <span className="text-ink">{item.label}</span>
-                      {item.status === "ok" ? (
-                        <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-accent-light/60 px-2.5 py-1 text-xs font-medium text-accent">
-                          <Check size={12} strokeWidth={2.5} aria-hidden="true" />
-                          Good
-                        </span>
-                      ) : (
-                        <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-caution-light px-2.5 py-1 text-xs font-medium text-caution">
-                          <AlertTriangle size={12} strokeWidth={2.5} aria-hidden="true" />
-                          Follow up
-                        </span>
-                      )}
-                    </div>
-
-                    {item.note && (
-                      <p className="mt-3 rounded-lg bg-caution-light/60 px-3.5 py-3 text-[13px] leading-relaxed text-ink/80">
-                        {item.note}
-                      </p>
-                    )}
-                  </li>
-                ))}
-              </ul>
-
-              <p className="mt-4 text-xs text-stone">
-                Sample report, for illustration only.
-              </p>
-            </div>
-          </Reveal>
+            </RiseUp>
+          </RevealGroup>
         </div>
       </section>
 

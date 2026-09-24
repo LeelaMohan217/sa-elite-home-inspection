@@ -69,15 +69,17 @@ export const stats = [
   { label: "Avg. Report Turnaround", value: 48, suffix: " hrs" },
 ];
 
+// status: "ok" or a severity ("major" | "minor" | "cosmetic"), matching the
+// severity guide used in real AKSHARA reports.
 export const reportItems = [
   { label: "Roof & Exterior", status: "ok" },
   {
     label: "Electrical System",
-    status: "flagged",
+    status: "major",
     note: "Loose connection at the main panel. We recommend a licensed electrician review it before closing.",
   },
-  { label: "Plumbing", status: "ok" },
-  { label: "HVAC", status: "ok" },
+  { label: "Plumbing", status: "minor" },
+  { label: "Floors & Tiles", status: "cosmetic" },
   { label: "Foundation & Structure", status: "ok" },
 ];
 
