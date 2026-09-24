@@ -409,28 +409,31 @@ function Home() {
       {/* Popular Services */}
       <section className="border-y border-hairline bg-surface py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-          <div className="flex items-end justify-between gap-6">
-            <Reveal className="max-w-2xl">
-              <SectionEyebrow>Popular services</SectionEyebrow>
+          {/* Label, heading and button rise in turn, then each card */}
+          <RevealGroup className="flex items-end justify-between gap-6">
+            <div className="max-w-2xl">
+              <RiseUp delay={0}>
+                <SectionEyebrow>Popular services</SectionEyebrow>
+              </RiseUp>
 
-              <h2 className="mt-5 text-balance text-h2 text-ink">
+              <RiseUp as="h2" delay={0.2} className="mt-5 text-balance text-h2 text-ink">
                 Services tailored to every{" "}
                 <span className="font-serif font-normal italic tracking-[-0.01em] text-accent">
                   home.
                 </span>
-              </h2>
-            </Reveal>
+              </RiseUp>
+            </div>
 
-            <div className="hidden shrink-0 md:block">
+            <RiseUp delay={0.4} className="hidden shrink-0 md:block">
               <Button to="/services" variant="secondary" icon={ArrowRight}>
                 View all services
               </Button>
-            </div>
-          </div>
+            </RiseUp>
+          </RevealGroup>
 
-          <ul className="mt-12 grid gap-4 sm:mt-14 lg:grid-cols-3 lg:gap-5">
+          <RevealGroup as="ul" className="mt-12 grid gap-4 sm:mt-14 lg:grid-cols-3 lg:gap-5">
             {services.map((service, i) => (
-              <Reveal as="li" key={service.title} index={i}>
+              <RiseUp as="li" key={service.title} delay={0.15 + i * 0.15}>
                 <Link
                   to="/services"
                   className="group flex h-full flex-col rounded-2xl border border-hairline bg-paper p-6 transition-colors duration-300 hover:border-ink/20 sm:p-8 md:grid md:grid-cols-[auto_1fr_auto] md:items-start md:gap-8 lg:flex lg:min-h-[21rem] lg:items-stretch lg:gap-0"
@@ -460,40 +463,43 @@ function Home() {
                     </p>
                   </div>
                 </Link>
-              </Reveal>
+              </RiseUp>
             ))}
-          </ul>
+          </RevealGroup>
 
-          <Button
-            to="/services"
-            variant="secondary"
-            icon={ArrowRight}
-            className="mt-8 w-full md:hidden"
-          >
-            View all services
-          </Button>
+          <RevealGroup className="mt-8 md:hidden">
+            <RiseUp delay={0}>
+              <Button to="/services" variant="secondary" icon={ArrowRight} className="w-full">
+                View all services
+              </Button>
+            </RiseUp>
+          </RevealGroup>
         </div>
       </section>
 
       {/* Service Area */}
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-10">
-          <Reveal className="lg:col-span-6">
-            <SectionEyebrow>Service area</SectionEyebrow>
+        <RevealGroup className="grid gap-10 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-6">
+            <RiseUp delay={0}>
+              <SectionEyebrow>Service area</SectionEyebrow>
+            </RiseUp>
 
-            <h2 className="mt-5 text-balance text-h2 text-ink">
+            <RiseUp as="h2" delay={0.2} className="mt-5 text-balance text-h2 text-ink">
               Wherever you are in{" "}
               <span className="font-serif font-normal italic tracking-[-0.01em] text-accent">
                 Hyderabad,
               </span>{" "}
               we've got you covered.
-            </h2>
-          </Reveal>
+            </RiseUp>
+          </div>
 
-          <Reveal index={1} className="max-w-xl lg:col-span-5 lg:col-start-8 lg:pt-10">
-            <p className="text-pretty text-base leading-relaxed text-stone sm:text-[17px]">{serviceAreaIntro}</p>
+          <div className="max-w-xl lg:col-span-5 lg:col-start-8 lg:pt-10">
+            <RiseUp as="p" delay={0.4} className="text-pretty text-base leading-relaxed text-stone sm:text-[17px]">
+              {serviceAreaIntro}
+            </RiseUp>
 
-            <ul className="mt-7 flex flex-wrap gap-2">
+            <RiseUp as="ul" delay={0.55} className="mt-7 flex flex-wrap gap-2">
               {serviceAreas.map((area) => (
                 <li
                   key={area}
@@ -503,9 +509,9 @@ function Home() {
                   {area}
                 </li>
               ))}
-            </ul>
+            </RiseUp>
 
-            <p className="mt-6 text-sm text-stone">
+            <RiseUp as="p" delay={0.7} className="mt-6 text-sm text-stone">
               Don't see your area?{" "}
               <Link
                 to="/contact"
@@ -514,40 +520,44 @@ function Home() {
                 Ask us about availability
               </Link>
               .
-            </p>
-          </Reveal>
-        </div>
+            </RiseUp>
+          </div>
+        </RevealGroup>
 
-        <div className="mt-16 grid gap-x-10 gap-y-10 sm:mt-20 md:grid-cols-2">
+        <RevealGroup className="mt-16 grid gap-x-10 gap-y-10 sm:mt-20 md:grid-cols-2">
           {aboutBlocks.map((block, i) => (
-            <Reveal key={block.title} index={i % 2} className="border-t border-hairline pt-6">
+            <RiseUp key={block.title} delay={0.1 + i * 0.15} className="border-t border-hairline pt-6">
               <h3 className="text-h3 text-ink">{block.title}</h3>
               <p className="mt-3 text-pretty text-[15px] leading-relaxed text-stone">
                 {block.body}
               </p>
-            </Reveal>
+            </RiseUp>
           ))}
-        </div>
+        </RevealGroup>
       </section>
 
       {/* Featured Testimonial */}
       <section className="bg-ink py-20 text-paper sm:py-32">
-        <Reveal className="mx-auto flex max-w-4xl flex-col items-center px-5 text-center sm:px-8 lg:px-10">
-          <SectionEyebrow tone="dark">Success story</SectionEyebrow>
+        <RevealGroup className="mx-auto flex max-w-4xl flex-col items-center px-5 text-center sm:px-8 lg:px-10">
+          <RiseUp delay={0}>
+            <SectionEyebrow tone="dark">Success story</SectionEyebrow>
+          </RiseUp>
 
-          <span
+          <RiseUp
+            as="span"
+            delay={0.15}
             aria-hidden="true"
             className="mt-10 h-10 font-serif text-h1 leading-none text-paper/15"
           >
             &ldquo;
-          </span>
+          </RiseUp>
 
           <figure className="mt-4">
-            <blockquote className="text-balance font-serif text-h2 leading-[1.15] tracking-[-0.01em] text-paper">
+            <RiseUp as="blockquote" delay={0.3} className="text-balance font-serif text-h2 leading-[1.15] tracking-[-0.01em] text-paper">
               {featuredTestimonial.quote}
-            </blockquote>
+            </RiseUp>
 
-            <figcaption className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-5">
+            <RiseUp as="figcaption" delay={0.5} className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-5">
               <span className="flex h-11 w-11 items-center justify-center rounded-full border border-paper/15 text-sm font-medium text-paper">
                 {featuredTestimonial.name
                   .split(" ")
@@ -566,25 +576,27 @@ function Home() {
                   ))}
                 </span>
               </span>
-            </figcaption>
+            </RiseUp>
           </figure>
-        </Reveal>
+        </RevealGroup>
       </section>
 
       {/* Testimonials */}
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
-        <Reveal>
-          <SectionEyebrow>Client stories</SectionEyebrow>
+        <RevealGroup>
+          <RiseUp delay={0}>
+            <SectionEyebrow>Client stories</SectionEyebrow>
+          </RiseUp>
 
-          <h2 className="mt-5 text-balance text-h2 text-ink">
+          <RiseUp as="h2" delay={0.2} className="mt-5 text-balance text-h2 text-ink">
             What our clients{" "}
             <span className="font-serif font-normal italic tracking-[-0.01em] text-accent">
               say.
             </span>
-          </h2>
-        </Reveal>
+          </RiseUp>
+        </RevealGroup>
 
-        <ul className="mt-12 grid gap-4 sm:mt-14 lg:grid-cols-3 lg:gap-5">
+        <RevealGroup as="ul" className="mt-12 grid gap-4 sm:mt-14 lg:grid-cols-3 lg:gap-5">
           {testimonials.map((testimonial, i) => {
             const [name, role] = testimonial.author.split(", ");
             const initials = name
@@ -593,7 +605,7 @@ function Home() {
               .join("");
 
             return (
-              <Reveal as="li" key={testimonial.author} index={i}>
+              <RiseUp as="li" key={testimonial.author} delay={0.15 + i * 0.15}>
                 <figure className="flex h-full flex-col rounded-2xl border border-hairline bg-paper p-6 sm:p-8">
                   <span className="flex gap-0.5 text-ink" aria-label="Rated 5 out of 5">
                     {Array.from({ length: 5 }).map((_, star) => (
@@ -615,26 +627,28 @@ function Home() {
                     </span>
                   </figcaption>
                 </figure>
-              </Reveal>
+              </RiseUp>
             );
           })}
-        </ul>
+        </RevealGroup>
       </section>
 
       {/* FAQ */}
       <section className="border-y border-hairline bg-surface py-16 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-12 lg:gap-10 lg:px-10">
-          <Reveal className="lg:col-span-4">
-            <SectionEyebrow>FAQ</SectionEyebrow>
+          <RevealGroup className="lg:col-span-4">
+            <RiseUp delay={0}>
+              <SectionEyebrow>FAQ</SectionEyebrow>
+            </RiseUp>
 
-            <h2 className="mt-5 text-balance text-h2 text-ink">
+            <RiseUp as="h2" delay={0.2} className="mt-5 text-balance text-h2 text-ink">
               Got questions? We've got{" "}
               <span className="font-serif font-normal italic tracking-[-0.01em] text-accent">
                 answers.
               </span>
-            </h2>
+            </RiseUp>
 
-            <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-stone">
+            <RiseUp as="p" delay={0.4} className="mt-6 max-w-sm text-[15px] leading-relaxed text-stone">
               Still have a question?{" "}
               <Link
                 to="/contact"
@@ -643,60 +657,64 @@ function Home() {
                 Talk to an inspector
               </Link>
               .
-            </p>
-          </Reveal>
+            </RiseUp>
+          </RevealGroup>
 
-          <Reveal index={1} className="border-t border-hairline lg:col-span-7 lg:col-start-6">
-            {faqs.map((faq) => (
-              <FaqItem
-                key={faq.question}
-                question={faq.question}
-                answer={faq.answer}
-                open={openFaq === faq.question}
-                onToggle={() =>
-                  setOpenFaq((prev) =>
-                    prev === faq.question ? null : faq.question
-                  )
-                }
-              />
+          <RevealGroup className="border-t border-hairline lg:col-span-7 lg:col-start-6">
+            {faqs.map((faq, i) => (
+              <RiseUp key={faq.question} delay={0.15 + i * 0.1}>
+                <FaqItem
+                  question={faq.question}
+                  answer={faq.answer}
+                  open={openFaq === faq.question}
+                  onToggle={() =>
+                    setOpenFaq((prev) =>
+                      prev === faq.question ? null : faq.question
+                    )
+                  }
+                />
+              </RiseUp>
             ))}
-          </Reveal>
+          </RevealGroup>
         </div>
       </section>
 
       {/* CTA + promise */}
-      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
-        <Reveal className="relative isolate overflow-hidden rounded-3xl bg-ink px-6 py-16 text-center text-paper sm:px-12 sm:py-24">
+      {/* The panel rises in, then its contents follow in turn */}
+      <RevealGroup as="section" className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
+        <RiseUp delay={0} className="relative isolate overflow-hidden rounded-3xl bg-ink px-6 py-16 text-center text-paper sm:px-12 sm:py-24">
           {/* Same faint grid as the hero, in reverse */}
           <div
             aria-hidden="true"
             className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgb(250_250_248/0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgb(250_250_248/0.08)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_45%,black_20%,transparent_75%)]"
           />
 
-          <SectionEyebrow tone="dark" className="justify-center">Ready when you are</SectionEyebrow>
+          <RiseUp delay={0.25}>
+            <SectionEyebrow tone="dark" className="justify-center">Ready when you are</SectionEyebrow>
+          </RiseUp>
 
-          <h2 className="mx-auto mt-6 max-w-3xl text-balance text-h1 text-paper">
+          <RiseUp as="h2" delay={0.4} className="mx-auto mt-6 max-w-3xl text-balance text-h1 text-paper">
             Ready to book your{" "}
             <span className="font-serif font-normal italic tracking-[-0.01em] text-accent-light">
               inspection?
             </span>
-          </h2>
+          </RiseUp>
 
-          <p className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-paper/70 sm:text-[17px]">
+          <RiseUp as="p" delay={0.55} className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-paper/70 sm:text-[17px]">
             Reach out today and we'll get you scheduled with one of our
             certified inspectors.
-          </p>
+          </RiseUp>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <RiseUp delay={0.7} className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button to="/contact" variant="invert" icon={ArrowRight} className="w-full sm:w-auto">
               Book an Inspection
             </Button>
             <Button to="/prices" variant="outline" className="w-full sm:w-auto">
               View Pricing
             </Button>
-          </div>
+          </RiseUp>
 
-          <p className="mx-auto mt-12 flex max-w-xl items-start justify-center gap-3 border-t border-paper/15 pt-8 text-left text-sm leading-relaxed text-paper/70 sm:items-center">
+          <RiseUp as="p" delay={0.85} className="mx-auto mt-12 flex max-w-xl items-start justify-center gap-3 border-t border-paper/15 pt-8 text-left text-sm leading-relaxed text-paper/70 sm:items-center">
             <ShieldCheck
               size={18}
               strokeWidth={1.75}
@@ -708,9 +726,9 @@ function Home() {
               anything in your report isn't clear, we'll walk through the
               findings with you again, at no extra charge.
             </span>
-          </p>
-        </Reveal>
-      </section>
+          </RiseUp>
+        </RiseUp>
+      </RevealGroup>
     </div>
   );
 }
