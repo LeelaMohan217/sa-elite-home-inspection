@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Phone, Mail, MapPin, ShieldCheck } from 'lucide-react'
+import { ArrowRight, Phone, Mail, MapPin } from 'lucide-react'
 import Logo from './Logo'
 import Button from './Button'
 import SectionEyebrow from './SectionEyebrow'
@@ -67,15 +67,6 @@ function Footer() {
             <Button to="/prices" variant="outline" className="w-full sm:w-auto">
               View Pricing
             </Button>
-          </RiseUp>
-
-          <RiseUp as="p" delay={0.6} className="mt-10 flex max-w-xl items-start justify-center gap-3 text-left text-sm leading-relaxed text-paper/70 sm:items-center">
-            <ShieldCheck size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 sm:mt-0" aria-hidden="true" />
-            <span>
-              <span className="font-medium text-paper">Our promise:</span> if anything in your
-              report isn't clear, we'll walk through the findings with you again, at no extra
-              charge.
-            </span>
           </RiseUp>
         </RevealGroup>
 
