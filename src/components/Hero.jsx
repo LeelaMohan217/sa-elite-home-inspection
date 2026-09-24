@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import CountUp from "./CountUp";
+import { RiseImage } from "./ScrollReveal";
+import houseWide from "../assets/hero-house-1122.webp";
+import houseSmall from "../assets/hero-house-640.webp";
 
 const EASE = [0.16, 1, 0.3, 1];
 
@@ -14,6 +17,7 @@ const T = {
   leadStagger: 0.012,
   ctas: 0.85,
   stats: 0.9,
+  image: 1.1,
 };
 
 // Masked "rise" reveal: the content slides up from below an invisible
@@ -56,7 +60,7 @@ function Hero({
   const skip = useReducedMotion();
 
   return (
-    <section className="relative isolate flex min-h-svh items-center overflow-hidden pt-20">
+    <section className="relative isolate overflow-hidden pt-20 pb-4 sm:pb-8">
       {/* Faint architectural grid, faded out towards the edges */}
       <div
         aria-hidden="true"
@@ -142,6 +146,25 @@ function Hero({
             ))}
           </motion.dl>
         )}
+      </div>
+
+      {/* Wide photo band under the stats; wipes up from its bottom edge as the
+          last step of the hero's opening sequence */}
+      <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10">
+        <RiseImage
+          className="aspect-[4/3] w-full rounded-2xl sm:aspect-[16/9] lg:aspect-[2/1]"
+          src={houseWide}
+          srcSet={`${houseSmall} 640w, ${houseWide} 1122w`}
+          sizes="(min-width: 1280px) 1200px, 100vw"
+          alt="A modern two-storey home with a clean white facade and landscaped front garden."
+          width={1122}
+          height={640}
+          decoding="async"
+          fetchPriority="high"
+          playOnLoad
+          delay={T.image}
+          imgClassName="object-[50%_60%] saturate-[0.85]"
+        />
       </div>
     </section>
   );
