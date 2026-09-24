@@ -36,7 +36,7 @@ function About() {
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
             {values.map((value, i) => (
               <InspectionCard key={value.title} index={i}>
-                <value.icon size={22} className="text-accent-vivid" aria-hidden="true" />
+                <value.icon size={22} className="text-accent" aria-hidden="true" />
                 <h3 className="mt-4 font-bold text-ink">{value.title}</h3>
                 <p className="mt-2 text-sm text-ink/70">{value.description}</p>
               </InspectionCard>

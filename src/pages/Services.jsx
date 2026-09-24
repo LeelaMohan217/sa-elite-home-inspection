@@ -15,7 +15,7 @@ function Services() {
         <div className="grid gap-6 sm:grid-cols-3">
           {services.map((service, i) => (
             <InspectionCard key={service.title} index={i}>
-              <service.icon size={22} className="text-accent-vivid" aria-hidden="true" />
+              <service.icon size={22} className="text-accent" aria-hidden="true" />
               <h3 className="mt-4 font-bold text-ink">{service.title}</h3>
               <p className="mt-2 text-sm text-ink/70">{service.description}</p>
             </InspectionCard>

@@ -130,7 +130,7 @@ function Navbar() {
         <div className="col-start-3 hidden items-center justify-end lg:flex">
           <NavLink
             to="/contact"
-            className="rounded-full bg-ink px-5 py-2.5 text-[13px] font-medium text-paper transition-colors duration-300 hover:bg-ink-800"
+            className="rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-colors duration-300 hover:bg-ink-800"
           >
             Book an Inspection
           </NavLink>

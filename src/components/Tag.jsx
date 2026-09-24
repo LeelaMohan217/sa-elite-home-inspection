@@ -1,7 +1,7 @@
 const TONES = {
-  accent: 'bg-accent-dark text-paper',
-  verified: 'bg-verified text-paper',
-  outline: 'border border-accent text-accent-dark',
+  accent: 'bg-accent text-paper',
+  verified: 'bg-accent text-paper',
+  outline: 'border border-accent text-accent',
 }
 
 function Tag({ children, tone = 'accent', className = '' }) {

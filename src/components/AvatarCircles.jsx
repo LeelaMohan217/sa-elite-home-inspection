@@ -3,7 +3,7 @@
 // avatar renders as an initials badge in a theme color rather than an <img>;
 // swap in real photos later by rendering an <img> in place of the span.
 
-const TONES = ["bg-accent text-paper", "bg-accent-vivid text-paper", "bg-ink text-paper"];
+const TONES = ["bg-accent text-paper", "bg-accent text-paper", "bg-ink text-paper"];
 
 function AvatarCircles({ avatars = [], total, size = "h-9 w-9" }) {
   return (

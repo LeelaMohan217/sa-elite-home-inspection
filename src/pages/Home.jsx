@@ -203,7 +203,7 @@ function Home() {
                   <Check
                     size={16}
                     strokeWidth={3}
-                    className="mt-0.5 shrink-0 text-verified"
+                    className="mt-0.5 shrink-0 text-accent"
                     aria-hidden="true"
                   />
                   <span>{line}</span>
@@ -265,7 +265,7 @@ function Home() {
                       Inspection Report
                     </span>
                   </span>
-                  <span className="rounded-full border border-hairline px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.12em] text-stone">
+                  <span className="rounded-full border border-hairline px-2.5 py-1 text-xs font-medium uppercase tracking-[0.12em] text-stone">
                     Sample
                   </span>
                 </div>
@@ -329,7 +329,7 @@ function Home() {
                         </div>
 
                         {item.note && (
-                          <p className="mt-3 rounded-lg bg-caution-light/60 px-3.5 py-3 text-[13px] leading-relaxed text-ink/80">
+                          <p className="mt-3 rounded-lg bg-caution-light/60 px-3.5 py-3 text-sm leading-relaxed text-ink">
                             {item.note}
                           </p>
                         )}
@@ -374,9 +374,7 @@ function Home() {
               as="li"
               key={item.step}
               delay={0.15 + i * 0.15}
-              className={`relative isolate flex min-h-[15rem] flex-col overflow-hidden rounded-3xl p-7 text-paper sm:min-h-[17rem] sm:p-8 lg:min-h-[19rem] ${
-                i % 2 ? "bg-accent" : "bg-ink"
-              }`}
+              className={`relative isolate flex min-h-[15rem] flex-col overflow-hidden rounded-2xl bg-ink p-7 text-paper sm:min-h-[17rem] sm:p-8 lg:min-h-[19rem]`}
             >
               {/* Faint grid, echoing the hero */}
               <div
@@ -388,7 +386,7 @@ function Home() {
                 <span className="text-eyebrow font-medium uppercase text-paper/55">
                   Step {item.step}
                 </span>
-                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-paper/20">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-paper/15">
                   <item.icon size={18} strokeWidth={1.75} aria-hidden="true" />
                 </span>
               </div>
@@ -399,7 +397,7 @@ function Home() {
                 <h3 className="text-[1.375rem] leading-snug font-medium tracking-tight lg:flex lg:min-h-[2lh] lg:items-end">
                   {item.title}
                 </h3>
-                <p className="mt-2.5 text-[15px] leading-relaxed text-paper/65 lg:min-h-[3lh]">
+                <p className="mt-2.5 text-[15px] leading-relaxed text-paper/70 lg:min-h-[3lh]">
                   {item.description}
                 </p>
               </div>
@@ -493,7 +491,7 @@ function Home() {
           </Reveal>
 
           <Reveal index={1} className="max-w-xl lg:col-span-5 lg:col-start-8 lg:pt-10">
-            <p className="text-pretty text-lead text-stone">{serviceAreaIntro}</p>
+            <p className="text-pretty text-base leading-relaxed text-stone sm:text-[17px]">{serviceAreaIntro}</p>
 
             <ul className="mt-7 flex flex-wrap gap-2">
               {serviceAreas.map((area) => (
@@ -535,22 +533,22 @@ function Home() {
       {/* Featured Testimonial */}
       <section className="bg-ink py-20 text-paper sm:py-32">
         <Reveal className="mx-auto flex max-w-4xl flex-col items-center px-5 text-center sm:px-8 lg:px-10">
-          <SectionEyebrow tone="dark" className="text-paper/55">Success story</SectionEyebrow>
+          <SectionEyebrow tone="dark">Success story</SectionEyebrow>
 
           <span
             aria-hidden="true"
-            className="mt-10 h-10 font-serif text-7xl leading-none text-paper/25 sm:text-8xl"
+            className="mt-10 h-10 font-serif text-h1 leading-none text-paper/15"
           >
             &ldquo;
           </span>
 
           <figure className="mt-4">
-            <blockquote className="text-balance font-serif text-[clamp(1.875rem,1.25rem+2.6vw,3.25rem)] leading-[1.15] tracking-[-0.01em] text-paper">
+            <blockquote className="text-balance font-serif text-h2 leading-[1.15] tracking-[-0.01em] text-paper">
               {featuredTestimonial.quote}
             </blockquote>
 
             <figcaption className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-5">
-              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-paper/20 text-sm font-medium text-paper">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-paper/15 text-sm font-medium text-paper">
                 {featuredTestimonial.name
                   .split(" ")
                   .map((part) => part[0])
@@ -560,9 +558,9 @@ function Home() {
               <span className="flex flex-col items-center gap-1 sm:items-start">
                 <span className="text-[15px] font-medium text-paper">
                   {featuredTestimonial.name}
-                  <span className="font-normal text-paper/50"> · {featuredTestimonial.role}</span>
+                  <span className="font-normal text-paper/70"> · {featuredTestimonial.role}</span>
                 </span>
-                <span className="flex gap-0.5 text-paper/80" aria-label="Rated 5 out of 5">
+                <span className="flex gap-0.5 text-paper/70" aria-label="Rated 5 out of 5">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star key={i} size={13} fill="currentColor" strokeWidth={0} aria-hidden="true" />
                   ))}
@@ -672,10 +670,10 @@ function Home() {
           {/* Same faint grid as the hero, in reverse */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgb(250_250_248/0.07)_1px,transparent_1px),linear-gradient(to_bottom,rgb(250_250_248/0.07)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_45%,black_20%,transparent_75%)]"
+            className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgb(250_250_248/0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgb(250_250_248/0.08)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_45%,black_20%,transparent_75%)]"
           />
 
-          <SectionEyebrow tone="dark" className="justify-center text-paper/55">Ready when you are</SectionEyebrow>
+          <SectionEyebrow tone="dark" className="justify-center">Ready when you are</SectionEyebrow>
 
           <h2 className="mx-auto mt-6 max-w-3xl text-balance text-h1 text-paper">
             Ready to book your{" "}
@@ -684,7 +682,7 @@ function Home() {
             </span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-xl text-pretty text-lead text-paper/65">
+          <p className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-paper/70 sm:text-[17px]">
             Reach out today and we'll get you scheduled with one of our
             certified inspectors.
           </p>
@@ -698,11 +696,11 @@ function Home() {
             </Button>
           </div>
 
-          <p className="mx-auto mt-12 flex max-w-xl items-start justify-center gap-3 border-t border-paper/10 pt-8 text-left text-sm leading-relaxed text-paper/60 sm:items-center">
+          <p className="mx-auto mt-12 flex max-w-xl items-start justify-center gap-3 border-t border-paper/15 pt-8 text-left text-sm leading-relaxed text-paper/70 sm:items-center">
             <ShieldCheck
               size={18}
               strokeWidth={1.75}
-              className="mt-0.5 shrink-0 text-paper/80 sm:mt-0"
+              className="mt-0.5 shrink-0 text-paper/70 sm:mt-0"
               aria-hidden="true"
             />
             <span>

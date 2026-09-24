@@ -23,7 +23,7 @@ const hours = [
 
 function FooterHeading({ children }) {
   return (
-    <p className="text-eyebrow font-medium uppercase text-paper/45">{children}</p>
+    <p className="text-eyebrow font-medium uppercase text-paper/55">{children}</p>
   )
 }
 
@@ -35,7 +35,7 @@ function Footer() {
           <Link to="/" aria-label="AKSHARA Elite Home Inspections home" className="inline-block">
             <Logo tone="light" className="w-[163px]" />
           </Link>
-          <p className="mt-6 max-w-xs text-[15px] leading-relaxed text-paper/60">
+          <p className="mt-6 max-w-xs text-[15px] leading-relaxed text-paper/70">
             Thorough, honest home inspections you can rely on before you buy or sell.
           </p>
         </div>
@@ -64,7 +64,7 @@ function Footer() {
                 href={`tel:${contact.phone.replace(/\s/g, '')}`}
                 className="inline-flex items-center gap-3 transition-colors duration-200 hover:text-paper"
               >
-                <Phone size={15} strokeWidth={1.75} className="shrink-0 text-paper/45" aria-hidden="true" />
+                <Phone size={15} strokeWidth={1.75} className="shrink-0 text-paper/55" aria-hidden="true" />
                 {contact.phone}
               </a>
             </li>
@@ -73,12 +73,12 @@ function Footer() {
                 href={`mailto:${contact.email}`}
                 className="inline-flex items-center gap-3 [overflow-wrap:anywhere] transition-colors duration-200 hover:text-paper"
               >
-                <Mail size={15} strokeWidth={1.75} className="shrink-0 text-paper/45" aria-hidden="true" />
+                <Mail size={15} strokeWidth={1.75} className="shrink-0 text-paper/55" aria-hidden="true" />
                 {contact.email}
               </a>
             </li>
             <li className="flex items-start gap-3">
-              <MapPin size={15} strokeWidth={1.75} className="mt-1 shrink-0 text-paper/45" aria-hidden="true" />
+              <MapPin size={15} strokeWidth={1.75} className="mt-1 shrink-0 text-paper/55" aria-hidden="true" />
               {contact.area}
             </li>
           </ul>
@@ -88,7 +88,7 @@ function Footer() {
           <FooterHeading>Hours</FooterHeading>
           <dl className="mt-5 space-y-3 text-[15px]">
             {hours.map((row) => (
-              <div key={row.days} className="flex justify-between gap-6 border-b border-paper/10 pb-3">
+              <div key={row.days} className="flex justify-between gap-6 border-b border-paper/15 pb-3">
                 <dt className="whitespace-nowrap text-paper/70">{row.days}</dt>
                 <dd className="whitespace-nowrap text-paper">{row.time}</dd>
               </div>
@@ -98,7 +98,7 @@ function Footer() {
       </div>
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-        <div className="flex flex-col gap-2 border-t border-paper/10 py-6 text-sm text-paper/45 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-2 border-t border-paper/15 py-6 text-sm text-paper/55 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2025 AKSHARA Elite Home Inspections. All rights reserved.</p>
           <p>Hyderabad, India</p>
         </div>

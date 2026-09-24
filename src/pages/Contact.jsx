@@ -47,7 +47,7 @@ function Contact() {
           <ul className="mt-6 space-y-4 text-sm">
             {contactDetails.map((detail) => (
               <li key={detail.label} className="flex items-center gap-3 text-ink/70">
-                <detail.icon size={16} className="shrink-0 text-accent-vivid" aria-hidden="true" />
+                <detail.icon size={16} className="shrink-0 text-accent" aria-hidden="true" />
                 <span>
                   <span className="font-semibold text-ink">{detail.label}:</span> {detail.value}
                 </span>
@@ -126,7 +126,7 @@ function Contact() {
                 initial={{ opacity: 0, y: -4 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
-                className="flex items-center gap-2 text-sm font-medium text-verified"
+                className="flex items-center gap-2 text-sm font-medium text-accent"
               >
                 <CheckCircle2 size={16} aria-hidden="true" />
                 Thanks! We'll be in touch shortly.

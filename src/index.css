@@ -1,22 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette — warm monochrome with one restrained accent. See DESIGN.md. */
-  --color-ink: #000000; /* primary text, primary buttons, logo */
-  --color-ink-800: #2b2a27; /* hover state for ink surfaces */
-  --color-paper: #fafaf8; /* page background */
-  --color-surface: #f2f1ed; /* cards, alternating sections */
-  --color-stone: #6b6a65; /* secondary text (5.1:1 on paper) */
+  /* Palette: neutrals + one navy accent; amber for report findings only.
+     See DESIGN.md before adding a colour. */
+  --color-ink: #000000; /* text, primary buttons, dark bands, footer */
+  --color-ink-800: #2b2a27; /* hover state for ink buttons */
+  --color-paper: #fafaf8; /* page background, text on dark */
+  --color-surface: #f2f1ed; /* alternate section bands */
+  --color-stone: #6b6a65; /* secondary text (5.2:1 on paper) */
   --color-hairline: #e5e3dd; /* borders and dividers */
-  --color-hairline-dark: #2b2a27;
-  --color-accent: #1f3a5f; /* deep slate navy — links, focus, highlights */
-  --color-accent-dark: #142840;
-  --color-accent-light: #d6dde8;
-  --color-accent-vivid: #1f3a5f;
-  --color-verified: #1f3a5f;
-  --color-verified-light: #d6dde8;
-  --color-caution: #8a5a12; /* flagged findings only */
-  --color-caution-light: #f5ecda;
+  --color-accent: #1f3a5f; /* navy: serif accent words, icons, ticks, focus */
+  --color-accent-light: #d6dde8; /* navy tint: tick circles, "Good" pills */
+  --color-caution: #8a5a12; /* amber: report findings only */
+  --color-caution-light: #f5ecda; /* amber tint: report findings only */
 
   /* Typography */
   --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;

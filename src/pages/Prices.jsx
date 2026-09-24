@@ -45,7 +45,7 @@ function Prices() {
               <ul className={`mt-6 flex-1 space-y-2 text-sm ${plan.featured ? 'text-paper/80' : 'text-ink/70'}`}>
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-2">
-                    <Check size={16} className="mt-0.5 shrink-0 text-verified" aria-hidden="true" />
+                    <Check size={16} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
                     <span>{feature}</span>
                   </li>
                 ))}

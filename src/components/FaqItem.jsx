@@ -15,7 +15,7 @@ function FaqItem({ question, answer, open = false, onToggle }) {
         aria-expanded={open}
         aria-controls={panelId}
       >
-        <span className="text-[17px] font-medium tracking-tight text-ink sm:text-lg">
+        <span className="text-[17px] font-medium tracking-tight text-ink">
           {question}
         </span>
         <span

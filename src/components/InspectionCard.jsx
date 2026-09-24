@@ -4,12 +4,12 @@ import BlobShape from './BlobShape'
 const TONES = {
   paper: 'bg-paper border border-hairline text-ink shadow-elevate',
   ink: 'bg-ink text-paper shadow-cta',
-  accent: 'bg-accent-vivid text-paper shadow-cta',
+  accent: 'bg-accent text-paper shadow-cta',
 }
 
 const BLOB_TONES = {
-  ink: { from: 'var(--color-accent-dark)', to: 'var(--color-ink)' },
-  accent: { from: 'var(--color-accent)', to: 'var(--color-accent-vivid)' },
+  ink: { from: 'var(--color-accent)', to: 'var(--color-ink)' },
+  accent: { from: 'var(--color-accent)', to: 'var(--color-accent)' },
 }
 
 function InspectionCard({ as = 'div', tone = 'paper', decorated = false, index = 0, className = '', children }) {

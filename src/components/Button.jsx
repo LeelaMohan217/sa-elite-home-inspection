@@ -10,7 +10,7 @@ const VARIANTS = {
   secondary: 'border border-hairline bg-paper text-ink hover:border-ink/25',
   invert: 'bg-paper text-ink hover:bg-paper/85',
   ghost: 'text-ink hover:text-accent',
-  outline: 'border border-paper/25 text-paper hover:border-paper/60',
+  outline: 'border border-paper/15 text-paper hover:border-paper/55',
 }
 
 function Button({

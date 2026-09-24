@@ -1,5 +1,5 @@
 function SectionEyebrow({ children, tone = "light", className = "" }) {
-  const toneClasses = tone === "dark" ? "text-accent-light" : "text-stone";
+  const toneClasses = tone === "dark" ? "text-paper/55" : "text-stone";
   return (
     <p
       className={`flex items-center gap-2 text-eyebrow font-medium uppercase ${toneClasses} ${className}`}

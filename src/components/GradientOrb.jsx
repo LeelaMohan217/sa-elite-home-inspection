@@ -1,7 +1,7 @@
 const TONES = {
-  accent: 'bg-gradient-to-br from-accent-vivid/40 via-accent/20 to-transparent',
-  ink: 'bg-gradient-to-br from-ink/70 via-accent-dark/30 to-transparent',
-  light: 'bg-gradient-to-br from-accent-light/60 via-accent-vivid/20 to-transparent',
+  accent: 'bg-gradient-to-br from-accent/40 via-accent/20 to-transparent',
+  ink: 'bg-gradient-to-br from-ink/70 via-accent/30 to-transparent',
+  light: 'bg-gradient-to-br from-accent-light/60 via-accent/20 to-transparent',
 }
 
 function GradientOrb({ className = '', tone = 'accent' }) {

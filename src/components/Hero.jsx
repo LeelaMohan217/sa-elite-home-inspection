@@ -65,7 +65,7 @@ function Hero({
 
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center px-5 py-16 text-center sm:px-8 lg:px-10">
         <Rise delay={T.eyebrow} skip={skip}>
-          <span className="inline-flex items-center gap-2.5 rounded-full border border-hairline bg-paper/80 whitespace-nowrap px-4 py-2 text-[10.5px] leading-none font-medium uppercase tracking-[0.12em] text-stone backdrop-blur sm:text-eyebrow sm:tracking-[0.16em]">
+          <span className="inline-flex items-center gap-2.5 rounded-full border border-hairline bg-paper/80 whitespace-nowrap px-4 py-2 text-eyebrow leading-none font-medium uppercase text-stone backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
             {eyebrow}
           </span>
@@ -131,7 +131,7 @@ function Hero({
             {stats.map((stat, i) => (
               <div key={stat.label} className="flex flex-col items-center gap-1.5 px-2">
                 <dt className="order-2 text-xs text-stone sm:text-sm">{stat.label}</dt>
-                <dd className="order-1 text-2xl font-medium tracking-tight text-ink sm:text-3xl">
+                <dd className="order-1 text-h3 font-medium tracking-tight text-ink">
                   <CountUp
                     value={stat.value}
                     suffix={stat.suffix}
