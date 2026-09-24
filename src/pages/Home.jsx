@@ -499,16 +499,16 @@ function Home() {
         {/* Neighbourhoods as light tiles; they cascade in quickly, then the
             availability line follows */}
         <RevealGroup className="mt-12 sm:mt-14">
-          <ul className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 lg:grid-cols-6">
+          <ul className="grid grid-cols-2 gap-2.5 min-[360px]:grid-cols-3 sm:grid-cols-4 sm:gap-3 md:grid-cols-6 lg:grid-cols-8">
             {serviceAreas.map((area, i) => (
               <RiseUp
                 as="li"
                 key={area}
                 delay={0.1 + i * 0.03}
-                className="flex items-center gap-2 rounded-lg border border-hairline bg-surface px-3.5 py-3 text-sm text-ink"
+                className="flex aspect-square flex-col items-center justify-center gap-2.5 rounded-lg border border-hairline bg-surface p-2 text-center text-sm leading-snug text-ink"
               >
-                <MapPin size={14} strokeWidth={1.75} className="shrink-0 text-stone" aria-hidden="true" />
-                <span className="truncate">{area}</span>
+                <MapPin size={16} strokeWidth={1.75} className="shrink-0 text-stone" aria-hidden="true" />
+                <span className="text-balance">{area}</span>
               </RiseUp>
             ))}
           </ul>
