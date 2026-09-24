@@ -90,7 +90,7 @@ function Home() {
 
       {/* About Us */}
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-10">
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-stretch lg:gap-10">
           <Reveal className="max-w-2xl lg:order-2 lg:col-span-6 lg:col-start-7 lg:max-w-none lg:pl-6">
             <SectionEyebrow>About us</SectionEyebrow>
 
@@ -101,7 +101,7 @@ function Home() {
               </span>
             </h2>
 
-            <p className="mt-6 text-pretty text-lead text-stone">
+            <p className="mt-6 text-pretty text-base leading-relaxed text-stone sm:text-[17px]">
               Every inspection is carried out in person by a licensed
               professional who walks the entire property, roof to foundation,
               and documents what they find with photos, not guesswork. You get a
@@ -140,14 +140,14 @@ function Home() {
 
           <Reveal
             index={1}
-            className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-surface sm:aspect-[4/3] lg:order-1 lg:col-span-6 lg:aspect-[4/5]"
+            className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-surface sm:aspect-[4/3] lg:order-1 lg:col-span-6 lg:aspect-auto lg:h-full"
           >
             <img
               src={aboutImage}
               alt="A certified inspector kneeling to examine the flooring in an empty room during a home inspection."
               loading="lazy"
               decoding="async"
-              className="h-full w-full object-cover object-[62%_40%] saturate-[0.8] contrast-[1.03]"
+              className="h-full w-full object-cover object-[62%_40%] saturate-[0.8] contrast-[1.03] lg:absolute lg:inset-0"
             />
           </Reveal>
         </div>
