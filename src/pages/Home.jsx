@@ -91,7 +91,7 @@ function Home() {
       {/* About Us */}
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-10">
-          <Reveal className="max-w-2xl lg:order-2 lg:col-span-5 lg:col-start-8 lg:max-w-none">
+          <Reveal className="max-w-2xl lg:order-2 lg:col-span-6 lg:col-start-7 lg:max-w-none lg:pl-6">
             <SectionEyebrow>About us</SectionEyebrow>
 
             <h2 className="mt-5 text-balance text-h2 text-ink">
@@ -200,7 +200,7 @@ function Home() {
       {/* Sample Report */}
       <section className="border-y border-hairline bg-surface py-16 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-12 lg:items-center lg:gap-10 lg:px-10">
-          <Reveal className="max-w-2xl lg:col-span-5 lg:max-w-none">
+          <Reveal className="max-w-2xl lg:col-span-6 lg:max-w-none lg:pr-6">
             <SectionEyebrow>The deliverable</SectionEyebrow>
 
             <h2 className="mt-5 text-balance text-h2 text-ink">
