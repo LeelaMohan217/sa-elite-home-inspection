@@ -98,14 +98,14 @@ function Home() {
               <SectionEyebrow>About us</SectionEyebrow>
             </RiseUp>
 
-            <RiseUp as="h2" delay={0.12} className="mt-5 text-balance text-h2 text-ink">
+            <RiseUp as="h2" delay={0.2} className="mt-5 text-balance text-h2 text-ink">
               A clearer look at your home. A more confident{" "}
               <span className="font-serif font-normal italic tracking-[-0.01em] text-accent">
                 decision.
               </span>
             </RiseUp>
 
-            <RiseUp as="p" delay={0.24} className="mt-6 text-pretty text-base leading-relaxed text-stone sm:text-[17px]">
+            <RiseUp as="p" delay={0.4} className="mt-6 text-pretty text-base leading-relaxed text-stone sm:text-[17px]">
               Every inspection is carried out in person by a licensed
               professional who walks the entire property, roof to foundation,
               and documents what they find with photos, not guesswork. You get a
@@ -118,7 +118,7 @@ function Home() {
                 <RiseUp
                   as="li"
                   key={line}
-                  delay={0.36 + i * 0.1}
+                  delay={0.6 + i * 0.15}
                   className="flex items-center gap-3.5 border-b border-hairline py-4 text-[15px] text-ink"
                 >
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent-light/60">
@@ -134,7 +134,7 @@ function Home() {
               ))}
             </ul>
 
-            <RiseUp delay={0.36 + highlights.length * 0.1} className="mt-9">
+            <RiseUp delay={0.6 + highlights.length * 0.15} className="mt-9">
               <Button
                 to="/services"
                 variant="secondary"

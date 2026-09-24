@@ -7,14 +7,18 @@ import { motion, useReducedMotion } from "framer-motion";
 
 const EASE = [0.16, 1, 0.3, 1];
 
-export function RevealGroup({ as = "div", amount = 0.25, className = "", children }) {
+// Plays once the block is properly on screen: at least 40% of it visible and
+// clear of the bottom fifth of the viewport.
+const VIEWPORT = { once: true, amount: 0.4, margin: "0px 0px -20% 0px" };
+
+export function RevealGroup({ as = "div", className = "", children }) {
   const Component = motion[as] ?? motion.div;
   return (
     <Component
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount }}
+      viewport={VIEWPORT}
     >
       {children}
     </Component>
@@ -22,11 +26,11 @@ export function RevealGroup({ as = "div", amount = 0.25, className = "", childre
 }
 
 const rise = {
-  hidden: { opacity: 0, y: 32 },
+  hidden: { opacity: 0, y: 48 },
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, delay, ease: EASE },
+    transition: { duration: 1.2, delay, ease: EASE },
   }),
 };
 
@@ -47,13 +51,13 @@ const wipe = {
   hidden: { clipPath: "inset(100% 0% 0% 0% round 1rem)" },
   visible: (delay = 0) => ({
     clipPath: "inset(0% 0% 0% 0% round 1rem)",
-    transition: { duration: 1.2, delay, ease: EASE },
+    transition: { duration: 1.6, delay, ease: EASE },
   }),
 };
 
 const settle = {
   hidden: { scale: 1.12 },
-  visible: (delay = 0) => ({ scale: 1, transition: { duration: 1.6, delay, ease: EASE } }),
+  visible: (delay = 0) => ({ scale: 1, transition: { duration: 2.2, delay, ease: EASE } }),
 };
 
 export function RiseImage({ className = "", imgClassName = "", delay = 0, ...img }) {
@@ -64,7 +68,7 @@ export function RiseImage({ className = "", imgClassName = "", delay = 0, ...img
       className={`relative ${className}`}
       initial={reduceMotion ? false : "hidden"}
       whileInView="visible"
-      viewport={{ once: true, amount: 0.25 }}
+      viewport={VIEWPORT}
     >
       <motion.div className="absolute inset-0 overflow-hidden rounded-[inherit]" variants={wipe} custom={delay}>
         <motion.img
