@@ -11,8 +11,8 @@ const links = [
 ]
 
 const contact = {
-  phone: '+91 98765 43210',
-  email: 'info@saelitehomeinspection.com',
+  phone: '+91 96405 47878',
+  email: 'elitehomeinspections.info@gmail.com',
   area: 'Serving Hyderabad and surrounding areas',
 }
 
