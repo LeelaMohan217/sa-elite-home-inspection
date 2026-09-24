@@ -1,0 +1,104 @@
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useReducedMotion } from "framer-motion";
+import { ArrowLeft, ArrowRight, MapPin } from "lucide-react";
+import { RiseUp } from "./ScrollReveal";
+
+// Horizontal row of square area cards. Shows 4 at a time on desktop (3 on
+// tablets, 2 on phones); the arrow buttons slide the row by one view, and
+// the row can also be swiped or scrolled. Buttons dim at either end.
+function AreaCarousel({ areas, label = "Service areas" }) {
+  const trackRef = useRef(null);
+  const reduceMotion = useReducedMotion();
+  const [atStart, setAtStart] = useState(true);
+  const [atEnd, setAtEnd] = useState(false);
+
+  const updateEnds = useCallback(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    setAtStart(el.scrollLeft <= 4);
+    setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 4);
+  }, []);
+
+  useEffect(() => {
+    updateEnds();
+    window.addEventListener("resize", updateEnds);
+    return () => window.removeEventListener("resize", updateEnds);
+  }, [updateEnds]);
+
+  const slide = (direction) => {
+    const el = trackRef.current;
+    if (!el) return;
+    el.scrollBy({
+      left: direction * el.clientWidth,
+      behavior: reduceMotion ? "auto" : "smooth",
+    });
+  };
+
+  // Below lg the buttons sit in a row under the cards; from lg they float
+  // on the left and right edges of the row.
+  const buttonClass =
+    "z-10 flex h-11 w-11 items-center justify-center rounded-full border border-hairline bg-paper text-ink shadow-[0_8px_24px_-12px_rgba(0,0,0,0.25)] transition-[background-color,color,opacity] duration-300 hover:bg-ink hover:text-paper disabled:pointer-events-none disabled:opacity-35 sm:h-12 sm:w-12 lg:absolute lg:top-1/2 lg:-translate-y-1/2";
+
+  return (
+    <div className="relative">
+      <ul
+        id="area-carousel"
+        ref={trackRef}
+        onScroll={updateEnds}
+        aria-label={label}
+        className="flex snap-x snap-mandatory gap-3 overflow-x-auto [scrollbar-width:none] sm:gap-4 [&::-webkit-scrollbar]:hidden"
+      >
+        {areas.map((area, i) => (
+          <RiseUp
+            as="li"
+            key={area}
+            delay={0.1 + Math.min(i, 3) * 0.12}
+            className="flex aspect-square w-[calc((100%-0.75rem)/2)] flex-none snap-start flex-col justify-between rounded-2xl border border-hairline bg-surface p-5 sm:w-[calc((100%-2rem)/3)] sm:p-6 lg:w-[calc((100%-3rem)/4)]"
+          >
+            <div className="flex items-start justify-between">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-hairline bg-paper sm:h-11 sm:w-11">
+                <MapPin size={18} strokeWidth={1.75} className="text-ink" aria-hidden="true" />
+              </span>
+              <span className="text-sm tabular-nums text-stone">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+            </div>
+
+            <div>
+              <p className="text-balance text-[17px] leading-snug font-medium tracking-tight text-ink sm:text-h3">
+                {area}
+              </p>
+              <p className="mt-1 text-sm text-stone">Hyderabad</p>
+            </div>
+          </RiseUp>
+        ))}
+      </ul>
+
+      <div className="mt-6 flex justify-center gap-3 lg:contents">
+        <button
+          type="button"
+          onClick={() => slide(-1)}
+          disabled={atStart}
+          aria-label="Previous areas"
+          aria-controls="area-carousel"
+          className={`${buttonClass} lg:-left-6`}
+        >
+          <ArrowLeft size={18} strokeWidth={1.75} aria-hidden="true" />
+        </button>
+
+        <button
+          type="button"
+          onClick={() => slide(1)}
+          disabled={atEnd}
+          aria-label="Next areas"
+          aria-controls="area-carousel"
+          className={`${buttonClass} lg:-right-6`}
+        >
+          <ArrowRight size={18} strokeWidth={1.75} aria-hidden="true" />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default AreaCarousel;

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import {
   ArrowRight,
   ArrowUpRight,
-  MapPin,
   Check,
   AlertTriangle,
   CircleAlert,
@@ -17,6 +16,7 @@ import SectionEyebrow from "../components/SectionEyebrow";
 import Button from "../components/Button";
 import FaqItem from "../components/FaqItem";
 import Hero from "../components/Hero";
+import AreaCarousel from "../components/AreaCarousel";
 import StatBlock from "../components/StatBlock";
 import aboutImage from "../assets/hero.png";
 import inspectorImage from "../assets/hero.png";
@@ -496,24 +496,12 @@ function Home() {
           </RiseUp>
         </RevealGroup>
 
-        {/* Neighbourhoods as light tiles; they cascade in quickly, then the
-            availability line follows */}
+        {/* Neighbourhoods as a carousel of square cards (arrow buttons slide
+            it); the availability line follows */}
         <RevealGroup className="mt-12 sm:mt-14">
-          <ul className="grid grid-cols-2 gap-2.5 min-[360px]:grid-cols-3 sm:grid-cols-4 sm:gap-3 md:grid-cols-6 lg:grid-cols-8">
-            {serviceAreas.map((area, i) => (
-              <RiseUp
-                as="li"
-                key={area}
-                delay={0.1 + i * 0.03}
-                className="flex aspect-square flex-col items-center justify-center gap-2.5 rounded-lg border border-hairline bg-surface p-2 text-center text-sm leading-snug text-ink"
-              >
-                <MapPin size={16} strokeWidth={1.75} className="shrink-0 text-stone" aria-hidden="true" />
-                <span className="text-balance">{area}</span>
-              </RiseUp>
-            ))}
-          </ul>
+          <AreaCarousel areas={serviceAreas} />
 
-          <RiseUp as="p" delay={0.1 + serviceAreas.length * 0.03} className="mt-8 text-center text-sm text-stone">
+          <RiseUp as="p" delay={0.6} className="mt-8 text-center text-sm text-stone">
             Don't see your area?{" "}
             <Link
               to="/contact"
