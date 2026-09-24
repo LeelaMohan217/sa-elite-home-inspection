@@ -47,9 +47,7 @@ export function RiseUp({ as = "div", delay = 0, className = "", children, ...res
 // Image that wipes up from its bottom edge while settling from a slight zoom.
 // Triggers on its own, so it works whether it sits beside or below the text.
 // The in-view check runs on the unclipped outer frame: a fully clipped element
-// never counts as visible, so the wipe would never start. Pass
-// playOnLoad to run it as part of an on-load sequence (e.g. the hero) instead
-// of waiting for the scroll position.
+// never counts as visible, so the wipe would never start.
 const wipe = {
   hidden: { clipPath: "inset(100% 0% 0% 0% round 1rem)" },
   visible: (delay = 0) => ({
@@ -63,17 +61,15 @@ const settle = {
   visible: (delay = 0) => ({ scale: 1, transition: { duration: 2.2, delay, ease: EASE } }),
 };
 
-export function RiseImage({ className = "", imgClassName = "", delay = 0, playOnLoad = false, ...img }) {
+export function RiseImage({ className = "", imgClassName = "", delay = 0, ...img }) {
   const reduceMotion = useReducedMotion();
-  const trigger = playOnLoad
-    ? { animate: "visible" }
-    : { whileInView: "visible", viewport: VIEWPORT };
 
   return (
     <motion.div
       className={`relative ${className}`}
       initial={reduceMotion ? false : "hidden"}
-      {...trigger}
+      whileInView="visible"
+      viewport={VIEWPORT}
     >
       <motion.div className="absolute inset-0 overflow-hidden rounded-[inherit]" variants={wipe} custom={delay}>
         <motion.img
