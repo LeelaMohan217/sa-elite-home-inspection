@@ -10,6 +10,7 @@ import {
   Star,
 } from "lucide-react";
 import Reveal from "../components/Reveal";
+import { RevealGroup, RiseUp, RiseImage } from "../components/ScrollReveal";
 import SectionEyebrow from "../components/SectionEyebrow";
 import Button from "../components/Button";
 import FaqItem from "../components/FaqItem";
@@ -91,28 +92,33 @@ function Home() {
       {/* About Us */}
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-stretch lg:gap-10">
-          <Reveal className="max-w-2xl lg:order-2 lg:col-span-6 lg:col-start-7 lg:max-w-none lg:pl-6">
-            <SectionEyebrow>About us</SectionEyebrow>
+          {/* Label, heading, paragraph, checklist rows and button rise in turn */}
+          <RevealGroup className="max-w-2xl lg:order-2 lg:col-span-6 lg:col-start-7 lg:max-w-none lg:pl-6">
+            <RiseUp delay={0}>
+              <SectionEyebrow>About us</SectionEyebrow>
+            </RiseUp>
 
-            <h2 className="mt-5 text-balance text-h2 text-ink">
+            <RiseUp as="h2" delay={0.12} className="mt-5 text-balance text-h2 text-ink">
               A clearer look at your home. A more confident{" "}
               <span className="font-serif font-normal italic tracking-[-0.01em] text-accent">
                 decision.
               </span>
-            </h2>
+            </RiseUp>
 
-            <p className="mt-6 text-pretty text-base leading-relaxed text-stone sm:text-[17px]">
+            <RiseUp as="p" delay={0.24} className="mt-6 text-pretty text-base leading-relaxed text-stone sm:text-[17px]">
               Every inspection is carried out in person by a licensed
               professional who walks the entire property, roof to foundation,
               and documents what they find with photos, not guesswork. You get a
               report that holds up, whether you're negotiating a purchase or
               getting ready to sell.
-            </p>
+            </RiseUp>
 
             <ul className="mt-8 border-t border-hairline">
-              {highlights.map((line) => (
-                <li
+              {highlights.map((line, i) => (
+                <RiseUp
+                  as="li"
                   key={line}
+                  delay={0.36 + i * 0.1}
                   className="flex items-center gap-3.5 border-b border-hairline py-4 text-[15px] text-ink"
                 >
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent-light/60">
@@ -124,32 +130,30 @@ function Home() {
                     />
                   </span>
                   <span>{line}</span>
-                </li>
+                </RiseUp>
               ))}
             </ul>
 
-            <Button
-              to="/services"
-              variant="secondary"
-              icon={ArrowRight}
-              className="mt-9 w-full sm:w-fit"
-            >
-              View Our Services
-            </Button>
-          </Reveal>
+            <RiseUp delay={0.36 + highlights.length * 0.1} className="mt-9">
+              <Button
+                to="/services"
+                variant="secondary"
+                icon={ArrowRight}
+                className="w-full sm:w-fit"
+              >
+                View Our Services
+              </Button>
+            </RiseUp>
+          </RevealGroup>
 
-          <Reveal
-            index={1}
-            className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-surface sm:aspect-[4/3] lg:order-1 lg:col-span-6 lg:aspect-auto lg:h-full"
-          >
-            <img
-              src={aboutImage}
-              alt="A certified inspector kneeling to examine the flooring in an empty room during a home inspection."
-              loading="lazy"
-              decoding="async"
-              className="h-full w-full object-cover object-[62%_40%] saturate-[0.8] contrast-[1.03] lg:absolute lg:inset-0"
-            />
-          </Reveal>
+          <RiseImage
+            className="relative aspect-[4/5] w-full rounded-2xl sm:aspect-[4/3] lg:order-1 lg:col-span-6 lg:aspect-auto lg:h-full"
+            src={aboutImage}
+            alt="A certified inspector kneeling to examine the flooring in an empty room during a home inspection."
+            loading="lazy"
+            decoding="async"
+            imgClassName="object-[62%_40%] saturate-[0.8] contrast-[1.03]"
+          />
         </div>
       </section>
 
