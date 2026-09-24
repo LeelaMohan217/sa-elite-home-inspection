@@ -73,9 +73,11 @@ function Navbar() {
     };
   }, []);
 
+  // Close the mobile menu on any navigation, including a tap on the page
+  // you're already on.
   useEffect(() => {
     setOpen(false);
-  }, [location.pathname]);
+  }, [location.key]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -262,7 +264,7 @@ function Navbar() {
               <motion.li variants={itemVariants} className="mt-auto pb-5 pt-5">
                 <NavLink
                   to="/contact"
-                  className="flex w-full items-center justify-center rounded-[3px] bg-ink px-5 py-3.5 text-sm font-semibold text-paper transition-colors duration-500 ease-in-out hover:bg-ink/80"
+                  className="flex w-full items-center justify-center rounded-full bg-ink px-5 py-3.5 text-sm font-medium text-paper transition-colors duration-300 hover:bg-ink-800"
                 >
                   Book an Inspection
                 </NavLink>

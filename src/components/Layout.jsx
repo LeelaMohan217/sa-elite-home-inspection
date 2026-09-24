@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Navbar from './Navbar'
@@ -12,10 +12,16 @@ const pageVariants = {
 
 function Layout() {
   const location = useLocation()
+  const previousPath = useRef(location.pathname)
 
+  // Every navigation gets a new location.key, including a link to the page
+  // you're already on (e.g. the navbar logo on the home page). A new page
+  // starts at the top; a link to the current page glides back up.
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [location.pathname])
+    const samePage = previousPath.current === location.pathname
+    previousPath.current = location.pathname
+    window.scrollTo({ top: 0, behavior: samePage ? 'smooth' : 'instant' })
+  }, [location.key, location.pathname])
 
   return (
     <div className="flex min-h-screen flex-col">
