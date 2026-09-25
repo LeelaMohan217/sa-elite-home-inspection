@@ -117,7 +117,17 @@ function Home() {
               </span>
             </RiseUp>
 
-            <RiseUp as="p" delay={0.4} className="mt-6 text-pretty text-base leading-relaxed text-stone sm:text-[17px]">
+            {/* Phones and tablets: the photo sits between heading and text */}
+            <RiseImage
+              className="mt-8 aspect-[4/5] w-full rounded-2xl sm:aspect-[4/3] lg:hidden"
+              src={aboutImage}
+              alt="A certified inspector kneeling to examine the flooring in an empty room during a home inspection."
+              loading="lazy"
+              decoding="async"
+              imgClassName="object-[62%_40%] saturate-[0.8] contrast-[1.03]"
+            />
+
+            <RiseUp as="p" delay={0.4} className="mt-8 lg:mt-6 text-pretty text-base leading-relaxed text-stone sm:text-[17px]">
               Every inspection is carried out in person by a licensed
               professional who walks the entire property, roof to foundation,
               and documents what they find with photos, not guesswork. You get a
@@ -158,8 +168,9 @@ function Home() {
             </RiseUp>
           </RevealGroup>
 
+          {/* Laptops: the photo sits beside the text */}
           <RiseImage
-            className="relative aspect-[4/5] w-full rounded-2xl sm:aspect-[4/3] lg:order-1 lg:col-span-6 lg:aspect-auto lg:h-full"
+            className="hidden w-full rounded-2xl lg:order-1 lg:col-span-6 lg:block lg:h-full"
             src={aboutImage}
             alt="A certified inspector kneeling to examine the flooring in an empty room during a home inspection."
             loading="lazy"
