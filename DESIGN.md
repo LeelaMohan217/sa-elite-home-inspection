@@ -75,6 +75,7 @@ paragraphs; keep paragraphs to `max-w-xl`/`max-w-2xl`.
   `px-5 sm:px-8 lg:px-10`, content width `max-w-7xl`.
 - Motion: short fade-up on enter (`y: 14`, 0.7s, ease `[0.16, 1, 0.3, 1]`),
   staggered by 80ms. No bouncing, no parallax.
-- Process cards: open cards (hairline outline, no fill). On hover a flat
+- Process cards: open cards (hairline outline, no fill), text at the bottom.
+  On hover the text lifts first, then a flat
   skyline (`Skyline` component) in two navy tints rises into the strip below
   the text; on touch screens it is always shown. No navy or black panels.
