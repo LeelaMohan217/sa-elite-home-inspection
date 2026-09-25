@@ -1,43 +1,61 @@
-import { motion } from 'framer-motion'
-import SectionEyebrow from './SectionEyebrow'
-import heroImage from '../assets/hero.png'
+import { motion, useReducedMotion } from 'framer-motion'
 
 const EASE = [0.16, 1, 0.3, 1]
 
-function PageHero({
-  eyebrow,
-  title,
-  subtitle,
-  image = heroImage,
-  imageAlt = 'A certified inspector kneeling to examine the flooring in an empty room during a home inspection.',
-}) {
-  return (
-    <section className="relative overflow-hidden border-b border-hairline bg-paper">
-      <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-20 sm:px-6 sm:py-24 md:grid-cols-[1.1fr_0.9fr] md:items-center md:gap-14">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease: EASE }}
-        >
-          {eyebrow && <SectionEyebrow>{eyebrow}</SectionEyebrow>}
-          <h1 className="mt-4 max-w-2xl text-4xl text-ink sm:text-5xl">{title}</h1>
-          {subtitle && <p className="mt-4 max-w-2xl text-lg text-ink/70">{subtitle}</p>}
-        </motion.div>
+// Whole-block rise from below, as in the home hero.
+const rise = (delay, skip) => ({
+  initial: skip ? false : { opacity: 0, y: 48 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 1.2, delay, ease: EASE },
+})
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
-          className="relative aspect-[16/10] w-full overflow-hidden rounded-[3px] border border-ink/10 md:aspect-[4/3]"
-        >
-          <img
-            src={image}
-            alt={imageAlt}
-            loading="eager"
-            decoding="async"
-            className="h-full w-full object-cover object-[62%_30%] saturate-[0.85] contrast-[1.05]"
-          />
-        </motion.div>
+// Centred, text-only header for inner pages. Eyebrow pill, heading and
+// subtitle rise in turn on load. `accent` is an optional last phrase of the
+// heading, set in the navy serif italic.
+function PageHero({ eyebrow, title, accent, subtitle, children }) {
+  const skip = useReducedMotion()
+
+  return (
+    <section className="relative isolate overflow-hidden pt-20">
+      {/* Faint architectural grid, faded out towards the edges */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--color-hairline)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-hairline)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_45%,black_20%,transparent_75%)] opacity-70"
+      />
+
+      <div className="mx-auto flex max-w-4xl flex-col items-center px-5 pt-16 pb-16 text-center sm:px-8 sm:pt-24 sm:pb-20 lg:px-10">
+        {eyebrow && (
+          <motion.span
+            {...rise(0.1, skip)}
+            className="inline-flex items-center gap-2.5 rounded-full border border-hairline bg-paper/80 whitespace-nowrap px-4 py-2 text-eyebrow leading-none font-medium uppercase text-stone backdrop-blur"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+            {eyebrow}
+          </motion.span>
+        )}
+
+        <motion.h1 {...rise(0.3, skip)} className="mt-7 text-balance text-h1 font-medium text-ink">
+          {title}
+          {accent && (
+            <>
+              {' '}
+              <span className="font-serif font-normal italic tracking-[-0.02em] text-accent">
+                {accent}
+              </span>
+            </>
+          )}
+        </motion.h1>
+
+        {subtitle && (
+          <motion.p
+            {...rise(0.5, skip)}
+            className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-stone sm:text-[17px]"
+          >
+            {subtitle}
+          </motion.p>
+        )}
+
+        {children && <motion.div {...rise(0.7, skip)} className="mt-9">{children}</motion.div>}
       </div>
     </section>
   )
