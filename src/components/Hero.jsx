@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import CountUp from "./CountUp";
-import HeroOrbit from "./HeroOrbit";
+import HeroOrbit, { HeroOrbitCompact } from "./HeroOrbit";
 
 const EASE = [0.16, 1, 0.3, 1];
 
@@ -45,6 +45,11 @@ function Hero({
       <HeroOrbit />
 
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center px-5 py-16 text-center sm:px-8 lg:px-10">
+        {/* Phones only: the orbit as a small emblem above the eyebrow */}
+        <motion.div {...rise(0, skip)} className="-mt-4 mb-6 sm:hidden">
+          <HeroOrbitCompact />
+        </motion.div>
+
         <motion.span
           {...rise(T.eyebrow, skip)}
           className="inline-flex items-center gap-2.5 rounded-full border border-hairline bg-paper/80 whitespace-nowrap px-4 py-2 text-eyebrow leading-none font-medium uppercase text-stone backdrop-blur"
