@@ -36,6 +36,15 @@
   --text-eyebrow: 0.75rem;
   --text-eyebrow--line-height: 1;
   --text-eyebrow--letter-spacing: 0.16em;
+
+  /* Motion */
+  --animate-wave: wave-drift 7s linear infinite;
+
+  @keyframes wave-drift {
+    to {
+      transform: translateX(-50%);
+    }
+  }
 }
 
 @layer base {
