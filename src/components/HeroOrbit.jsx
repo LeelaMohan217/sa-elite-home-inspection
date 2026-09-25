@@ -20,7 +20,7 @@ import {
 } from 'lucide-react'
 import OrbitingCircles from './OrbitingCircles'
 
-export function Chip({ icon: Icon, size = 18 }) {
+function Chip({ icon: Icon, size = 18 }) {
   return (
     <span className="flex h-full w-full items-center justify-center rounded-full border border-hairline bg-paper text-ink/75 shadow-[0_6px_16px_-10px_rgb(0_0_0/0.25)]">
       <Icon size={size} strokeWidth={1.6} aria-hidden="true" />
@@ -59,7 +59,7 @@ function Rings({ sizes }) {
 
 // Hero background for tablets and laptops: three slow rings of home and
 // inspection symbols, with the middle (where the text sits) faded out.
-// Phones get still icons in the gaps around the text instead (see Hero). The strip under the navbar
+// Hidden on phones, where the text fills the hero. The strip under the navbar
 // fades out on every screen.
 function HeroOrbit() {
   return (

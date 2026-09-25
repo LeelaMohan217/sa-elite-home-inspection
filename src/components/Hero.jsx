@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, Home, Search, Ruler, KeyRound, Droplets, ClipboardCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import CountUp from "./CountUp";
-import HeroOrbit, { Chip } from "./HeroOrbit";
+import HeroOrbit from "./HeroOrbit";
 
 const EASE = [0.16, 1, 0.3, 1];
 
@@ -23,22 +23,6 @@ const rise = (delay, skip) => ({
   animate: { opacity: 1, y: 0 },
   transition: { duration: 1.2, delay, ease: EASE },
 });
-
-// Phones only: a still icon placed in one of the gaps around the text
-// (above the eyebrow, between the buttons and the stats, below the stats).
-function PhoneIcon({ icon, className, delay, skip }) {
-  return (
-    <motion.span
-      aria-hidden="true"
-      initial={skip ? false : { opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, delay, ease: EASE }}
-      className={`pointer-events-none absolute h-[46px] w-[46px] sm:hidden ${className}`}
-    >
-      <Chip icon={icon} size={21} />
-    </motion.span>
-  );
-}
 
 function Hero({
   eyebrow = "Certified Home Inspections",
@@ -61,17 +45,13 @@ function Hero({
       <HeroOrbit />
 
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center px-5 py-16 text-center sm:px-8 lg:px-10">
-        <div className="relative flex w-full justify-center">
-          <PhoneIcon icon={Home} className="-top-[62px] left-[4%]" delay={1.0} skip={skip} />
-          <PhoneIcon icon={Search} className="-top-[50px] right-[10%]" delay={1.1} skip={skip} />
-          <motion.span
-            {...rise(T.eyebrow, skip)}
-            className="inline-flex items-center gap-2.5 rounded-full border border-hairline bg-paper/80 whitespace-nowrap px-4 py-2 text-eyebrow leading-none font-medium uppercase text-stone backdrop-blur"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
-            {eyebrow}
-          </motion.span>
-        </div>
+        <motion.span
+          {...rise(T.eyebrow, skip)}
+          className="inline-flex items-center gap-2.5 rounded-full border border-hairline bg-paper/80 whitespace-nowrap px-4 py-2 text-eyebrow leading-none font-medium uppercase text-stone backdrop-blur"
+        >
+          <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+          {eyebrow}
+        </motion.span>
 
         <motion.h1
           {...rise(T.headline, skip)}
@@ -116,35 +96,29 @@ function Hero({
         </div>
 
         {stats.length > 0 && (
-          <div className="relative mt-16 w-full max-w-2xl">
-            <PhoneIcon icon={Ruler} className="-top-[55px] left-[2%]" delay={1.2} skip={skip} />
-            <PhoneIcon icon={KeyRound} className="-top-[55px] right-[16%]" delay={1.3} skip={skip} />
-            <PhoneIcon icon={Droplets} className="-bottom-[60px] left-[18%]" delay={1.4} skip={skip} />
-            <PhoneIcon icon={ClipboardCheck} className="-bottom-[52px] right-[3%]" delay={1.5} skip={skip} />
-            <motion.dl
-              initial={skip ? false : { opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.2, delay: T.stats, ease: EASE }}
-              className="grid w-full grid-cols-3 divide-x divide-hairline border-t border-hairline pt-8"
-            >
-              {stats.map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  {...rise(T.stats + i * T.statStagger, skip)}
-                  className="flex flex-col items-center gap-1.5 px-2"
-                >
-                  <dt className="order-2 text-xs text-stone sm:text-sm">{stat.label}</dt>
-                  <dd className="order-1 text-h3 font-medium tracking-tight text-ink">
-                    <CountUp
-                      value={stat.value}
-                      suffix={stat.suffix}
-                      startAfter={T.stats + i * T.statStagger}
-                    />
-                  </dd>
-                </motion.div>
-              ))}
-            </motion.dl>
-          </div>
+          <motion.dl
+            initial={skip ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2, delay: T.stats, ease: EASE }}
+            className="mt-16 grid w-full max-w-2xl grid-cols-3 divide-x divide-hairline border-t border-hairline pt-8"
+          >
+            {stats.map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                {...rise(T.stats + i * T.statStagger, skip)}
+                className="flex flex-col items-center gap-1.5 px-2"
+              >
+                <dt className="order-2 text-xs text-stone sm:text-sm">{stat.label}</dt>
+                <dd className="order-1 text-h3 font-medium tracking-tight text-ink">
+                  <CountUp
+                    value={stat.value}
+                    suffix={stat.suffix}
+                    startAfter={T.stats + i * T.statStagger}
+                  />
+                </dd>
+              </motion.div>
+            ))}
+          </motion.dl>
         )}
       </div>
     </section>
