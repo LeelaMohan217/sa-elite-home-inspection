@@ -132,7 +132,7 @@ function Navbar() {
         <div className="col-start-3 hidden items-center justify-end lg:flex">
           <NavLink
             to="/contact"
-            className="inline-flex h-10 items-center rounded-full bg-accent px-5 text-sm font-medium text-paper shadow-button transition-colors duration-300 hover:bg-accent-hover"
+            className="inline-flex h-10 items-center rounded-full bg-ink px-5 text-sm font-medium text-paper transition-colors duration-300 hover:bg-ink-800"
           >
             Book an Inspection
           </NavLink>
@@ -144,7 +144,7 @@ function Navbar() {
             type="button"
             className={`relative z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-500 ease-in-out ${
               open
-                ? "border-accent bg-accent text-paper"
+                ? "border-ink bg-ink text-paper"
                 : scrolled
                   ? "border-paper/70 bg-paper/40 text-ink backdrop-blur-md"
                   : "border-ink/30 bg-paper/20 text-ink backdrop-blur-sm"
@@ -251,7 +251,7 @@ function Navbar() {
                         <span>{link.label}</span>
 
                         <span
-                          className={`h-1.5 w-1.5 rounded-full bg-accent transition-opacity ${
+                          className={`h-1.5 w-1.5 rounded-full bg-ink transition-opacity ${
                             isActive ? "opacity-100" : "opacity-0"
                           }`}
                         />
@@ -264,7 +264,7 @@ function Navbar() {
               <motion.li variants={itemVariants} className="mt-auto pb-5 pt-5">
                 <NavLink
                   to="/contact"
-                  className="flex w-full items-center justify-center h-10 rounded-full bg-accent px-5 text-sm font-medium text-paper shadow-button transition-colors duration-300 hover:bg-accent-hover"
+                  className="flex w-full items-center justify-center h-10 rounded-full bg-ink px-5 text-sm font-medium text-paper transition-colors duration-300 hover:bg-ink-800"
                 >
                   Book an Inspection
                 </NavLink>

@@ -449,7 +449,7 @@ function Home() {
                       />
                     </span>
 
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-hairline text-ink transition-colors md:order-3 lg:order-none duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-paper">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-hairline text-ink transition-colors md:order-3 lg:order-none duration-300 group-hover:border-ink group-hover:bg-ink group-hover:text-paper">
                       <ArrowUpRight size={16} strokeWidth={1.75} aria-hidden="true" />
                     </span>
                   </div>

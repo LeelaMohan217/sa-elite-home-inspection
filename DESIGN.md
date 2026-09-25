@@ -8,35 +8,33 @@ Tailwind classes (`text-ink`, `bg-surface`, `text-display`, `font-serif`, …).
 
 ## Colour
 
-Light and airy throughout: near-black text on white, one bright blue accent,
-and a soft lavender-to-aqua glow on large surfaces. No large dark areas
-anywhere. Amber appears only inside the sample report to mark findings. Do
-not add colours; use these tokens (never Tailwind's default palette such as
-`blue-700`).
+Neutrals carry the design and lean slightly cool so they sit well with the
+navy; never use warm or yellow-tinted greys. Navy is the one brand accent, and amber appears
+only inside the sample report to mark findings. Do not add colours; use these
+tokens (never Tailwind's default palette such as `blue-700`).
 
 | Token | Hex | Use |
 | --- | --- | --- |
-| `ink` | `#0b1220` | Headings and body text |
-| `paper` | `#ffffff` | Page background; text on blue buttons |
-| `surface` | `#f5f8ff` | Alternate section bands, inner cards |
-| `hairline` | `#e3e9f4` | Borders and dividers |
-| `stone` | `#56606e` | Secondary text (6.4:1 on paper, 6.0:1 on surface) |
-| `accent` | `#155dee` | Blue: primary buttons, the serif accent word, icons, ticks, focus |
-| `accent-hover` | `#0f4bc6` | Hover state for blue buttons |
-| `accent-light` | `#dfe9fd` | Pale blue tint: tick circles, "Good" pills, hover washes |
-| `lavender` | `#d2e0fd` | Glow colour (left) |
-| `aqua` | `#d6f7ff` | Glow colour (right) |
+| `ink` | `#000000` | Text, primary buttons, dark bands, footer |
+| `paper` | `#ffffff` | Page background (pure white); text on dark |
+| `surface` | `#f3f5f8` | Alternate section bands (faint blue-grey) |
+| `hairline` | `#e3e7ed` | Borders and dividers |
+| `stone` | `#5b6472` | Secondary text, blue-grey (6.0:1 on paper, 5.5:1 on surface) |
+| `accent` | `#1f3a5f` | Navy: the serif accent word in headings, icons, ticks, focus ring |
+| `accent-light` | `#d6dde8` | Navy tint: tick circles, "Good" pills, accent word on black |
 | `caution` | `#8a5a12` | Amber, report findings only (Major pill, Minor text) |
-| `caution-light` | `#f5ecda` | Amber tint, report findings only |
+| `caution-light` | `#f5ecda` | Amber tint, report findings only (Minor pill, finding note) |
+| `ink-800` | `#1f242b` | Hover state for black buttons only |
 
 Rules:
 
-- Primary button: `bg-accent text-paper shadow-button`. Secondary: white with
-  a hairline border. Use the shared `Button` component.
-- Large surfaces (page headers, the footer panel, a featured card) use the
-  `bg-glow` utility: lavender from the left, aqua from the right, over white.
-- No black or dark panels. Photos may carry a dark fade for legible text.
-- One blue accent per screen area: usually the serif word in the heading.
+- Primary button is always `bg-ink text-paper`. Never fill a button with navy.
+- Large dark areas are black (`ink`). Navy stays an accent: text, icons, small
+  tints. No navy panels or cards.
+- One navy accent per screen area: usually the serif word in the heading.
+- On dark backgrounds use only three text strengths and one line strength:
+  `text-paper` (headings), `text-paper/70` (body), `text-paper/55` (labels),
+  `border-paper/15` (lines). Decorative grids use `rgb(255 255 255 / 0.08)`.
 
 ## Typography
 
@@ -54,7 +52,7 @@ Self-hosted via `@fontsource` (imported in `src/main.jsx`).
 | Class | Size | Use |
 | --- | --- | --- |
 | `text-display` | 44 → 84px | Home hero headline only |
-| `text-h1` | 36 → 60px | Footer CTA heading, page titles |
+| `text-h1` | 36 → 60px | Closing CTA heading, page titles |
 | `text-h2` | 30 → 48px | Section headings, testimonial quote |
 | `text-h3` | 22px | Card titles, hero stat numbers |
 | `text-base sm:text-[17px]` | 16 → 17px | Lead paragraphs and body copy |
@@ -79,5 +77,5 @@ paragraphs; keep paragraphs to `max-w-xl`/`max-w-2xl`.
   staggered by 80ms. No bouncing, no parallax.
 - Process cards: open cards (hairline outline, no fill), text at the bottom.
   On hover the text lifts first, then a flat
-  skyline (`Skyline` component) in two pale blue tints rises into the strip below
-  the text; on touch screens it is always shown.
+  skyline (`Skyline` component) in two navy tints rises into the strip below
+  the text; on touch screens it is always shown. No navy or black panels.

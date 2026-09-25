@@ -1,5 +1,5 @@
 // Hover wash for service cards (place inside a `group relative isolate
-// overflow-hidden` card): a pale blue tint that rises from the
+// overflow-hidden` card): a pale navy tint that rises from the
 // bottom with two layers of drifting waves along its top edge. Each wave
 // strip is twice the card's width and repeats every 300 units, so sliding it
 // left by half loops seamlessly.

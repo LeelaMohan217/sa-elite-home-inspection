@@ -21,8 +21,8 @@ function FaqItem({ question, answer, open = false, onToggle }) {
         <span
           className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-colors duration-300 ${
             open
-              ? 'border-accent bg-accent text-paper'
-              : 'border-hairline text-ink group-hover:border-accent/40'
+              ? 'border-ink bg-ink text-paper'
+              : 'border-hairline text-ink group-hover:border-ink/30'
           }`}
         >
           <Plus

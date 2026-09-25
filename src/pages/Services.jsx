@@ -57,7 +57,7 @@ function Services() {
                     <span className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline bg-paper">
                       <service.icon size={19} strokeWidth={1.75} className="text-ink" aria-hidden="true" />
                     </span>
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-hairline bg-paper text-ink transition-colors duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-paper">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-hairline bg-paper text-ink transition-colors duration-300 group-hover:border-ink group-hover:bg-ink group-hover:text-paper">
                       <ArrowUpRight size={16} strokeWidth={1.75} aria-hidden="true" />
                     </span>
                   </div>

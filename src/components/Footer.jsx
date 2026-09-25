@@ -28,45 +28,50 @@ function FooterHeading({ children }) {
   return <p className="text-eyebrow font-medium uppercase text-stone">{children}</p>
 }
 
-// One light rounded panel at the bottom of every page, washed with the
-// lavender-to-aqua glow: the booking call to action on top, and the footer
-// itself as a frosted white card nested inside.
+// One black rounded panel at the bottom of every page: the booking call to
+// action on top, and the footer itself as a white card nested inside.
 function Footer() {
   return (
     <footer className="bg-paper px-3 pt-16 pb-3 sm:px-4 sm:pt-24 sm:pb-4">
-      <div className="relative isolate overflow-hidden rounded-3xl border border-hairline bg-glow text-ink shadow-[0_24px_60px_-40px_rgb(21_93_238/0.35)]">
+      <div className="relative isolate overflow-hidden rounded-3xl bg-ink text-paper">
+        {/* Faint grid, echoing the hero */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgb(255_255_255/0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgb(255_255_255/0.08)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_60%_55%_at_50%_30%,black_20%,transparent_75%)]"
+        />
+
         {/* Call to action */}
         <RevealGroup className="mx-auto flex max-w-3xl flex-col items-center px-6 pt-20 pb-16 text-center sm:px-8 sm:pt-28 sm:pb-24">
           <RiseUp delay={0}>
-            <SectionEyebrow className="justify-center">
+            <SectionEyebrow tone="dark" className="justify-center">
               Ready when you are
             </SectionEyebrow>
           </RiseUp>
 
-          <RiseUp as="h2" delay={0.15} className="mt-6 text-balance text-h1 text-ink">
+          <RiseUp as="h2" delay={0.15} className="mt-6 text-balance text-h1 text-paper">
             Ready to book your{' '}
-            <span className="font-serif font-normal italic tracking-[-0.01em] text-accent">
+            <span className="font-serif font-normal italic tracking-[-0.01em] text-accent-light">
               inspection?
             </span>
           </RiseUp>
 
-          <RiseUp as="p" delay={0.3} className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-stone sm:text-[17px]">
+          <RiseUp as="p" delay={0.3} className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-paper/70 sm:text-[17px]">
             Reach out today and we'll get you scheduled with one of our
             certified inspectors.
           </RiseUp>
 
           <RiseUp delay={0.45} className="mt-10 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row">
-            <Button to="/contact" icon={ArrowRight} className="w-full sm:w-auto">
+            <Button to="/contact" variant="invert" icon={ArrowRight} className="w-full sm:w-auto">
               Book an Inspection
             </Button>
-            <Button to="/prices" variant="secondary" className="w-full sm:w-auto">
+            <Button to="/prices" variant="outline" className="w-full sm:w-auto">
               View Pricing
             </Button>
           </RiseUp>
         </RevealGroup>
 
         {/* Footer card */}
-        <div className="mx-2 mb-2 rounded-2xl border border-paper/80 bg-paper/75 text-ink backdrop-blur-md sm:mx-3 sm:mb-3">
+        <div className="mx-2 mb-2 rounded-2xl bg-paper text-ink sm:mx-3 sm:mb-3">
           <div className="grid gap-12 px-6 pt-12 pb-10 sm:grid-cols-2 sm:gap-x-10 sm:px-10 sm:pt-14 lg:grid-cols-12">
             <div className="lg:col-span-3">
               <Link to="/" aria-label="Akshara Elite Home Inspections home" className="inline-block">

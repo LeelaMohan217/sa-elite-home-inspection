@@ -7,9 +7,11 @@ const BASE =
   'disabled:cursor-not-allowed disabled:opacity-60'
 
 const VARIANTS = {
-  primary: 'bg-accent text-paper shadow-button hover:bg-accent-hover',
-  secondary: 'border border-hairline bg-paper text-ink shadow-[0_2px_8px_-4px_rgb(11_18_32/0.12)] hover:border-accent/30',
+  primary: 'bg-ink text-paper hover:bg-ink-800',
+  secondary: 'border border-hairline bg-paper text-ink hover:border-ink/25',
+  invert: 'bg-paper text-ink hover:bg-paper/85',
   ghost: 'text-ink hover:text-accent',
+  outline: 'border border-paper/15 text-paper hover:border-paper/55',
 }
 
 function Button({

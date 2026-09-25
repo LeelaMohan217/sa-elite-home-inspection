@@ -32,7 +32,7 @@ function Prices() {
               delay={0.1 + i * 0.15}
               className={`relative flex flex-col rounded-2xl border p-7 sm:p-8 ${
                 plan.featured
-                  ? 'border-accent/30 bg-glow shadow-[0_24px_60px_-40px_rgb(21_93_238/0.45)]'
+                  ? 'border-accent/30 bg-surface shadow-[0_24px_60px_-40px_rgb(31_58_95/0.45)]'
                   : 'border-hairline bg-paper'
               }`}
             >
@@ -78,7 +78,7 @@ function Prices() {
             Larger home, or not sure which plan fits?{' '}
             <Link
               to="/contact"
-              className="font-medium text-ink underline decoration-hairline underline-offset-4 transition-colors hover:decoration-accent"
+              className="font-medium text-ink underline decoration-hairline underline-offset-4 transition-colors hover:decoration-ink"
             >
               Ask us for a quote
             </Link>
@@ -140,7 +140,7 @@ function Prices() {
             Anything else you'd like to know?{' '}
             <Link
               to="/contact"
-              className="font-medium text-ink underline decoration-hairline underline-offset-4 transition-colors hover:decoration-accent"
+              className="font-medium text-ink underline decoration-hairline underline-offset-4 transition-colors hover:decoration-ink"
             >
               Talk to an inspector
             </Link>
