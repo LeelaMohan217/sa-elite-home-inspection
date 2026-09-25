@@ -12,7 +12,7 @@ import towers from "../assets/areas/towers.webp";
 const AREA_PHOTOS = [towers, apartments, business, skyline];
 
 // Horizontal row of square photo cards. Shows 4 at a time on desktop (3 on
-// tablets, 2 on phones); the arrow buttons slide the row by one view, and
+// tablets, 1 on phones); the arrow buttons slide the row by one view, and
 // the row can also be swiped or scrolled. Buttons dim at either end.
 function AreaCarousel({ areas, label = "Service areas" }) {
   const trackRef = useRef(null);
@@ -61,7 +61,7 @@ function AreaCarousel({ areas, label = "Service areas" }) {
             as="li"
             key={area}
             delay={0.1 + Math.min(i, 3) * 0.12}
-            className="group relative isolate flex aspect-square w-[calc((100%-0.75rem)/2)] flex-none snap-start flex-col justify-between overflow-hidden rounded-2xl bg-ink p-5 sm:w-[calc((100%-2rem)/3)] sm:p-6 lg:w-[calc((100%-3rem)/4)]"
+            className="group relative isolate flex aspect-square w-full flex-none snap-start flex-col justify-between overflow-hidden rounded-2xl bg-ink p-5 sm:w-[calc((100%-2rem)/3)] sm:p-6 lg:w-[calc((100%-3rem)/4)]"
           >
             <img
               src={AREA_PHOTOS[i % AREA_PHOTOS.length]}
@@ -86,7 +86,7 @@ function AreaCarousel({ areas, label = "Service areas" }) {
             </div>
 
             <div>
-              <p className="text-balance text-[17px] leading-snug font-medium tracking-tight text-paper sm:text-h3">
+              <p className="text-balance text-h3 leading-snug font-medium tracking-tight text-paper">
                 {area}
               </p>
               <p className="mt-1 text-sm text-paper/70">Hyderabad</p>
