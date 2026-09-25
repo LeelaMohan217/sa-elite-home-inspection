@@ -59,13 +59,13 @@ function Rings({ sizes }) {
 // Hero background: three slow rings of home and inspection symbols.
 // Tablets and laptops fade the middle, where the text sits, so the orbit
 // shows around the edges. Phones have no room around the text, so their
-// smaller rings stay fully visible behind it. The strip under the navbar
+// smaller rings stay visible behind it, softened to about 40% there. The strip under the navbar
 // fades out on every screen.
 function HeroOrbit() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 -z-10 [mask-image:linear-gradient(to_bottom,transparent_72px,black_176px)] sm:[mask-image:radial-gradient(ellipse_46%_44%_at_50%_52%,transparent_58%,black_100%),linear-gradient(to_bottom,transparent_72px,black_176px)] sm:[mask-composite:intersect] sm:[-webkit-mask-composite:source-in]"
+      className="pointer-events-none absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_62%_40%_at_50%_50%,rgb(0_0_0/0.4)_45%,black_100%),linear-gradient(to_bottom,transparent_72px,black_176px)] [mask-composite:intersect] [-webkit-mask-composite:source-in] sm:[mask-image:radial-gradient(ellipse_46%_44%_at_50%_52%,transparent_58%,black_100%),linear-gradient(to_bottom,transparent_72px,black_176px)]"
     >
       <div className="absolute top-1/2 left-1/2 h-0 w-0 sm:hidden">
         <Rings sizes={PHONE} />
