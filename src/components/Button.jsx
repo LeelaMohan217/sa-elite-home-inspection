@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 
+// Every button is 40px tall (h-10), matching the navbar's Book button.
 const BASE =
-  'inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-3 font-sans text-sm font-medium ' +
+  'inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded-full px-5 font-sans text-sm font-medium ' +
   'transition-[background-color,color,border-color] duration-300 cursor-pointer ' +
   'disabled:cursor-not-allowed disabled:opacity-60'
 

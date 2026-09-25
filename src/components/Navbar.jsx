@@ -132,7 +132,7 @@ function Navbar() {
         <div className="col-start-3 hidden items-center justify-end lg:flex">
           <NavLink
             to="/contact"
-            className="rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-colors duration-300 hover:bg-ink-800"
+            className="inline-flex h-10 items-center rounded-full bg-ink px-5 text-sm font-medium text-paper transition-colors duration-300 hover:bg-ink-800"
           >
             Book an Inspection
           </NavLink>
@@ -264,7 +264,7 @@ function Navbar() {
               <motion.li variants={itemVariants} className="mt-auto pb-5 pt-5">
                 <NavLink
                   to="/contact"
-                  className="flex w-full items-center justify-center rounded-full bg-ink px-5 py-3.5 text-sm font-medium text-paper transition-colors duration-300 hover:bg-ink-800"
+                  className="flex w-full items-center justify-center h-10 rounded-full bg-ink px-5 text-sm font-medium text-paper transition-colors duration-300 hover:bg-ink-800"
                 >
                   Book an Inspection
                 </NavLink>

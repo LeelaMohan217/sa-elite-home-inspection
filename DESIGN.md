@@ -66,6 +66,8 @@ paragraphs; keep paragraphs to `max-w-xl`/`max-w-2xl`.
 
 ## Shape, space and motion
 
+- Buttons: one size everywhere, 40px tall (`h-10 px-5 text-sm font-medium`),
+  matching the navbar button. Use the shared `Button` component.
 - Buttons and pills: `rounded-full`. Cards: `rounded-2xl` (16px). Large
   panels such as the closing CTA: `rounded-3xl` (24px). Small inner elements
   (a note inside a card): `rounded-lg`. No heavy shadows.

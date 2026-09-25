@@ -76,7 +76,7 @@ function Hero({
           <motion.div {...rise(T.primary, skip)} className="w-full sm:w-auto">
             <Link
               to={primaryCta.to}
-              className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 text-[15px] font-medium text-paper transition-colors duration-300 hover:bg-ink-800 sm:w-auto"
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink h-10 px-5 text-sm font-medium text-paper transition-colors duration-300 hover:bg-ink-800 sm:w-auto"
             >
               {primaryCta.label}
               <ArrowRight
@@ -90,7 +90,7 @@ function Hero({
           <motion.div {...rise(T.secondary, skip)} className="w-full sm:w-auto">
             <Link
               to={secondaryCta.to}
-              className="inline-flex w-full items-center justify-center rounded-full border border-hairline bg-paper px-7 py-3.5 text-[15px] font-medium text-ink transition-colors duration-300 hover:border-ink/25 sm:w-auto"
+              className="inline-flex w-full items-center justify-center rounded-full border border-hairline bg-paper h-10 px-5 text-sm font-medium text-ink transition-colors duration-300 hover:border-ink/25 sm:w-auto"
             >
               {secondaryCta.label}
             </Link>
