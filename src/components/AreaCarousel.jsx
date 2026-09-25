@@ -5,11 +5,11 @@ import { RiseUp } from "./ScrollReveal";
 import skyline from "../assets/areas/skyline.webp";
 import business from "../assets/areas/business.webp";
 import apartments from "../assets/areas/apartments.webp";
-import charminar from "../assets/areas/charminar.webp";
+import towers from "../assets/areas/towers.webp";
 
 // City photos, repeated in turn across the cards. Four photos, so any four
 // cards side by side always show different ones.
-const AREA_PHOTOS = [charminar, apartments, business, skyline];
+const AREA_PHOTOS = [towers, apartments, business, skyline];
 
 // Horizontal row of square photo cards. Shows 4 at a time on desktop (3 on
 // tablets, 2 on phones); the arrow buttons slide the row by one view, and
