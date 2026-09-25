@@ -1,8 +1,8 @@
 // Flat city skyline for the process cards. The buildings sit below the card
 // and rise into place one after another when the card is hovered, starting
 // just after the card's text has begun to lift; on leaving they sink quickly
-// before the text settles back. On phones, tablets and touch screens, which
-// have no hover, they are simply shown. Two layers in navy
+// before the text settles back (on touch
+// screens, which have no hover, they are simply shown). Two layers in navy
 // tints: taller towers with windows behind, lower blocks and gabled houses
 // in front. Each seed gives a different, repeatable skyline.
 
@@ -49,7 +49,7 @@ function Building({ b, fill, windows, delay }) {
 
   return (
     <g
-      className="translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] [transform-box:fill-box] [transition-delay:calc(var(--d)*0.3)] group-hover:[transition-delay:calc(var(--d)_+_180ms)] motion-reduce:transition-none lg:translate-y-[108%] lg:group-hover:translate-y-0 lg:[@media(hover:none)]:translate-y-0"
+      className="translate-y-[108%] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] [transform-box:fill-box] [transition-delay:calc(var(--d)*0.3)] group-hover:translate-y-0 group-hover:[transition-delay:calc(var(--d)_+_180ms)] motion-reduce:transition-none [@media(hover:none)]:translate-y-0"
       style={{ "--d": `${delay}ms` }}
     >
       <rect x={b.x} y={top} width={b.w} height={b.h} fill={fill} />
