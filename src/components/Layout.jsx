@@ -27,7 +27,9 @@ function Layout() {
     <div className="flex min-h-screen flex-col">
       <Navbar />
       <main className="flex-1">
-        <AnimatePresence mode="wait">
+        {/* Once the old page has faded out, snap to the top again so the new
+            page always opens exactly at its start */}
+        <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo({ top: 0, behavior: 'instant' })}>
           <motion.div
             key={location.pathname}
             variants={pageVariants}
