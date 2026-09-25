@@ -29,7 +29,7 @@ export function LegalNav() {
             <NavLink
               to={link.to}
               className={({ isActive }) =>
-                `inline-flex rounded-full px-3 py-1.5 text-sm transition-colors lg:-ml-3 ${
+                `inline-flex h-10 items-center rounded-full px-4 text-sm transition-colors lg:-ml-4 ${
                   isActive ? 'bg-surface font-medium text-ink' : 'text-stone hover:text-ink'
                 }`
               }
