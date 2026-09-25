@@ -75,7 +75,6 @@ paragraphs; keep paragraphs to `max-w-xl`/`max-w-2xl`.
   `px-5 sm:px-8 lg:px-10`, content width `max-w-7xl`.
 - Motion: short fade-up on enter (`y: 14`, 0.7s, ease `[0.16, 1, 0.3, 1]`),
   staggered by 80ms. No bouncing, no parallax.
-- Poster cards: the process step cards are the one place with navy panels.
-  They are a deep navy (`accent` mixed 40% into `ink`) with flat angular
-  planes in a lighter navy (`accent` 78% into `ink`), paper text and a white
-  icon circle. Mix only palette colours; keep planes flat, no gradients.
+- Process cards: open cards (hairline outline, no fill). On hover a flat
+  skyline (`Skyline` component) in two navy tints rises into the strip below
+  the text; on touch screens it is always shown. No navy or black panels.

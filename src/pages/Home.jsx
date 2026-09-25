@@ -16,6 +16,7 @@ import Button from "../components/Button";
 import FaqItem from "../components/FaqItem";
 import Hero from "../components/Hero";
 import AreaCarousel from "../components/AreaCarousel";
+import Skyline from "../components/Skyline";
 import StatBlock from "../components/StatBlock";
 import aboutImage from "../assets/hero.png";
 import inspectorImage from "../assets/hero.png";
@@ -45,20 +46,6 @@ const REPORT_STATUS = {
   cosmetic: { label: "Cosmetic", icon: Paintbrush, pill: "bg-surface text-stone", bar: "bg-stone/35" },
 };
 const SEVERITIES = ["major", "minor", "cosmetic"];
-
-// Process cards: flat, angular planes in two deep navy tones, like folded
-// paper or a roofline. Each step gets its own composition. Points are in a
-// 400 x 440 box that is scaled to cover the card.
-const STEP_PLANES = [
-  // Roof and wall, after a pitched gable
-  ["200,34 400,6 400,318 356,324 322,118 140,144", "0,318 116,230 116,392 400,392 400,440 0,440"],
-  // Ridge line rising to the right, with a low slab beneath
-  ["0,176 400,40 400,180 0,300", "0,440 0,396 400,344 400,440"],
-  // A folded sheet, turning its corner towards the text
-  ["150,0 400,0 400,214 250,178", "0,262 262,210 400,250 400,440 0,440"],
-  // Two overlapping panels, like a conversation
-  ["40,52 300,14 334,200 74,238", "150,262 400,226 400,440 180,440"],
-];
 
 // Hover wash for the service cards: a pale navy tint that rises from the
 // bottom with two layers of drifting waves along its top edge. Each wave
@@ -418,42 +405,35 @@ function Home() {
           </RiseUp>
         </RevealGroup>
 
-        {/* Poster cards: deep navy with angular planes in a lighter navy */}
+        {/* Open cards: just an outline until hovered, when a skyline of flat
+            buildings rises into the clear strip under the text (always shown
+            on touch screens) */}
         <RevealGroup as="ol" className="mt-12 grid gap-4 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
           {steps.map((item, i) => (
             <RiseUp
               as="li"
               key={item.step}
               delay={0.15 + i * 0.15}
-              className="relative isolate flex min-h-[15rem] flex-col overflow-hidden rounded-2xl bg-[color-mix(in_srgb,var(--color-accent)_40%,var(--color-ink))] p-7 text-paper sm:min-h-[17rem] sm:p-8 lg:min-h-[19rem]"
+              className="group relative isolate flex flex-col overflow-hidden rounded-2xl border border-hairline p-7 pb-36 text-ink transition-colors duration-300 hover:border-accent/25 sm:p-8 sm:pb-40"
             >
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 400 440"
-                preserveAspectRatio="xMidYMid slice"
-                className="absolute inset-0 -z-10 h-full w-full fill-[color-mix(in_srgb,var(--color-accent)_78%,var(--color-ink))]"
-              >
-                {STEP_PLANES[i % STEP_PLANES.length].map((points) => (
-                  <polygon key={points} points={points} />
-                ))}
-              </svg>
+              <Skyline seed={i + 3} className="absolute inset-x-0 bottom-0 -z-10 h-32 w-full sm:h-36" />
 
               <div className="flex items-center justify-between">
-                <span className="text-eyebrow font-medium uppercase text-paper/70">
+                <span className="text-eyebrow font-medium uppercase text-stone">
                   Step {item.step}
                 </span>
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-paper text-ink">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline bg-paper">
                   <item.icon size={18} strokeWidth={1.75} aria-hidden="true" />
                 </span>
               </div>
 
-              <div className="mt-auto pt-10">
+              <div className="mt-8">
                 {/* On desktop, reserve two title lines and three description
                     lines so titles share a baseline and descriptions start level */}
                 <h3 className="text-[1.375rem] leading-snug font-medium tracking-tight lg:flex lg:min-h-[2lh] lg:items-end">
                   {item.title}
                 </h3>
-                <p className="mt-2.5 text-[15px] leading-relaxed text-paper/70 lg:min-h-[3lh]">
+                <p className="mt-2.5 text-[15px] leading-relaxed text-stone lg:min-h-[3lh]">
                   {item.description}
                 </p>
               </div>
