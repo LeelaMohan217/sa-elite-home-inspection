@@ -1,16 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette: neutrals + one navy accent; amber for report findings only.
-     See DESIGN.md before adding a colour. */
-  --color-ink: #000000; /* text, primary buttons, dark bands, footer */
-  --color-ink-800: #1f242b; /* hover state for ink buttons */
-  --color-paper: #ffffff; /* page background, text on dark */
-  --color-surface: #f3f5f8; /* alternate section bands (cool blue-grey) */
-  --color-stone: #5b6472; /* secondary text (6.0:1 on paper) */
-  --color-hairline: #e3e7ed; /* borders and dividers */
-  --color-accent: #1f3a5f; /* navy: serif accent words, icons, ticks, focus */
-  --color-accent-light: #d6dde8; /* navy tint: tick circles, "Good" pills */
+  /* Palette: light and airy. Near-black text on white, one bright blue
+     accent, and a lavender-to-aqua glow for large surfaces. Amber for report
+     findings only. See DESIGN.md before adding a colour. */
+  --color-ink: #0b1220; /* text (near-black with a navy cast) */
+  --color-paper: #ffffff; /* page background, text on blue */
+  --color-surface: #f5f8ff; /* alternate section bands, inner cards */
+  --color-stone: #56606e; /* secondary text (6.4:1 on paper) */
+  --color-hairline: #e3e9f4; /* borders and dividers */
+  --color-accent: #155dee; /* blue: primary buttons, accent words, icons, ticks, focus */
+  --color-accent-hover: #0f4bc6; /* hover state for blue buttons */
+  --color-accent-light: #dfe9fd; /* pale blue tint: tick circles, "Good" pills */
+  --color-lavender: #d2e0fd; /* glow colour, left */
+  --color-aqua: #d6f7ff; /* glow colour, right */
   --color-caution: #8a5a12; /* amber: report findings only */
   --color-caution-light: #f5ecda; /* amber tint: report findings only */
 
@@ -100,3 +103,17 @@ html {
 @utility shadow-cta-hover {
   box-shadow: 0 16px 32px -12px rgba(0, 7, 45, 0.42);
 }
+
+/* The signature lavender-to-aqua glow for large light surfaces. */
+@utility bg-glow {
+  background-color: var(--color-paper);
+  background-image:
+    radial-gradient(60% 90% at 8% 35%, var(--color-lavender), transparent 70%),
+    radial-gradient(55% 85% at 96% 70%, var(--color-aqua), transparent 70%);
+}
+
+/* Soft blue lift under primary buttons, as in the reference. */
+@utility shadow-button {
+  box-shadow: 0 6px 16px -8px rgb(21 93 238 / 0.55), inset 0 1px 0 rgb(255 255 255 / 0.18);
+}
+

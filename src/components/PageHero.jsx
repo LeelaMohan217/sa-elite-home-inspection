@@ -11,16 +11,21 @@ const rise = (delay, skip) => ({
 
 // Centred, text-only header for inner pages. Eyebrow pill, heading and
 // subtitle rise in turn on load. `accent` is an optional last phrase of the
-// heading, set in the navy serif italic.
+// heading, set in the blue serif italic.
 function PageHero({ eyebrow, title, accent, subtitle, children }) {
   const skip = useReducedMotion()
 
   return (
     <section className="relative isolate overflow-hidden pt-20">
+      {/* Lavender-to-aqua glow, fading into the page towards the bottom */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-20 bg-glow [mask-image:linear-gradient(to_bottom,black_45%,transparent)]"
+      />
       {/* Faint architectural grid, faded out towards the edges */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--color-hairline)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-hairline)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_45%,black_20%,transparent_75%)] opacity-70"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--color-hairline)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-hairline)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_45%,black_20%,transparent_75%)] opacity-50"
       />
 
       <div className="mx-auto flex max-w-4xl flex-col items-center px-5 pt-16 pb-16 text-center sm:px-8 sm:pt-24 sm:pb-20 lg:px-10">

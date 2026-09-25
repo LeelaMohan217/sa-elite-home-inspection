@@ -2,7 +2,7 @@
 // and rise into place one after another when the card is hovered, starting
 // just after the card's text has begun to lift; on leaving they sink quickly
 // before the text settles back (on touch
-// screens, which have no hover, they are simply shown). Two layers in navy
+// screens, which have no hover, they are simply shown). Two layers in blue
 // tints: taller towers with windows behind, lower blocks and gabled houses
 // in front. Each seed gives a different, repeatable skyline.
 

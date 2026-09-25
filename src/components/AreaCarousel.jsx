@@ -45,7 +45,7 @@ function AreaCarousel({ areas, label = "Service areas" }) {
   // Below lg the buttons sit in a row under the cards; from lg they float
   // on the left and right edges of the row.
   const buttonClass =
-    "z-10 flex h-11 w-11 items-center justify-center rounded-full border border-hairline bg-paper text-ink shadow-[0_8px_24px_-12px_rgba(0,0,0,0.25)] transition-[background-color,color,opacity] duration-300 hover:bg-ink hover:text-paper disabled:pointer-events-none disabled:opacity-35 sm:h-12 sm:w-12 lg:absolute lg:top-1/2 lg:-translate-y-1/2";
+    "z-10 flex h-11 w-11 items-center justify-center rounded-full border border-hairline bg-paper text-ink shadow-[0_8px_24px_-12px_rgba(0,0,0,0.25)] transition-[background-color,color,opacity] duration-300 hover:border-accent hover:bg-accent hover:text-paper disabled:pointer-events-none disabled:opacity-35 sm:h-12 sm:w-12 lg:absolute lg:top-1/2 lg:-translate-y-1/2";
 
   return (
     <div className="relative">
@@ -61,7 +61,7 @@ function AreaCarousel({ areas, label = "Service areas" }) {
             as="li"
             key={area}
             delay={0.1 + Math.min(i, 3) * 0.12}
-            className="group relative isolate flex aspect-square w-[calc((100%-0.75rem)/2)] flex-none snap-start flex-col justify-between overflow-hidden rounded-2xl bg-ink p-5 sm:w-[calc((100%-2rem)/3)] sm:p-6 lg:w-[calc((100%-3rem)/4)]"
+            className="group relative isolate flex aspect-square w-[calc((100%-0.75rem)/2)] flex-none snap-start flex-col justify-between overflow-hidden rounded-2xl bg-surface p-5 sm:w-[calc((100%-2rem)/3)] sm:p-6 lg:w-[calc((100%-3rem)/4)]"
           >
             <img
               src={AREA_PHOTOS[i % AREA_PHOTOS.length]}

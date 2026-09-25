@@ -40,10 +40,15 @@ function Hero({
 
   return (
     <section className="relative isolate flex min-h-svh items-center overflow-hidden pt-20">
+      {/* Lavender-to-aqua glow, fading into the page towards the bottom */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-20 bg-glow [mask-image:linear-gradient(to_bottom,black_45%,transparent)]"
+      />
       {/* Faint architectural grid, faded out towards the edges */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--color-hairline)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-hairline)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_60%_55%_at_50%_45%,black_20%,transparent_75%)] opacity-70"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--color-hairline)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-hairline)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_60%_55%_at_50%_45%,black_20%,transparent_75%)] opacity-50"
       />
 
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center px-5 py-16 text-center sm:px-8 lg:px-10">
@@ -76,7 +81,7 @@ function Hero({
           <motion.div {...rise(T.primary, skip)} className="w-full sm:w-auto">
             <Link
               to={primaryCta.to}
-              className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink h-10 px-5 text-sm font-medium text-paper transition-colors duration-300 hover:bg-ink-800 sm:w-auto"
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent shadow-button h-10 px-5 text-sm font-medium text-paper transition-colors duration-300 hover:bg-accent-hover sm:w-auto"
             >
               {primaryCta.label}
               <ArrowRight
@@ -90,7 +95,7 @@ function Hero({
           <motion.div {...rise(T.secondary, skip)} className="w-full sm:w-auto">
             <Link
               to={secondaryCta.to}
-              className="inline-flex w-full items-center justify-center rounded-full border border-hairline bg-paper h-10 px-5 text-sm font-medium text-ink transition-colors duration-300 hover:border-ink/25 sm:w-auto"
+              className="inline-flex w-full items-center justify-center rounded-full border border-hairline bg-paper h-10 px-5 text-sm font-medium text-ink transition-colors duration-300 shadow-[0_2px_8px_-4px_rgb(11_18_32/0.12)] hover:border-accent/30 sm:w-auto"
             >
               {secondaryCta.label}
             </Link>

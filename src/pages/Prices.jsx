@@ -19,30 +19,29 @@ function Prices() {
           {plans.map((plan, i) => (
             <InspectionCard
               key={plan.name}
-              tone={plan.featured ? 'ink' : 'paper'}
-              decorated={plan.featured}
-              index={i}
-              className="flex flex-col p-8"
+              tone="paper"
+                            index={i}
+              className={`flex flex-col p-8 ${plan.featured ? 'bg-glow ring-1 ring-accent/30' : ''}`}
             >
               {plan.featured && (
                 <Tag tone="accent" className="mb-4 w-fit">
                   Most Popular
                 </Tag>
               )}
-              <h3 className={`text-xl font-bold ${plan.featured ? 'text-paper' : 'text-ink'}`}>
+              <h3 className={`text-xl font-bold ${'text-ink'}`}>
                 {plan.name}
               </h3>
               <p
                 className={`mt-1 text-4xl font-extrabold tabular-nums ${
-                  plan.featured ? 'text-paper' : 'text-accent'
+                  'text-accent'
                 }`}
               >
                 {plan.price}
               </p>
-              <p className={`mt-2 text-sm ${plan.featured ? 'text-paper/70' : 'text-ink/70'}`}>
+              <p className={`mt-2 text-sm ${'text-stone'}`}>
                 {plan.description}
               </p>
-              <ul className={`mt-6 flex-1 space-y-2 text-sm ${plan.featured ? 'text-paper/80' : 'text-ink/70'}`}>
+              <ul className={`mt-6 flex-1 space-y-2 text-sm ${'text-stone'}`}>
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-2">
                     <Check size={16} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
@@ -52,7 +51,7 @@ function Prices() {
               </ul>
               <Button
                 to="/contact"
-                variant={plan.featured ? 'invert' : 'primary'}
+                variant={plan.featured ? 'primary' : 'secondary'}
                 className="mt-8 w-full"
               >
                 Book This Plan
