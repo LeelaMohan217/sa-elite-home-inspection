@@ -407,14 +407,15 @@ function Home() {
 
         {/* Open cards: just an outline with the text at the bottom. On hover
             the text lifts, then a skyline of flat buildings rises into the
-            space it leaves (both always shown that way on touch screens) */}
+            space it leaves. Phones, tablets and touch screens always show the
+            finished state, as they have no hover. */}
         <RevealGroup as="ol" className="mt-12 grid gap-4 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
           {steps.map((item, i) => (
             <RiseUp
               as="li"
               key={item.step}
               delay={0.15 + i * 0.15}
-              className="group relative isolate flex min-h-[20rem] flex-col overflow-hidden rounded-2xl border border-hairline p-7 text-ink transition-colors duration-300 hover:border-accent/25 sm:min-h-[25rem] sm:p-8"
+              className="group relative isolate flex flex-col overflow-hidden rounded-2xl border border-hairline p-7 pb-36 text-ink transition-colors duration-300 hover:border-accent/25 sm:p-8 sm:pb-40 lg:min-h-[25rem] lg:pb-8"
             >
               <Skyline seed={i + 3} className="absolute inset-x-0 bottom-0 -z-10 h-32 w-full sm:h-36" />
 
@@ -427,9 +428,11 @@ function Home() {
                 </span>
               </div>
 
-              {/* Rests at the bottom; on hover it lifts clear of the skyline
-                  first, and settles back only after the buildings have sunk */}
-              <div className="mt-auto transition-transform delay-300 duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-28 group-hover:delay-0 motion-reduce:transition-none sm:group-hover:-translate-y-32 [@media(hover:none)]:-translate-y-28 sm:[@media(hover:none)]:-translate-y-32">
+              {/* On laptops it rests at the bottom; on hover it lifts clear of
+                  the skyline first, and settles back only after the buildings
+                  have sunk. Phones and tablets lay it out under the header, with
+                  the skyline below. */}
+              <div className="mt-8 transition-transform delay-300 duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:delay-0 motion-reduce:transition-none lg:mt-auto lg:group-hover:-translate-y-32 lg:[@media(hover:none)]:-translate-y-32">
                 {/* On desktop, reserve two title lines and three description
                     lines so titles share a baseline and descriptions start level */}
                 <h3 className="text-[1.375rem] leading-snug font-medium tracking-tight lg:flex lg:min-h-[2lh] lg:items-end">

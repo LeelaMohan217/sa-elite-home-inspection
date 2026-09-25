@@ -78,4 +78,5 @@ paragraphs; keep paragraphs to `max-w-xl`/`max-w-2xl`.
 - Process cards: open cards (hairline outline, no fill), text at the bottom.
   On hover the text lifts first, then a flat
   skyline (`Skyline` component) in two navy tints rises into the strip below
-  the text; on touch screens it is always shown. No navy or black panels.
+  the text (laptops only). Phones, tablets and touch screens always show
+  the skyline under the text. No navy or black panels.
