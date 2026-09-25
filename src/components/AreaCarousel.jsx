@@ -2,15 +2,14 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import { ArrowLeft, ArrowRight, MapPin } from "lucide-react";
 import { RiseUp } from "./ScrollReveal";
-import towers from "../assets/areas/towers.webp";
 import skyline from "../assets/areas/skyline.webp";
 import business from "../assets/areas/business.webp";
 import apartments from "../assets/areas/apartments.webp";
 import charminar from "../assets/areas/charminar.webp";
 
-// City photos, repeated in turn across the cards. Five photos, so any four
+// City photos, repeated in turn across the cards. Four photos, so any four
 // cards side by side always show different ones.
-const AREA_PHOTOS = [charminar, towers, apartments, business, skyline];
+const AREA_PHOTOS = [charminar, apartments, business, skyline];
 
 // Horizontal row of square photo cards. Shows 4 at a time on desktop (3 on
 // tablets, 2 on phones); the arrow buttons slide the row by one view, and
