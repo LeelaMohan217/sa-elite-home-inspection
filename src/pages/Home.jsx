@@ -46,6 +46,17 @@ const REPORT_STATUS = {
 };
 const SEVERITIES = ["major", "minor", "cosmetic"];
 
+// Process card background: a deep navy glow behind the icon in the top
+// corner, a soft navy-tint haze opposite it, settling into white where the
+// text sits.
+const STEP_GRADIENT =
+  [
+    `radial-gradient(75% 60% at 100% 0%, color-mix(in srgb, var(--color-accent) 85%, transparent), transparent 70%)`,
+    `radial-gradient(90% 70% at 0% 100%, color-mix(in srgb, var(--color-accent-light) 90%, transparent), transparent 65%)`,
+    `radial-gradient(110% 80% at 85% 10%, var(--color-accent-light), transparent 75%)`,
+    `linear-gradient(var(--color-paper), var(--color-paper))`,
+  ].join(", ");
+
 function Home() {
   const [openFaq, setOpenFaq] = useState(null);
 
@@ -364,20 +375,17 @@ function Home() {
           </RiseUp>
         </RevealGroup>
 
-        {/* Light step cards: surface fill, hairline border, faint corner grid */}
+        {/* Grainy gradient cards in the palette: navy glow, navy tint, white */}
         <RevealGroup as="ol" className="mt-12 grid gap-4 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
           {steps.map((item, i) => (
             <RiseUp
               as="li"
               key={item.step}
               delay={0.15 + i * 0.15}
-              className="relative isolate flex min-h-[15rem] flex-col overflow-hidden rounded-2xl border border-hairline bg-surface p-7 text-ink sm:min-h-[17rem] sm:p-8 lg:min-h-[19rem]"
+              className="relative isolate flex min-h-[15rem] flex-col overflow-hidden rounded-2xl border border-hairline bg-paper p-7 text-ink sm:min-h-[17rem] sm:p-8 lg:min-h-[19rem]"
+              style={{ backgroundImage: STEP_GRADIENT }}
             >
-              {/* Faint grid, echoing the hero */}
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--color-hairline)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-hairline)_1px,transparent_1px)] bg-[size:36px_36px] [mask-image:radial-gradient(ellipse_90%_70%_at_100%_0%,black_10%,transparent_70%)]"
-              />
+              <div aria-hidden="true" className="bg-grain absolute inset-0 -z-10 opacity-40" />
 
               <div className="flex items-center justify-between">
                 <span className="text-eyebrow font-medium uppercase text-stone">

@@ -73,3 +73,6 @@ paragraphs; keep paragraphs to `max-w-xl`/`max-w-2xl`.
   `px-5 sm:px-8 lg:px-10`, content width `max-w-7xl`.
 - Motion: short fade-up on enter (`y: 14`, 0.7s, ease `[0.16, 1, 0.3, 1]`),
   staggered by 80ms. No bouncing, no parallax.
+- Texture: the process cards use a grainy gradient (navy glow, navy tint,
+  white) with the `bg-grain` utility on top. Keep gradients to palette
+  colours and keep text on the light part of the card.
