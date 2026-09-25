@@ -70,7 +70,7 @@ export const serviceAreaIntro = "We inspect flats, villas, and independent house
 export const aboutBlocks = [
   {
     title: "Who we are",
-    body: "AKSHARA Elite Home Inspection is a locally owned inspection company built on trust, training, and attention to detail. We were founded with a simple belief: that every homebuyer and seller in Hyderabad deserves an honest, detailed picture of a property's condition before any decision is made. Unlike inspectors who rush through a walkthrough with a generic checklist, our team takes the time to understand the specific construction style, age, and quirks of each property, so nothing gets overlooked. We've worked with first-time buyers navigating their very first purchase, seasoned investors comparing multiple properties, and sellers who want a clear record of a home's condition before it goes on the market.",
+    body: "Akshara Elite Home Inspection is a locally owned inspection company built on trust, training, and attention to detail. We were founded with a simple belief: that every homebuyer and seller in Hyderabad deserves an honest, detailed picture of a property's condition before any decision is made. Unlike inspectors who rush through a walkthrough with a generic checklist, our team takes the time to understand the specific construction style, age, and quirks of each property, so nothing gets overlooked. We've worked with first-time buyers navigating their very first purchase, seasoned investors comparing multiple properties, and sellers who want a clear record of a home's condition before it goes on the market.",
   },
   {
     title: "How it works",
@@ -99,7 +99,7 @@ export const stats = [
 ];
 
 // status: "ok" or a severity ("major" | "minor" | "cosmetic"), matching the
-// severity guide used in real AKSHARA reports.
+// severity guide used in real Akshara reports.
 export const reportItems = [
   { label: "Roof & Exterior", status: "ok" },
   {
@@ -165,7 +165,7 @@ export const steps = [
 
 export const featuredTestimonial = {
   quote:
-    "AKSHARA Elite caught a dampness issue our first inspector missed entirely. Saved us from a costly mistake.",
+    "Akshara Elite caught a dampness issue our first inspector missed entirely. Saved us from a costly mistake.",
   name: "Maria G.",
   role: "Homebuyer",
 };

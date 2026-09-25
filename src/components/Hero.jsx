@@ -13,6 +13,7 @@ const T = {
   primary: 0.7,
   secondary: 0.85,
   stats: 1.0,
+  statStagger: 0.15,
 };
 
 // Whole-block rise from below, the same motion as the section reveals.
@@ -98,20 +99,26 @@ function Hero({
 
         {stats.length > 0 && (
           <motion.dl
-            {...rise(T.stats, skip)}
+            initial={skip ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2, delay: T.stats, ease: EASE }}
             className="mt-16 grid w-full max-w-2xl grid-cols-3 divide-x divide-hairline border-t border-hairline pt-8"
           >
             {stats.map((stat, i) => (
-              <div key={stat.label} className="flex flex-col items-center gap-1.5 px-2">
+              <motion.div
+                key={stat.label}
+                {...rise(T.stats + i * T.statStagger, skip)}
+                className="flex flex-col items-center gap-1.5 px-2"
+              >
                 <dt className="order-2 text-xs text-stone sm:text-sm">{stat.label}</dt>
                 <dd className="order-1 text-h3 font-medium tracking-tight text-ink">
                   <CountUp
                     value={stat.value}
                     suffix={stat.suffix}
-                    startAfter={T.stats + i * 0.08}
+                    startAfter={T.stats + i * T.statStagger}
                   />
                 </dd>
-              </div>
+              </motion.div>
             ))}
           </motion.dl>
         )}

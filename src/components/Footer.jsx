@@ -74,7 +74,7 @@ function Footer() {
         <div className="mx-2 mb-2 rounded-2xl bg-paper text-ink sm:mx-3 sm:mb-3">
           <div className="grid gap-12 px-6 pt-12 pb-10 sm:grid-cols-2 sm:gap-x-10 sm:px-10 sm:pt-14 lg:grid-cols-12">
             <div className="lg:col-span-3">
-              <Link to="/" aria-label="AKSHARA Elite Home Inspections home" className="inline-block">
+              <Link to="/" aria-label="Akshara Elite Home Inspections home" className="inline-block">
                 <Logo className="w-[163px]" />
               </Link>
               <p className="mt-6 max-w-xs text-[15px] leading-relaxed text-stone">
@@ -140,7 +140,7 @@ function Footer() {
           </div>
 
           <div className="mx-6 flex flex-col gap-2 border-t border-hairline py-6 text-sm text-stone sm:mx-10 sm:flex-row sm:items-center sm:justify-between">
-            <p>© 2025 AKSHARA Elite Home Inspections. All rights reserved.</p>
+            <p>© 2025 Akshara Elite Home Inspections. All rights reserved.</p>
             <p>Hyderabad, India</p>
           </div>
         </div>

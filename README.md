@@ -1,6 +1,6 @@
-# AKSHARA Elite Home Inspection
+# Akshara Elite Home Inspection
 
-Marketing website for AKSHARA Elite Home Inspection, built with React, Vite, and Tailwind CSS.
+Marketing website for Akshara Elite Home Inspection, built with React, Vite, and Tailwind CSS.
 
 ## Pages
 

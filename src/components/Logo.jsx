@@ -1,12 +1,12 @@
 import wordmarkDark from '../assets/Logo.svg'
 import wordmarkLight from '../assets/Logo-light.svg'
 
-// AKSHARA wordmark. Size it by giving it a width (className).
+// Akshara wordmark. Size it by giving it a width (className).
 function Logo({ tone = 'dark', className = '' }) {
   return (
     <img
       src={tone === 'light' ? wordmarkLight : wordmarkDark}
-      alt="AKSHARA Elite Home Inspections"
+      alt="Akshara Elite Home Inspections"
       width={347}
       height={51}
       className={`h-auto ${className}`}

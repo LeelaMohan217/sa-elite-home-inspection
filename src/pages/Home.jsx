@@ -35,7 +35,7 @@ import {
   faqs,
 } from "../content/home";
 
-// Sample report statuses. Severity levels follow the guide in AKSHARA
+// Sample report statuses. Severity levels follow the guide in Akshara
 // reports: major (function, safety or durability), minor (workmanship or
 // fitment) and cosmetic (finish only).
 const REPORT_STATUS = {
@@ -188,7 +188,7 @@ function Home() {
             </h2>
 
             <p className="mt-6 text-ink/70">
-              Arjun Rao leads every AKSHARA Elite inspection personally. He
+              Arjun Rao leads every Akshara Elite inspection personally. He
               walks the full property with you if you're available, explains
               what he's checking as he goes, and answers questions on the spot —
               no jargon, no rushing.
