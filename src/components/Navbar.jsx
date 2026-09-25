@@ -105,7 +105,7 @@ function Navbar() {
         {/* LEFT — Logo */}
         <div className="col-start-1 flex items-center justify-start">
           <NavLink to="/" aria-label="Akshara Elite Home Inspections home">
-            <Logo className="w-[172px] sm:w-[208px]" />
+            <Logo className="w-[156px] sm:w-[188px]" />
           </NavLink>
         </div>
 
