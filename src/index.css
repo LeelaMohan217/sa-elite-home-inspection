@@ -100,3 +100,28 @@ html {
 @utility shadow-cta-hover {
   box-shadow: 0 16px 32px -12px rgba(0, 7, 45, 0.42);
 }
+
+/* Resting position on the orbit, used when motion is reduced. */
+@utility orbit-rest {
+  transform: rotate(calc(var(--angle) * 1deg)) translateY(calc(var(--radius) * 1px))
+    rotate(calc(var(--angle) * -1deg));
+}
+
+/* Orbiting circles (after Magic UI): each item is rotated to its angle,
+   pushed out by the radius, then counter-rotated so it stays upright.
+   --angle, --radius and --duration are set on each item. */
+@keyframes orbit {
+  from {
+    transform: rotate(calc(var(--angle) * 1deg)) translateY(calc(var(--radius) * 1px))
+      rotate(calc(var(--angle) * -1deg));
+  }
+  to {
+    transform: rotate(calc(var(--angle) * 1deg + 360deg)) translateY(calc(var(--radius) * 1px))
+      rotate(calc(var(--angle) * -1deg - 360deg));
+  }
+}
+
+@utility orbit-spin {
+  animation: orbit calc(var(--duration) * 1s) linear infinite;
+}
+

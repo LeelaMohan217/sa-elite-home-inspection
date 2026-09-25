@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import CountUp from "./CountUp";
+import HeroOrbit from "./HeroOrbit";
 
 const EASE = [0.16, 1, 0.3, 1];
 
@@ -40,11 +41,8 @@ function Hero({
 
   return (
     <section className="relative isolate flex min-h-svh items-center overflow-hidden pt-20">
-      {/* Faint architectural grid, faded out towards the edges */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--color-hairline)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-hairline)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_60%_55%_at_50%_45%,black_20%,transparent_75%)] opacity-70"
-      />
+      {/* Orbiting home and inspection symbols */}
+      <HeroOrbit />
 
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center px-5 py-16 text-center sm:px-8 lg:px-10">
         <motion.span
