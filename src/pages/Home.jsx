@@ -120,6 +120,7 @@ function Home() {
             {/* Phones and tablets: the photo sits between heading and text */}
             <RiseImage
               className="mt-8 aspect-[4/5] w-full rounded-2xl sm:aspect-[4/3] lg:hidden"
+              effect="slide"
               src={aboutImage}
               alt="A certified inspector kneeling to examine the flooring in an empty room during a home inspection."
               loading="lazy"
@@ -171,6 +172,7 @@ function Home() {
           {/* Laptops: the photo sits beside the text */}
           <RiseImage
             className="hidden w-full rounded-2xl lg:order-1 lg:col-span-6 lg:block lg:h-full"
+            effect="slide"
             src={aboutImage}
             alt="A certified inspector kneeling to examine the flooring in an empty room during a home inspection."
             loading="lazy"

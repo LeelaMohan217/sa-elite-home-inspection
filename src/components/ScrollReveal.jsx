@@ -61,8 +61,35 @@ const settle = {
   visible: (delay = 0) => ({ scale: 1, transition: { duration: 2.2, delay, ease: EASE } }),
 };
 
-export function RiseImage({ className = "", imgClassName = "", delay = 0, ...img }) {
+// Whole image slides up into place, like RiseUp, without the wipe.
+const slide = {
+  hidden: { opacity: 0, y: 64 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1.4, delay, ease: EASE },
+  }),
+};
+
+// effect="wipe" (default) reveals the image from its bottom edge;
+// effect="slide" moves the whole image up from below.
+export function RiseImage({ className = "", imgClassName = "", delay = 0, effect = "wipe", ...img }) {
   const reduceMotion = useReducedMotion();
+
+  if (effect === "slide") {
+    return (
+      <motion.div
+        className={`relative overflow-hidden ${className}`}
+        initial={reduceMotion ? false : "hidden"}
+        whileInView="visible"
+        viewport={VIEWPORT}
+        variants={slide}
+        custom={delay}
+      >
+        <img {...img} className={`absolute inset-0 h-full w-full object-cover ${imgClassName}`} />
+      </motion.div>
+    );
+  }
 
   return (
     <motion.div
