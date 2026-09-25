@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowUpRight, CheckCircle2, ChevronDown } from 'lucide-react'
 import PageHero from '../components/PageHero'
@@ -7,7 +8,7 @@ import Button from '../components/Button'
 import { RevealGroup, RiseUp } from '../components/ScrollReveal'
 import { contactDetails, propertyTypes, serviceOptions, EMAIL } from '../content/contact'
 
-const initialForm = { name: '', phone: '', email: '', property: '', service: '', message: '' }
+const initialForm = { name: '', phone: '', email: '', property: '', service: '', message: '', agree: false }
 
 const fieldClasses =
   'mt-2 block h-11 w-full rounded-xl border border-hairline bg-paper px-4 text-[15px] text-ink placeholder:text-stone/70 transition-colors focus:border-ink/40 focus:outline-none focus-visible:outline-none'
@@ -72,8 +73,8 @@ function Contact() {
   const [sent, setSent] = useState(false)
 
   const handleChange = (event) => {
-    const { name, value } = event.target
-    setForm((prev) => ({ ...prev, [name]: value }))
+    const { name, value, type, checked } = event.target
+    setForm((prev) => ({ ...prev, [name]: type === 'checkbox' ? checked : value }))
     setSent(false)
   }
 
@@ -192,7 +193,26 @@ function Contact() {
                 </div>
               </div>
 
-              <Button type="submit" className="mt-8 w-full">
+              <label htmlFor="agree" className="mt-6 flex items-start gap-3 text-sm leading-relaxed text-stone">
+                <input
+                  id="agree"
+                  name="agree"
+                  type="checkbox"
+                  required
+                  checked={form.agree}
+                  onChange={handleChange}
+                  className="mt-0.5 h-4 w-4 shrink-0 accent-ink"
+                />
+                <span>
+                  I agree to the{' '}
+                  <Link to="/privacy-policy" className="font-medium text-ink underline decoration-hairline underline-offset-4 hover:decoration-ink">
+                    Privacy Policy
+                  </Link>{' '}
+                  and consent to Akshara Elite Home Inspections using these details to reply to my enquiry.
+                </span>
+              </label>
+
+              <Button type="submit" className="mt-6 w-full">
                 Send Enquiry
               </Button>
 

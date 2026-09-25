@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import CookieBanner from './CookieBanner'
 
 const pageVariants = {
   initial: { opacity: 0, y: 12 },
@@ -43,6 +44,7 @@ function Layout() {
         </AnimatePresence>
       </main>
       <Footer />
+      <CookieBanner />
     </div>
   )
 }

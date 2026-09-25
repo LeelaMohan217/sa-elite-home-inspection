@@ -4,6 +4,7 @@ import Logo from './Logo'
 import Button from './Button'
 import SectionEyebrow from './SectionEyebrow'
 import { RevealGroup, RiseUp } from './ScrollReveal'
+import { legalNav } from '../content/legal'
 
 const links = [
   { to: '/', label: 'Home' },
@@ -139,9 +140,17 @@ function Footer() {
             </div>
           </div>
 
-          <div className="mx-6 flex flex-col gap-2 border-t border-hairline py-6 text-sm text-stone sm:mx-10 sm:flex-row sm:items-center sm:justify-between">
-            <p>© 2025 Akshara Elite Home Inspections. All rights reserved.</p>
-            <p>Hyderabad, India</p>
+          <div className="mx-6 flex flex-col gap-4 border-t border-hairline py-6 text-sm text-stone sm:mx-10 lg:flex-row lg:items-center lg:justify-between">
+            <p>© 2025 Akshara Elite Home Inspections, Hyderabad. All rights reserved.</p>
+            <ul className="flex flex-wrap gap-x-5 gap-y-2">
+              {legalNav.map((link) => (
+                <li key={link.to}>
+                  <Link to={link.to} className="transition-colors duration-200 hover:text-ink">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
