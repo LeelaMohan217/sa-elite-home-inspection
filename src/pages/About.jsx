@@ -57,6 +57,7 @@ function About() {
           </RevealGroup>
 
           <RiseImage
+            effect="slide"
             className="relative aspect-[4/5] w-full rounded-2xl sm:aspect-[4/3] lg:order-1 lg:col-span-6 lg:aspect-auto lg:h-full lg:min-h-[34rem]"
             src={houseImage}
             alt="A modern two-storey home with a clean white facade, dark windows and a landscaped front garden."
