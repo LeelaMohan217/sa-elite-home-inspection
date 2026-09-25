@@ -37,7 +37,7 @@ function Footer() {
         {/* Faint grid, echoing the hero */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgb(250_250_248/0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgb(250_250_248/0.08)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_60%_55%_at_50%_30%,black_20%,transparent_75%)]"
+          className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgb(255_255_255/0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgb(255_255_255/0.08)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_60%_55%_at_50%_30%,black_20%,transparent_75%)]"
         />
 
         {/* Call to action */}

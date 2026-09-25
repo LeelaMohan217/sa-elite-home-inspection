@@ -4,11 +4,11 @@
   /* Palette: neutrals + one navy accent; amber for report findings only.
      See DESIGN.md before adding a colour. */
   --color-ink: #000000; /* text, primary buttons, dark bands, footer */
-  --color-ink-800: #2b2a27; /* hover state for ink buttons */
-  --color-paper: #fafaf8; /* page background, text on dark */
-  --color-surface: #f2f1ed; /* alternate section bands */
-  --color-stone: #6b6a65; /* secondary text (5.2:1 on paper) */
-  --color-hairline: #e5e3dd; /* borders and dividers */
+  --color-ink-800: #1f242b; /* hover state for ink buttons */
+  --color-paper: #ffffff; /* page background, text on dark */
+  --color-surface: #f3f5f8; /* alternate section bands (cool blue-grey) */
+  --color-stone: #5b6472; /* secondary text (6.0:1 on paper) */
+  --color-hairline: #e3e7ed; /* borders and dividers */
   --color-accent: #1f3a5f; /* navy: serif accent words, icons, ticks, focus */
   --color-accent-light: #d6dde8; /* navy tint: tick circles, "Good" pills */
   --color-caution: #8a5a12; /* amber: report findings only */

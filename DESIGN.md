@@ -8,22 +8,23 @@ Tailwind classes (`text-ink`, `bg-surface`, `text-display`, `font-serif`, …).
 
 ## Colour
 
-Neutrals carry the design, navy is the one brand accent, and amber appears
+Neutrals carry the design and lean slightly cool so they sit well with the
+navy; never use warm or yellow-tinted greys. Navy is the one brand accent, and amber appears
 only inside the sample report to mark findings. Do not add colours; use these
 tokens (never Tailwind's default palette such as `blue-700`).
 
 | Token | Hex | Use |
 | --- | --- | --- |
 | `ink` | `#000000` | Text, primary buttons, dark bands, footer |
-| `paper` | `#fafaf8` | Page background; text on dark |
-| `surface` | `#f2f1ed` | Alternate section bands |
-| `hairline` | `#e5e3dd` | Borders and dividers |
-| `stone` | `#6b6a65` | Secondary text (5.2:1 on paper, 4.8:1 on surface) |
+| `paper` | `#ffffff` | Page background (pure white); text on dark |
+| `surface` | `#f3f5f8` | Alternate section bands (faint blue-grey) |
+| `hairline` | `#e3e7ed` | Borders and dividers |
+| `stone` | `#5b6472` | Secondary text, blue-grey (6.0:1 on paper, 5.5:1 on surface) |
 | `accent` | `#1f3a5f` | Navy: the serif accent word in headings, icons, ticks, focus ring |
 | `accent-light` | `#d6dde8` | Navy tint: tick circles, "Good" pills, accent word on black |
 | `caution` | `#8a5a12` | Amber, report findings only (Major pill, Minor text) |
 | `caution-light` | `#f5ecda` | Amber tint, report findings only (Minor pill, finding note) |
-| `ink-800` | `#2b2a27` | Hover state for black buttons only |
+| `ink-800` | `#1f242b` | Hover state for black buttons only |
 
 Rules:
 
@@ -33,7 +34,7 @@ Rules:
 - One navy accent per screen area: usually the serif word in the heading.
 - On dark backgrounds use only three text strengths and one line strength:
   `text-paper` (headings), `text-paper/70` (body), `text-paper/55` (labels),
-  `border-paper/15` (lines). Decorative grids use `rgb(250 250 248 / 0.08)`.
+  `border-paper/15` (lines). Decorative grids use `rgb(255 255 255 / 0.08)`.
 
 ## Typography
 
