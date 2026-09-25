@@ -20,11 +20,6 @@ const contact = {
   area: 'Serving Hyderabad and surrounding areas',
 }
 
-const hours = [
-  { days: 'Mon – Sat', time: '7:00 AM – 7:00 PM' },
-  { days: 'Sunday', time: 'By appointment' },
-]
-
 function FooterHeading({ children }) {
   return <p className="text-eyebrow font-medium uppercase text-stone">{children}</p>
 }
@@ -99,6 +94,22 @@ function Footer() {
               </ul>
             </nav>
 
+            <nav aria-label="Footer legal" className="lg:col-span-3">
+              <FooterHeading>Legal</FooterHeading>
+              <ul className="mt-5 space-y-3 text-[15px]">
+                {legalNav.map((link) => (
+                  <li key={link.to}>
+                    <Link
+                      to={link.to}
+                      className="text-ink transition-colors duration-200 hover:text-stone"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
             <div className="lg:col-span-4">
               <FooterHeading>Contact</FooterHeading>
               <ul className="mt-5 space-y-3 text-[15px] text-ink">
@@ -126,31 +137,10 @@ function Footer() {
                 </li>
               </ul>
             </div>
-
-            <div className="lg:col-span-3">
-              <FooterHeading>Hours</FooterHeading>
-              <dl className="mt-5 space-y-3 text-[15px]">
-                {hours.map((row) => (
-                  <div key={row.days} className="flex justify-between gap-6 border-b border-hairline pb-3">
-                    <dt className="whitespace-nowrap text-stone">{row.days}</dt>
-                    <dd className="whitespace-nowrap text-ink">{row.time}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
           </div>
 
-          <div className="mx-6 flex flex-col gap-4 border-t border-hairline py-6 text-sm text-stone sm:mx-10 lg:flex-row lg:items-center lg:justify-between">
+          <div className="mx-6 border-t border-hairline py-6 text-center text-sm text-stone sm:mx-10">
             <p>© 2025 Akshara Elite Home Inspections, Hyderabad. All rights reserved.</p>
-            <ul className="flex flex-wrap gap-x-5 gap-y-2">
-              {legalNav.map((link) => (
-                <li key={link.to}>
-                  <Link to={link.to} className="transition-colors duration-200 hover:text-ink">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>
